@@ -3,11 +3,12 @@ import { AsyncPipe } from '@angular/common';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TiltDirective } from '../../shared/directives/tilt.directive';
+import { ArchitectureSceneComponent } from './architecture-scene/architecture-scene.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [AsyncPipe, TiltDirective],
+  imports: [AsyncPipe, TiltDirective, ArchitectureSceneComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
