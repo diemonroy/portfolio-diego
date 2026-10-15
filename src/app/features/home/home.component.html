@@ -1,6 +1,16 @@
 @if (portfolioData$ | async; as data) {
 <section class="hero" id="hero">
     <div class="hero-left">
+        @if (data.hero.statusBadge) {
+        <div class="hero-status-pill">
+            <span class="status-pulse-dot">
+                <span class="pulse-ring"></span>
+                <span class="pulse-core"></span>
+            </span>
+            <span class="status-text">{{ data.hero.statusBadge }}</span>
+        </div>
+        }
+
         <p class="role">{{ data.hero.role }}</p>
 
         <h1 class="h1">
@@ -32,6 +42,20 @@
                 <img src="assets/download-outline.svg" alt="Download" class="btn-icon" />
             </a>
         </div>
+
+        @if (data.hero.metrics) {
+        <div class="hero-metrics-ribbon">
+            @for (m of data.hero.metrics; track m.label) {
+            <div class="metric-item">
+                <span class="metric-value">{{ m.value }}</span>
+                <div class="metric-labels">
+                    <span class="metric-title">{{ m.label }}</span>
+                    <span class="metric-sub">{{ m.sub }}</span>
+                </div>
+            </div>
+            }
+        </div>
+        }
     </div>
 
     <div class="hero-right">

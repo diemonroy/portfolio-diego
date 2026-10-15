@@ -7,6 +7,7 @@
     "contact": "Hablemos"
   },
   "hero": {
+    "statusBadge": "Disponible para Consultoría & Liderazgo de Arquitectura",
     "role": "Líder Técnico & Arquitecto de Soluciones · Cloud & IA Empresarial",
     "firstName": "Diego",
     "lastName": "Monroy",
@@ -14,7 +15,13 @@
     "rotatingWords": ["resilientes.", "en multi-cloud.", "con IA Generativa."],
     "ctaPrimary": "Ver proyectos",
     "ctaSecondary": "Descargar CV",
-    "scrollInd": "Scroll"
+    "scrollInd": "Scroll",
+    "metrics": [
+      { "value": "+8", "label": "Años Trayectoria", "sub": "Ingeniería & Cloud" },
+      { "value": "99.99%", "label": "SLA Disponibilidad", "sub": "Banca Crítica" },
+      { "value": "GCP ACE", "label": "Cloud Architect", "sub": "Certificado Oficial" },
+      { "value": "+38%", "label": "Eficiencia Operativa", "sub": "DevSecOps & IA" }
+    ]
   },
   "projectsSection": {
     "eyebrow": "Casos de Arquitectura",

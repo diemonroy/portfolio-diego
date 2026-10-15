@@ -1,14 +1,21 @@
 :root {
   /* =========================================================
      Apple Human Interface Guidelines (HIG) Design System
-     System Colors & Dynamic Materials (Dark Mode Primary)
+     System Colors, Materials & Atmospheric Depth (Apple Pro Dark)
      ========================================================= */
 
-  /* Apple HIG - System Backgrounds */
-  --apple-bg-base: #000000;
-  --apple-bg-secondary: #1C1C1E;
-  --apple-bg-tertiary: #2C2C2E;
-  --apple-bg-quaternary: #3A3A3C;
+  /* Canvas & Atmospheric Surfaces */
+  --apple-bg-base: #06070B;
+  --apple-bg-secondary: #0F1017;
+  --apple-bg-tertiary: #171823;
+  --apple-bg-quaternary: #222332;
+
+  /* Glassmorphism & Card Materials */
+  --apple-bg-card: rgba(18, 19, 29, 0.76);
+  --apple-bg-card-inner: rgba(26, 27, 40, 0.65);
+  --apple-card-border: rgba(255, 255, 255, 0.08);
+  --apple-card-border-hover: rgba(41, 151, 255, 0.35);
+  --apple-separator: rgba(255, 255, 255, 0.10);
 
   /* Apple HIG - System Grays */
   --apple-gray-1: #8E8E93;
@@ -21,37 +28,30 @@
   /* Apple HIG - System Accent Tints */
   --apple-blue: #0A84FF;
   --apple-blue-hover: #0071E3;
+  --apple-blue-glow: rgba(10, 132, 255, 0.28);
   --apple-cyan: #64D2FF;
   --apple-indigo: #5E5CE6;
   --apple-green: #30D158;
   --apple-orange: #FF9F0A;
 
-  /* Apple HIG - Labels & Typography */
+  /* Apple HIG - Typography Luminance & High-Contrast Hierarchy */
   --apple-label-primary: #FFFFFF;
-  --apple-label-secondary: rgba(235, 235, 245, 0.60);
-  --apple-label-tertiary: rgba(235, 235, 245, 0.30);
-  --apple-separator: rgba(255, 255, 255, 0.12);
-  --apple-card-border: rgba(255, 255, 255, 0.10);
+  --apple-label-secondary: rgba(235, 235, 245, 0.68);
+  --apple-label-tertiary: rgba(235, 235, 245, 0.38);
 
-  /* Legacy Portfolio Token Mappings */
-  --bg-global: var(--apple-bg-base);
-  --bg-light: #F2F2F7;
-  
-  --text-primary: #1D1D1F;
-  --text-secondary: rgba(60, 60, 67, 0.60);
-  
-  --text-primary-dark: var(--apple-label-primary);
-  --text-secondary-dark: var(--apple-label-secondary);
-  
-  --h1: clamp(36px, 7vw, 76px);
-  --h2: clamp(26px, 4.5vw, 44px);
-  --h3: clamp(18px, 3vw, 22px);
-  
+  /* Font Stacks */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", sans-serif;
+  --font-mono: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Fluid Typography Scale */
+  --h1: clamp(38px, 6.8vw, 76px);
+  --h2: clamp(26px, 4.4vw, 44px);
+  --h3: clamp(18px, 2.8vw, 22px);
   --body-lg: clamp(16px, 2.2vw, 18px);
-  --body: clamp(14px, 2vw, 16px);
-  --body-sm: clamp(12.5px, 1.8vw, 14px);
+  --body: clamp(14px, 1.9vw, 16px);
+  --body-sm: clamp(12.5px, 1.6vw, 13.5px);
 
-  /* 3D Sculpture: Apple Space Black Titanium & System Blue Orbit */
+  /* 3D Sculpture: Space Black Titanium & Sapphire Refraction */
   --sculpture-silver: #1C1C1E;
   --sculpture-graphite: #0A84FF;
   --sculpture-light: #F5F5F7;

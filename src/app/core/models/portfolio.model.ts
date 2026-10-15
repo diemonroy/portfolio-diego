@@ -17,6 +17,12 @@ export interface NavData {
   contact: string;
 }
 
+export interface HeroMetric {
+  value: string;
+  label: string;
+  sub?: string;
+}
+
 export interface HeroData {
   role: string;
   firstName: string;
@@ -26,6 +32,8 @@ export interface HeroData {
   ctaPrimary: string;
   ctaSecondary: string;
   scrollInd: string;
+  statusBadge?: string;
+  metrics?: HeroMetric[];
 }
 
 export interface ProjectsSectionData {
@@ -83,6 +91,8 @@ export interface HowCard {
 }
 
 export interface FooterData {
+  eyebrow?: string;
   title: string;
   cta: string;
+  copyrightRole?: string;
 }
