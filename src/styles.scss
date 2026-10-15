@@ -864,35 +864,6 @@ img, svg, canvas, video {
     color: #38BDF8;
     border: 1px solid rgba(56, 189, 248, 0.3);
   }
-
-  &.qr-badge {
-    background: rgba(168, 85, 247, 0.25);
-    color: #C084FC;
-    border: 1px solid rgba(192, 132, 252, 0.3);
-  }
-}
-
-.cv-menu-divider {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.08);
-  margin: 3px 0;
-}
-
-.cv-menu-option.qr-featured {
-  background: rgba(168, 85, 247, 0.07);
-  border-color: rgba(168, 85, 247, 0.22);
-
-  &:hover {
-    background: rgba(168, 85, 247, 0.15);
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow: 0 4px 16px rgba(168, 85, 247, 0.2);
-  }
-}
-
-.cv-option-icon.qr-icon {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.35), rgba(59, 130, 246, 0.35));
-  color: #C084FC;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.25);
 }
 
 .hero-qr-quick-btn {
