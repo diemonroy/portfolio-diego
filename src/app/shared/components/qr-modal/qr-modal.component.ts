@@ -4,10 +4,12 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { QrShareService, QrTabType } from '../../../core/services/qr-share.service';
 import { QrCode, Ecc } from '../../../core/utils/qr-code';
 
+import { ButtonComponent } from '../button/button.component';
+
 @Component({
   selector: 'app-qr-modal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   templateUrl: './qr-modal.component.html',
   styleUrl: './qr-modal.component.scss'
 })

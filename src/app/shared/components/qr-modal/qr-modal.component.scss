@@ -362,20 +362,14 @@
 /* ACTION BUTTONS */
 .qr-modal-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
-}
+  width: 100%;
 
-.btn-qr-action {
-  flex: 1;
-  min-width: 130px;
-  height: 42px;
-  font-size: 13.5px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border-radius: 12px;
+  app-button {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 140px;
+  }
 }
 
 /* MOBILE RESPONSIVE */

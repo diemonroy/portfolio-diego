@@ -1,0 +1,26 @@
+@if (href) {
+  <a
+    [href]="href"
+    [class]="classes"
+    [target]="target || null"
+    [rel]="computedRel || null"
+    [attr.download]="download ? (download === true ? '' : download) : null"
+    [attr.aria-label]="ariaLabel || null"
+    [attr.title]="title || null"
+    [attr.aria-disabled]="disabled"
+    (click)="onClick($event)">
+    <ng-content select="[icon], svg"></ng-content>
+    <span class="app-btn-text"><ng-content></ng-content></span>
+  </a>
+} @else {
+  <button
+    [type]="type"
+    [class]="classes"
+    [disabled]="disabled"
+    [attr.aria-label]="ariaLabel || null"
+    [attr.title]="title || null"
+    (click)="onClick($event)">
+    <ng-content select="[icon], svg"></ng-content>
+    <span class="app-btn-text"><ng-content></ng-content></span>
+  </button>
+}

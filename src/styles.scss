@@ -381,7 +381,7 @@ img, svg, canvas, video {
 }
 
 /* =========================================================
-   BOTONES APPLE HIG (System Blue Capsule & Secondary Glass)
+   BOTONES APPLE HIG ESTANDARIZADOS (Design System)
    ========================================================= */
 .btn {
   font-family: inherit;
@@ -389,27 +389,49 @@ img, svg, canvas, video {
   font-size: 14.5px;
   border-radius: 999px;
   cursor: pointer;
-  border: none;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   white-space: nowrap;
+  color: #FFFFFF;
+  background: transparent;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  user-select: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--apple-blue);
+    outline-offset: 2px;
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none !important;
+    box-shadow: none !important;
+  }
 }
 
+/* VARIANTS */
 .btn-primary {
   height: 42px;
   padding: 0 20px;
   background: var(--apple-blue);
   color: #FFFFFF;
-  box-shadow: 0 4px 16px rgba(10, 132, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(10, 132, 255, 0.35);
 
   &:hover {
     background: var(--apple-blue-hover);
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(10, 132, 255, 0.42);
+    box-shadow: 0 6px 22px rgba(10, 132, 255, 0.45);
   }
 
   &:active {
@@ -418,21 +440,76 @@ img, svg, canvas, video {
   }
 }
 
+.btn-secondary,
 .btn-secondary-dark {
   height: 42px;
   padding: 0 20px;
   background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 
   &:hover {
     background: rgba(255, 255, 255, 0.14);
-    border-color: rgba(255, 255, 255, 0.28);
+    border-color: rgba(255, 255, 255, 0.32);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   }
 
   &:active {
     transform: scale(0.97);
   }
+}
+
+.btn-outline {
+  height: 42px;
+  padding: 0 20px;
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.btn-ghost {
+  height: 42px;
+  padding: 0 16px;
+  background: transparent;
+  color: var(--apple-label-secondary);
+  border: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+/* SIZES */
+.btn-sm {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 13px;
+  gap: 6px;
+}
+
+.btn-md {
+  height: 42px;
+  padding: 0 20px;
+  font-size: 14.5px;
 }
 
 .btn-cta,
@@ -441,6 +518,20 @@ img, svg, canvas, video {
   padding: 0 28px;
   font-size: 15.5px;
   font-weight: 600;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-icon-only {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-icon {
