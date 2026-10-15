@@ -18,12 +18,13 @@ html {
 }
 
 body {
-  background: #0D0515;
-  color: #FFFFFF;
-  font-family: "Open Sans", sans-serif;
+  background: var(--apple-bg-base);
+  color: var(--apple-label-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Open Sans", sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* =========================
@@ -100,14 +101,16 @@ body {
 }
 
 .navbar.dark {
-  background: rgba(15, 15, 20, 0.72);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(28, 28, 30, 0.75);
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  border: 1px solid var(--apple-separator);
 }
 
 .navbar.light {
   background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -123,10 +126,10 @@ body {
 }
 
 .nav-logo-text {
-  font-family: "Open Sans", sans-serif;
+  font-family: inherit;
   font-size: 15px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: var(--apple-label-primary);
 }
 
 .navbar.light .nav-logo-text {
@@ -146,13 +149,13 @@ body {
   border-radius: 999px;
   display: flex;
   align-items: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: inherit;
   font-size: 13.5px;
   font-weight: 500;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--apple-label-secondary);
   position: relative;
-  transition: color 0.25s ease;
+  transition: color 0.25s ease, background-color 0.25s ease;
   white-space: nowrap;
 }
 
@@ -161,15 +164,17 @@ body {
 }
 
 .nav-item:hover {
-  color: #FFFFFF;
+  color: var(--apple-label-primary);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .navbar.light .nav-item:hover {
   color: #000000;
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .nav-item:focus-visible {
-  outline: 2px solid #7679EE;
+  outline: 2px solid var(--apple-blue);
   outline-offset: 4px;
 }
 
@@ -180,10 +185,15 @@ body {
   left: 14px;
   width: calc(100% - 28px);
   height: 2px;
-  background: linear-gradient(90deg, #7679EE, #9B77ED);
+  background: var(--apple-blue);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-item.active {
+  color: var(--apple-label-primary);
+  background: rgba(255, 255, 255, 0.10);
 }
 
 .nav-item.active::after {
@@ -339,23 +349,28 @@ body {
 
 .btn-primary {
   height: 44px;
-  padding: 0 18px;
-  background: linear-gradient(90deg, #7679EE, #9B77ED);
+  padding: 0 20px;
+  background: var(--apple-blue);
   color: #FFFFFF;
+  border-radius: 999px;
+  font-weight: 500;
+  box-shadow: 0 4px 16px rgba(10, 132, 255, 0.32);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-primary:hover {
+  background: var(--apple-blue-hover);
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(118, 121, 238, 0.28);
+  box-shadow: 0 6px 20px rgba(10, 132, 255, 0.42);
 }
 
 .btn-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 12px rgba(118, 121, 238, 0.18);
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.25);
 }
 
 .btn-primary:focus-visible {
-  outline: 2px solid #7679EE;
+  outline: 2px solid var(--apple-blue);
   outline-offset: 3px;
 }
 
@@ -414,14 +429,14 @@ body {
   padding: 120px 80px 80px 80px;
   position: relative;
   overflow: hidden;
-  background: #08080a;
+  background: var(--apple-bg-base);
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 75% 45%, rgba(26, 38, 57, 0.22), transparent 65%);
+  background: radial-gradient(circle at 75% 45%, rgba(10, 132, 255, 0.08), transparent 65%);
   pointer-events: none;
   z-index: 1;
 }
@@ -433,47 +448,54 @@ body {
 }
 
 .role {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  opacity: 0.8;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--apple-blue);
   margin-bottom: 16px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .hero-left .h1 {
   margin-bottom: 32px;
-  color: #FFFFFF;
+  color: var(--apple-label-primary);
+  letter-spacing: -0.02em;
 }
 
 .hero-text {
-  font-family: "Open Sans", sans-serif;
-  font-size: 22px;
-  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 20px;
+  color: var(--apple-label-secondary);
+  line-height: 1.5;
 }
 
 #rotating-word {
+  color: var(--apple-label-primary);
+  font-weight: 600;
   transition: all 0.35s ease;
   display: inline-block;
 }
 
 .hero-dots {
   display: flex;
-  gap: 6px;
-  margin-top: 12px;
+  gap: 8px;
+  margin-top: 14px;
 }
 
 .dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: #FFFFFF;
-  opacity: 0.3;
-  transition: all 0.25s ease;
+  background: var(--apple-gray-4);
+  opacity: 0.6;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dot.active {
+  background: var(--apple-blue);
   opacity: 1;
+  transform: scale(1.25);
 }
 
 .hero-cta {
@@ -590,20 +612,22 @@ body {
   max-width: calc(100% - 2cm);
   margin: 120px auto;
   padding: 100px 80px;
-  background: #F7F7FD;
-  border-radius: 40px;
+  background: var(--apple-bg-secondary);
+  border: 1px solid var(--apple-card-border);
+  border-radius: 36px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
 }
 
 .section-light .body {
-  color: rgba(0, 0, 0, 0.7);
+  color: var(--apple-label-secondary);
 }
 
 .section-light .h2 {
-  color: #1A1A1A;
+  color: var(--apple-label-primary);
   margin-bottom: 40px;
+  letter-spacing: -0.02em;
 }
 
 /* =========================
@@ -614,18 +638,19 @@ body {
 }
 
 .proj-title {
-  font-family: "DM Serif Display", serif;
-  font-style: italic;
-  font-size: 44px;
-  color: #0D0515;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: -0.02em;
+  color: var(--apple-label-primary);
   margin-bottom: 16px;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .proj-note {
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  color: #6B6B8A;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--apple-label-secondary);
   max-width: 640px;
   margin-bottom: 60px;
 }
@@ -656,14 +681,16 @@ body {
   position: relative;
   border-radius: 24px;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.04);
+  background: var(--apple-bg-tertiary);
+  border: 1px solid var(--apple-card-border);
   height: 480px;
   cursor: pointer;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
 }
 
 .project-card-bg {
@@ -690,9 +717,9 @@ body {
   left: 0;
   right: 0;
   z-index: 2;
-  background: linear-gradient(to top, rgba(13, 5, 21, 0.9), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.55) 60%, transparent 100%);
   padding: 60px 32px 32px 32px;
-  color: #FFFFFF;
+  color: var(--apple-label-primary);
   display: flex;
   flex-direction: column;
 }
@@ -700,20 +727,24 @@ body {
 .project-category {
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.8;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--apple-blue);
   margin-bottom: 8px;
 }
 
 .project-title {
-  font-family: "Open Sans", sans-serif;
-  font-size: 28px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: -0.01em;
   margin-bottom: 8px;
+  color: var(--apple-label-primary);
 }
 
 .project-description {
   font-size: 14px;
-  opacity: 0.9;
+  color: var(--apple-label-secondary);
   margin-bottom: 16px;
   max-width: 90%;
   display: -webkit-box;
@@ -723,12 +754,13 @@ body {
 }
 
 .project-view-more {
-  font-weight: 600;
-  font-size: 14px;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 4px;
-  transition: transform 0.2s;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--apple-blue);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-card:hover .project-view-more {
@@ -1172,14 +1204,14 @@ body {
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--apple-label-secondary);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.2s ease;
   font-size: 14px;
 }
 
 .footer-links a:hover {
-  color: #FFFFFF;
+  color: var(--apple-blue);
 }
 
 .divider {

@@ -1,12 +1,47 @@
 :root {
-  --bg-global: #0D0515;
-  --bg-light: #F7F7FD;
+  /* =========================================================
+     Apple Human Interface Guidelines (HIG) Design System
+     System Colors & Dynamic Materials (Dark Mode Primary)
+     ========================================================= */
+
+  /* Apple HIG - System Backgrounds */
+  --apple-bg-base: #000000;
+  --apple-bg-secondary: #1C1C1E;
+  --apple-bg-tertiary: #2C2C2E;
+  --apple-bg-quaternary: #3A3A3C;
+
+  /* Apple HIG - System Grays */
+  --apple-gray-1: #8E8E93;
+  --apple-gray-2: #636366;
+  --apple-gray-3: #48484A;
+  --apple-gray-4: #3A3A3C;
+  --apple-gray-5: #2C2C2E;
+  --apple-gray-6: #1C1C1E;
+
+  /* Apple HIG - System Accent Tints */
+  --apple-blue: #0A84FF;
+  --apple-blue-hover: #0071E3;
+  --apple-cyan: #64D2FF;
+  --apple-indigo: #5E5CE6;
+  --apple-green: #30D158;
+  --apple-orange: #FF9F0A;
+
+  /* Apple HIG - Labels & Typography */
+  --apple-label-primary: #FFFFFF;
+  --apple-label-secondary: rgba(235, 235, 245, 0.60);
+  --apple-label-tertiary: rgba(235, 235, 245, 0.30);
+  --apple-separator: rgba(255, 255, 255, 0.12);
+  --apple-card-border: rgba(255, 255, 255, 0.10);
+
+  /* Legacy Portfolio Token Mappings */
+  --bg-global: var(--apple-bg-base);
+  --bg-light: #F2F2F7;
   
-  --text-primary: #1A1A1A;
-  --text-secondary: rgba(0,0,0,0.65);
+  --text-primary: #1D1D1F;
+  --text-secondary: rgba(60, 60, 67, 0.60);
   
-  --text-primary-dark: #FFFFFF;
-  --text-secondary-dark: rgba(255,255,255,0.75);
+  --text-primary-dark: var(--apple-label-primary);
+  --text-secondary-dark: var(--apple-label-secondary);
   
   --h1: clamp(52px, 7vw, 84px);
   --h2: clamp(34px, 4vw, 48px);
@@ -16,7 +51,8 @@
   --body: 16px;
   --body-sm: 14px;
 
-  --sculpture-silver: #1e2025;
-  --sculpture-graphite: #2a3447;
-  --sculpture-light: #ffffff;
+  /* 3D Sculpture: Apple Space Black Titanium & System Blue Orbit */
+  --sculpture-silver: #1C1C1E;
+  --sculpture-graphite: #0A84FF;
+  --sculpture-light: #F5F5F7;
 }

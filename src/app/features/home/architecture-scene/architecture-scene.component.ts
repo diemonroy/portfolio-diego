@@ -130,9 +130,9 @@ export class ArchitectureSceneComponent implements AfterViewInit, OnDestroy {
     };
 
     return {
-      silver: resolve('--sculpture-silver', '#1e2025'),
-      graphite: resolve('--sculpture-graphite', '#2a3447'),
-      light: resolve('--sculpture-light', '#ffffff')
+      silver: resolve('--sculpture-silver', '#1C1C1E'),
+      graphite: resolve('--sculpture-graphite', '#0A84FF'),
+      light: resolve('--sculpture-light', '#F5F5F7')
     };
   }
 
