@@ -12,6 +12,7 @@ import { AsyncPipe } from '@angular/common';
 import { QrModalComponent } from './shared/components/qr-modal/qr-modal.component';
 import { AiChatDrawerComponent } from './shared/components/ai-chat-drawer/ai-chat-drawer.component';
 import { AiDashboardModalComponent } from './shared/components/ai-dashboard-modal/ai-dashboard-modal.component';
+import { AiDashboardService } from './core/services/ai-dashboard.service';
 
 @Component({
   selector: 'app-root',
@@ -35,10 +36,28 @@ import { AiDashboardModalComponent } from './shared/components/ai-dashboard-moda
 export class AppComponent implements OnInit {
   title = 'portfolio-app';
   private portfolioDataService = inject(PortfolioDataService);
+  private dashboardService = inject(AiDashboardService);
   portfolioData$ = this.portfolioDataService.portfolioData$;
 
   ngOnInit() {
-    // Initial data fetch happens automatically in the service, but we can subscribe if needed
-    // or just let child components consume `portfolioData$` via async pipe.
+    if (typeof window !== 'undefined') {
+      // Abrir tablero directamente si la URL incluye #dashboard o ?dashboard
+      const checkAndOpenDashboard = () => {
+        if (window.location.hash === '#dashboard' || window.location.search.includes('dashboard')) {
+          this.dashboardService.openDashboard();
+        }
+      };
+
+      setTimeout(checkAndOpenDashboard, 200);
+      window.addEventListener('hashchange', checkAndOpenDashboard);
+
+      // Atajo de teclado global: Cmd + Shift + D (Mac) o Ctrl + Shift + D (Windows/Linux)
+      window.addEventListener('keydown', (e: KeyboardEvent) => {
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'D' || e.key === 'd')) {
+          e.preventDefault();
+          this.dashboardService.toggleDashboard();
+        }
+      });
+    }
   }
 }
