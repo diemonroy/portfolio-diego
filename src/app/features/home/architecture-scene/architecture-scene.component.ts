@@ -130,8 +130,8 @@ export class ArchitectureSceneComponent implements AfterViewInit, OnDestroy {
     };
 
     return {
-      silver: resolve('--sculpture-silver', '#d4d4d8'),
-      graphite: resolve('--sculpture-graphite', '#38bdf8'),
+      silver: resolve('--sculpture-silver', '#1e2025'),
+      graphite: resolve('--sculpture-graphite', '#2a3447'),
       light: resolve('--sculpture-light', '#ffffff')
     };
   }
@@ -166,34 +166,56 @@ export class ArchitectureSceneComponent implements AfterViewInit, OnDestroy {
     this.renderer.toneMappingExposure = 1.1;
     container.appendChild(this.renderer.domElement);
 
-    // Studio Environment Reflections via RoomEnvironment & PMREMGenerator
+    // Setup exact Drei <Environment> recreation with 3 Lightformers on black background
+    const envScene = new THREE.Scene();
+    envScene.background = new THREE.Color(0x000000);
+
+    // Lightformer 1: scale [5, 2, 1], position [0, 4, 2], intensity 4
+    const lfGeo1 = new THREE.PlaneGeometry(5, 2);
+    const lfMat1 = new THREE.MeshBasicMaterial({
+      color: new THREE.Color(palette.light),
+      side: THREE.DoubleSide
+    });
+    const lfMesh1 = new THREE.Mesh(lfGeo1, lfMat1);
+    lfMesh1.position.set(0, 4, 2);
+    lfMesh1.lookAt(0, 0, 0);
+    envScene.add(lfMesh1);
+
+    // Lightformer 2: scale [2, 6, 1], position [-4, 0, 1], rotation-y PI/2, intensity 3
+    const lfGeo2 = new THREE.PlaneGeometry(2, 6);
+    const lfMat2 = new THREE.MeshBasicMaterial({
+      color: new THREE.Color(palette.light),
+      side: THREE.DoubleSide
+    });
+    const lfMesh2 = new THREE.Mesh(lfGeo2, lfMat2);
+    lfMesh2.position.set(-4, 0, 1);
+    lfMesh2.rotation.y = Math.PI / 2;
+    envScene.add(lfMesh2);
+
+    // Lightformer 3: scale [2, 4, 1], position [4, -1, 2], rotation-y -PI/2, intensity 2
+    const lfGeo3 = new THREE.PlaneGeometry(2, 4);
+    const lfMat3 = new THREE.MeshBasicMaterial({
+      color: new THREE.Color(palette.light),
+      side: THREE.DoubleSide
+    });
+    const lfMesh3 = new THREE.Mesh(lfGeo3, lfMat3);
+    lfMesh3.position.set(4, -1, 2);
+    lfMesh3.rotation.y = -Math.PI / 2;
+    envScene.add(lfMesh3);
+
     const pmremGenerator = new THREE.PMREMGenerator(this.renderer);
     pmremGenerator.compileEquirectangularShader();
-    const roomEnv = new RoomEnvironment();
-    this.scene.environment = pmremGenerator.fromScene(roomEnv, 0.04).texture;
-    roomEnv.dispose();
+    const envTexture = pmremGenerator.fromScene(envScene, 0.04).texture;
+    this.scene.environment = envTexture;
     pmremGenerator.dispose();
 
-    // Lighting (matches R3F setup: ambient + directional + lightformer equivalents)
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
+    // Scene Lights: ambient + directional matching React scene
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.35);
     this.scene.add(ambientLight);
 
     const mainDirLight = new THREE.DirectionalLight(new THREE.Color(palette.light), 2.2);
     mainDirLight.position.set(3, 5, 4);
     this.scene.add(mainDirLight);
-
-    // Lightformers positions: [0, 4, 2], [-4, 0, 1], [4, -1, 2]
-    const lightformer1 = new THREE.DirectionalLight(new THREE.Color(palette.light), 2.5);
-    lightformer1.position.set(0, 4, 2);
-    this.scene.add(lightformer1);
-
-    const lightformer2 = new THREE.DirectionalLight(new THREE.Color(palette.light), 1.8);
-    lightformer2.position.set(-4, 0, 1);
-    this.scene.add(lightformer2);
-
-    const lightformer3 = new THREE.DirectionalLight(new THREE.Color(palette.light), 1.4);
-    lightformer3.position.set(4, -1, 2);
-    this.scene.add(lightformer3);
 
     // Sculpture Group
     this.sculptureGroup = new THREE.Group();

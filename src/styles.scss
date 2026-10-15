@@ -414,14 +414,14 @@ body {
   padding: 120px 80px 80px 80px;
   position: relative;
   overflow: hidden;
-  background: #0D0515;
+  background: #08080a;
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 25% 40%, rgba(118, 121, 238, 0.18), transparent 60%);
+  background: radial-gradient(circle at 75% 45%, rgba(26, 38, 57, 0.22), transparent 65%);
   pointer-events: none;
   z-index: 1;
 }
