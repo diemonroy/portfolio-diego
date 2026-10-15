@@ -22,9 +22,9 @@
     </div>
 </section>
 
-@if (selectedProject()) {
+@if (portfolioDataService.activeProjectModal(); as activeProj) {
   <app-project-overlay 
-    [project]="selectedProject()" 
+    [project]="activeProj" 
     [overlayLabels]="data.projectsSection.overlay"
     (closeOverlay)="closeProject()">
   </app-project-overlay>

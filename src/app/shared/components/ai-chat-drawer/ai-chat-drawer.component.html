@@ -109,6 +109,86 @@
         <!-- CONTENIDO DEL MENSAJE -->
         <div class="ai-msg-text" [innerHTML]="formatMarkdown(msg.text)"></div>
 
+        <!-- RECURSO DE AUDIO / VOZ DE DIEGO (TTS) -->
+        @if (msg.sender === 'agent' && !msg.isStreaming && msg.text) {
+        <div class="ai-audio-toolbar">
+          <button type="button" class="ai-audio-play-btn" [class.is-playing]="currentlyPlayingId() === msg.id" (click)="toggleAudio(msg)">
+            @if (currentlyPlayingId() === msg.id) {
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+              <span>Pausar voz</span>
+              <div class="ai-audio-wave">
+                <span class="bar bar-1"></span>
+                <span class="bar bar-2"></span>
+                <span class="bar bar-3"></span>
+                <span class="bar bar-4"></span>
+              </div>
+            } @else {
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+              <span>Escuchar respuesta de Diego</span>
+            }
+          </button>
+        </div>
+        }
+
+        <!-- RECURSO VISUAL / ARQUITECTURA ASOCIADA -->
+        @if (msg.visualResource) {
+        <div class="ai-visual-card">
+          <div class="ai-visual-banner">
+            <img [src]="msg.visualResource.image" [alt]="msg.visualResource.title" loading="lazy" />
+            <div class="ai-visual-overlay"></div>
+            <span class="ai-visual-badge">{{ msg.visualResource.badge }}</span>
+          </div>
+
+          <div class="ai-visual-body">
+            <span class="ai-visual-category">{{ msg.visualResource.category }}</span>
+            <h4 class="ai-visual-title">{{ msg.visualResource.title }}</h4>
+
+            <!-- Diagrama de Flujo Visual -->
+            @if (msg.visualResource.flowSteps && msg.visualResource.flowSteps.length > 0) {
+            <div class="ai-flow-diagram">
+              <div class="ai-flow-title">Arquitectura Conceptual del Sistema:</div>
+              <div class="ai-flow-steps">
+                @for (st of msg.visualResource.flowSteps; track st.step; let last = $last) {
+                <div class="ai-flow-step">
+                  <span class="ai-flow-step-tag">{{ st.step }}</span>
+                  <span class="ai-flow-step-label">{{ st.label }}</span>
+                </div>
+                @if (!last) {
+                <span class="ai-flow-arrow">➔</span>
+                }
+                }
+              </div>
+            </div>
+            }
+
+            @if (msg.visualResource.metric) {
+            <div class="ai-visual-metric">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                <polyline points="16 7 22 7 22 13"></polyline>
+              </svg>
+              <span>{{ msg.visualResource.metric }}</span>
+            </div>
+            }
+
+            <button type="button" class="ai-visual-cta-btn" (click)="openProject(msg.visualResource.projectId)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              <span>{{ msg.visualResource.ctaText }}</span>
+            </button>
+          </div>
+        </div>
+        }
+
         <!-- TARJETA DE MATCH / COMPATIBILIDAD TÉCNICA -->
         @if (msg.match) {
         <div class="ai-match-card">

@@ -16,6 +16,23 @@ export interface CtaLinks {
   emailLink: string;
 }
 
+export interface FlowStep {
+  step: string;
+  label: string;
+}
+
+export interface VisualResource {
+  type: string;
+  projectId: string;
+  title: string;
+  category: string;
+  badge: string;
+  image: string;
+  metric?: string;
+  flowSteps?: FlowStep[];
+  ctaText: string;
+}
+
 export interface ChatMessage {
   id: string;
   sender: 'user' | 'agent';
@@ -24,6 +41,7 @@ export interface ChatMessage {
   attachmentName?: string;
   match?: MatchBreakdown;
   cta?: CtaLinks;
+  visualResource?: VisualResource;
   isStreaming?: boolean;
 }
 
@@ -276,13 +294,21 @@ export class AiAgentService {
         }
         return m;
       }));
+    } else if (event.type === 'media') {
+      this.messages.update(list => list.map(m => {
+        if (m.id === agentMsgId) {
+          return { ...m, visualResource: event.data };
+        }
+        return m;
+      }));
     } else if (event.type === 'done') {
       this.messages.update(list => list.map(m => {
         if (m.id === agentMsgId) {
           return {
             ...m,
             isStreaming: false,
-            cta: event.cta
+            cta: event.cta,
+            visualResource: event.visualResource || m.visualResource
           };
         }
         return m;
@@ -465,10 +491,66 @@ export class AiAgentService {
       await new Promise(r => setTimeout(r, 18));
     }
 
+    // Determinar recurso visual enriquecido según temática
+    let fallbackVisual: VisualResource | undefined = undefined;
+    if (['agente', 'ia', 'genai', 'langchain', 'langgraph', 'comercial', 'venta', 'ventas', 'automatiz'].some(k => lower.includes(k))) {
+      fallbackVisual = {
+        type: 'project_card',
+        projectId: 'ai-agents',
+        title: 'Ecosistema de Agentes y Grafos con LangChain',
+        category: 'Inteligencia Artificial · GenAI',
+        badge: 'Arquitectura de Referencia',
+        image: 'assets/cover-ai.png',
+        metric: '-40% tiempos de consulta · Reducción del 92% inconsistencias',
+        flowSteps: [
+          { step: 'Entrada', label: 'CRM / Ventas' },
+          { step: 'Grafo', label: 'Orquestador LangGraph' },
+          { step: 'RAG', label: 'BigQuery Vector' },
+          { step: 'Acción', label: 'Estrategia de Venta' }
+        ],
+        ctaText: 'Ver Arquitectura del Proyecto'
+      };
+    } else if (['cloud', 'gcp', 'aws', 'kubernetes', 'gke', 'devops', 'infraestructura'].some(k => lower.includes(k))) {
+      fallbackVisual = {
+        type: 'project_card',
+        projectId: 'multicloud',
+        title: 'Infraestructura Multi-Cloud y DevSecOps',
+        category: 'Cloud & DevSecOps · Google Cloud ACE',
+        badge: 'Google Cloud Certified ACE #189954',
+        image: 'assets/cover-cloud.png',
+        metric: 'SLA 99.99% · Despliegues Zero-Downtime en GKE',
+        flowSteps: [
+          { step: 'Código', label: 'Git & SonarQube' },
+          { step: 'Deploy', label: 'Terraform & Docker' },
+          { step: 'Runtime', label: 'Kubernetes GKE' },
+          { step: 'Control', label: 'Observabilidad p99' }
+        ],
+        ctaText: 'Ver Arquitectura del Proyecto'
+      };
+    } else if (['crm', 'banca', 'banco', 'liderazgo', 'tech lead', 'sla'].some(k => lower.includes(k))) {
+      fallbackVisual = {
+        type: 'project_card',
+        projectId: 'crm-banca',
+        title: 'CRM In-House Banca Empresas',
+        category: 'Banca Empresas · Core CRM',
+        badge: 'SLA Bancario 99.99%',
+        image: 'assets/cover-crm.png',
+        metric: '+38% productividad comercial · Millones de transacciones',
+        flowSteps: [
+          { step: 'Front', label: 'Angular Standalone' },
+          { step: 'Core', label: 'Clean Architecture' },
+          { step: 'Nube', label: 'GCP Cloud Run / GKE' },
+          { step: 'Seguridad', label: 'OAuth2 / OIDC' }
+        ],
+        ctaText: 'Ver Arquitectura del Proyecto'
+      };
+    }
+
     this.messages.update(list => list.map(m => m.id === agentMsgId ? {
       ...m,
       match: matchCard,
       cta,
+      visualResource: fallbackVisual,
       isStreaming: false
     } : m));
   }

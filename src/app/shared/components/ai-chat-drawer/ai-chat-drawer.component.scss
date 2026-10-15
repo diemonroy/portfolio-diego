@@ -815,3 +815,250 @@
     border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
 }
+
+/* ==============================================================================
+   AUDIO & MULTIMEDIA SUITE — APPLE DARK GLASS DESIGN
+   ============================================================================== */
+
+/* --- BOTÓN DE AUDIO / TTS --- */
+.ai-audio-toolbar {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.ai-audio-play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+
+  svg {
+    flex-shrink: 0;
+    color: #38BDF8;
+  }
+
+  &:hover {
+    color: #F8FAFC;
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.35);
+    transform: translateY(-1px);
+  }
+
+  &.is-playing {
+    color: #38BDF8;
+    background: rgba(10, 132, 255, 0.2);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 0 16px rgba(10, 132, 255, 0.3);
+  }
+}
+
+/* --- ANIMACIÓN DE ONDAS SONORAS --- */
+.ai-audio-wave {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 12px;
+  margin-left: 2px;
+
+  .bar {
+    width: 2.5px;
+    height: 100%;
+    background: #38BDF8;
+    border-radius: 2px;
+    animation: audio-bounce 0.8s ease-in-out infinite alternate;
+
+    &.bar-1 { animation-delay: 0.1s; }
+    &.bar-2 { animation-delay: 0.3s; }
+    &.bar-3 { animation-delay: 0.2s; }
+    &.bar-4 { animation-delay: 0.4s; }
+  }
+}
+
+@keyframes audio-bounce {
+  0% { transform: scaleY(0.25); opacity: 0.6; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+/* --- TARJETA MULTIMEDIA VISUAL / CASO DE ESTUDIO --- */
+.ai-visual-card {
+  margin-top: 14px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.15);
+  }
+}
+
+.ai-visual-banner {
+  position: relative;
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.ai-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.95) 100%);
+}
+
+.ai-visual-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #38BDF8;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ai-visual-body {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-visual-category {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ai-visual-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* --- DIAGRAMA CONCEPTUAL DE ARQUITECTURA --- */
+.ai-flow-diagram {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.ai-flow-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #CBD5E1;
+  margin-bottom: 8px;
+}
+
+.ai-flow-steps {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ai-flow-step {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 8px;
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.ai-flow-step-tag {
+  font-size: 9px;
+  font-weight: 700;
+  color: #38BDF8;
+  text-transform: uppercase;
+}
+
+.ai-flow-step-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #E2E8F0;
+  margin-top: 1px;
+}
+
+.ai-flow-arrow {
+  color: #64748B;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.ai-visual-metric {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.ai-visual-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, rgba(10, 132, 255, 0.25), rgba(56, 189, 248, 0.25));
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  svg {
+    color: #38BDF8;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, rgba(10, 132, 255, 0.45), rgba(56, 189, 248, 0.45));
+    border-color: #38BDF8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(10, 132, 255, 0.25);
+  }
+}

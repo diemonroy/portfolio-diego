@@ -22,6 +22,7 @@ export class AiChatDrawerComponent implements AfterViewChecked {
   @ViewChild('fileInput') private fileInput?: ElementRef<HTMLInputElement>;
 
   inputText = signal<string>('');
+  readonly currentlyPlayingId = signal<string | null>(null);
   private shouldScrollBottom = false;
 
   suggestedChips = [
@@ -115,5 +116,66 @@ export class AiChatDrawerComponent implements AfterViewChecked {
 
   onCtaClick(type: 'calendar' | 'whatsapp' | 'email'): void {
     this.aiService.trackConversion(type);
+  }
+
+  openProject(projectId: string): void {
+    this.portfolioDataService.openProjectById(projectId);
+  }
+
+  toggleAudio(msg: ChatMessage): void {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      return;
+    }
+
+    // Si ya está reproduciendo este mensaje, pausar o detener
+    if (this.currentlyPlayingId() === msg.id) {
+      window.speechSynthesis.cancel();
+      this.currentlyPlayingId.set(null);
+      return;
+    }
+
+    // Cancelar cualquier audio anterior
+    window.speechSynthesis.cancel();
+
+    // Limpiar texto para una narración fluida y natural (eliminar markdown y URLs)
+    const cleanText = (msg.text || '')
+      .replace(/### (.*?)\n/g, '$1. ')
+      .replace(/\*\*(.*?)\*\*/g, '$1')
+      .replace(/\*(.*?)\*/g, '$1')
+      .replace(/\[(.*?)\]\(.*?\)/g, '$1')
+      .replace(/•/g, '')
+      .replace(/https?:\/\/\S+/g, '')
+      .replace(/<[^>]*>/g, '')
+      .trim();
+
+    if (!cleanText) return;
+
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = 'es-CO';
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+
+    // Buscar la mejor voz en español disponible
+    const voices = window.speechSynthesis.getVoices();
+    const spanishVoice = voices.find(v => v.lang === 'es-CO') ||
+                         voices.find(v => v.lang === 'es-419') ||
+                         voices.find(v => v.lang.startsWith('es'));
+    if (spanishVoice) {
+      utterance.voice = spanishVoice;
+    }
+
+    utterance.onstart = () => {
+      this.currentlyPlayingId.set(msg.id);
+    };
+
+    utterance.onend = () => {
+      this.currentlyPlayingId.set(null);
+    };
+
+    utterance.onerror = () => {
+      this.currentlyPlayingId.set(null);
+    };
+
+    window.speechSynthesis.speak(utterance);
   }
 }
