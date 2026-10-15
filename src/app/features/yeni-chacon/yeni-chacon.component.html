@@ -1,16 +1,42 @@
-<div class="yeni-page-wrapper">
+<!-- =========================================================
+     PORTAFOLIO & HOJA DE VIDA — YENI ANDREA CHACÓN GORDILLO
+     Diseño Ejecutivo Editorial · Paleta Clara en Tonos Pastel Sobrios
+     Formato ATS Integrado · Consultorio Jurídico IV & Sector Público
+     ========================================================= -->
 
-  <!-- TOP BAR EXCLUSIVA / ACCIONES RÁPIDAS -->
+<div class="yeni-page-container">
+
+  <!-- CABECERA DE NAVEGACIÓN SUPERIOR -->
   <header class="yeni-header-nav no-print">
     <div class="header-inner">
-      <div class="brand-badge">
+      <div class="brand-badge" (click)="setViewMode('executive')">
         <img src="assets/yeni-chacon.jpg" alt="Yeni Andrea Chacón" class="brand-avatar" />
         <div class="brand-text">
           <span class="brand-name">Yeni Andrea Chacón Gordillo</span>
-          <span class="brand-sub">Perfil Profesional Jurídico · Feria de Empleo 2026</span>
+          <span class="brand-sub">Abogada en Formación · Feria de Empleo 2026</span>
         </div>
       </div>
 
+      <!-- SELECTOR DE VISTA: EJECUTIVO vs ATS -->
+      <div class="view-mode-selector">
+        <button 
+          class="mode-pill-btn" 
+          [class.active]="activeViewMode() === 'executive'"
+          (click)="setViewMode('executive')">
+          <span class="pill-icon">💼</span>
+          <span>Perfil Ejecutivo</span>
+        </button>
+        <button 
+          class="mode-pill-btn" 
+          [class.active]="activeViewMode() === 'ats'"
+          (click)="setViewMode('ats')">
+          <span class="pill-icon">📄</span>
+          <span>Formato ATS</span>
+          <span class="pill-badge">ATS 100%</span>
+        </button>
+      </div>
+
+      <!-- BOTONES DE ACCIÓN RÁPIDA -->
       <div class="header-actions">
         <button class="action-btn qr-trigger-btn" (click)="openQrModal('profile')" aria-label="Mostrar Código QR">
           <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -26,356 +52,515 @@
           <span>Compartir QR</span>
         </button>
 
-        <button class="action-btn download-cv-btn" (click)="printCV()" aria-label="Descargar o Imprimir Hoja de Vida">
+        <a 
+          href="assets/CV_Yeni_Chacon_ATS.html" 
+          target="_blank" 
+          class="action-btn download-cv-btn" 
+          aria-label="Descargar o Abrir CV ATS">
           <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M6 9V2h12v7"></path>
-            <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"></path>
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>CV ATS (PDF / HTML)</span>
+        </a>
+
+        <button class="action-btn print-btn" (click)="printCV()" aria-label="Imprimir Hoja de Vida">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
             <rect x="6" y="14" width="12" height="8"></rect>
           </svg>
-          <span>Descargar / Imprimir CV</span>
+          <span class="desktop-only">Imprimir</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- CONTENIDO PRINCIPAL DEL CV -->
-  <main class="yeni-main-content">
+  <!-- =========================================================
+       MODO 1: PERFIL EJECUTIVO INTERACTIVO (PALETA PASTEL SOBRIA)
+       ========================================================= -->
+  @if (activeViewMode() === 'executive') {
+    <main class="yeni-main-content">
 
-    <!-- HERO SECTION / PRESENTACIÓN EJECUTIVA -->
-    <section class="hero-card">
-      <div class="hero-top-accent"></div>
-      
-      <div class="hero-grid">
-        <div class="avatar-column">
-          <div class="avatar-ring">
-            <img src="assets/yeni-chacon.jpg" alt="Yeni Andrea Chacón Gordillo" class="avatar-img" />
-          </div>
-          <div class="status-chip">
-            <span class="status-dot"></span>
-            <span>{{ personalInfo.statusBadge }}</span>
-          </div>
-        </div>
-
-        <div class="info-column">
-          <div class="role-pill">
-            <span class="pill-badge">Énfasis en Derecho Público & Administrativo</span>
-            <span class="pill-location">📍 {{ personalInfo.location }}</span>
-          </div>
-
-          <h1 class="candidate-name">{{ personalInfo.name }}</h1>
-          <p class="candidate-headline">{{ personalInfo.title }}</p>
-          <p class="candidate-subheadline">{{ personalInfo.subtitle }}</p>
-
-          <!-- CHIPS DE CONTACTO DIRECTO -->
-          <div class="contact-chips-row">
-            <a [href]="'tel:' + personalInfo.phoneClean" class="contact-chip" title="Llamar">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chip-icon">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
-              </svg>
-              <span>{{ personalInfo.phone }}</span>
-            </a>
-
-            <a [href]="'mailto:' + personalInfo.email" class="contact-chip" title="Enviar Correo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chip-icon">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <span>{{ personalInfo.email }}</span>
-            </a>
-
-            <a [href]="personalInfo.linkedinUrl" target="_blank" rel="noopener noreferrer" class="contact-chip" title="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chip-icon">
-                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-              <span>{{ personalInfo.linkedinDisplay }}</span>
-            </a>
-
-            <span class="contact-chip text-chip" title="Ubicación">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chip-icon">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>{{ personalInfo.address }}</span>
-            </span>
-          </div>
-
-          <!-- BOTONES DE ACCIÓN PRINCIPALES (FERIA DE EMPLEO) -->
-          <div class="cta-actions-row no-print">
-            <button class="cta-btn primary-cta" (click)="openQrModal('profile')">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
-                <rect x="3" y="3" width="7" height="7"></rect>
-                <rect x="14" y="3" width="7" height="7"></rect>
-                <rect x="14" y="14" width="7" height="7"></rect>
-                <rect x="3" y="14" width="7" height="7"></rect>
-              </svg>
-              <span>Escanear Código QR</span>
-            </button>
-
-            <a [href]="'https://wa.me/' + personalInfo.phoneClean + '?text=Hola%20Andrea%2C%20estuve%20revisando%20tu%20perfil%20profesional%20en%20la%20feria%20de%20empleo%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad%20en%20nuestro%20equipo.'" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="cta-btn whatsapp-cta">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.074-2.007-.468-1.579-.652-2.586-2.257-2.664-2.361-.077-.105-.632-.843-.632-1.609 0-.766.4-1.144.542-1.3.143-.156.313-.195.417-.195.105 0 .209.002.3.007.098.004.228-.037.357.272.133.321.455 1.11.496 1.192.041.082.068.177.014.284-.055.108-.083.176-.164.272-.082.095-.172.213-.246.286-.082.08-.168.167-.072.332.096.164.428.706.918 1.143.63.561 1.161.734 1.326.816.164.082.261.07.358-.041.098-.112.417-.487.528-.654.111-.167.222-.139.373-.083.151.055.957.452 1.121.534.164.082.274.123.315.191.041.069.041.4-.103.805z"/>
-              </svg>
-              <span>Contactar por WhatsApp</span>
-            </a>
-
-            <button class="cta-btn vcard-cta" (click)="downloadVCard()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
-                <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"></path>
-                <polyline points="17 21 17 13 7 13 7 21"></polyline>
-                <polyline points="7 3 7 8 15 8"></polyline>
-              </svg>
-              <span>Guardar en Contactos</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BENTO DE MÉTRICAS DESTACADAS (FERIA DE EMPLEO) -->
-    <section class="stats-bento">
-      <div class="stat-card">
-        <div class="stat-number">9.°</div>
-        <div class="stat-label">Semestre de Derecho</div>
-        <div class="stat-sub">Fundación Univ. Autónoma · 2026</div>
-      </div>
-
-      <div class="stat-card highlight-card">
-        <div class="stat-number">Hacienda</div>
-        <div class="stat-label">Secretaría Distrital de Hacienda</div>
-        <div class="stat-sub">Tutelas, Peticiones & Análisis Tributario</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-number">Práctica IV</div>
-        <div class="stat-label">Consultorio Jurídico Activo</div>
-        <div class="stat-sub">Civil, Laboral, Penal y Familia</div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-number">+3 Años</div>
-        <div class="stat-label">Gestión Documental & Archivo</div>
-        <div class="stat-sub">Trazabilidad, Foliación & Procesos</div>
-      </div>
-    </section>
-
-    <!-- PERFIL PROFESIONAL Y PROPUESTA DE VALOR -->
-    <section class="content-section">
-      <div class="section-header">
-        <div class="header-line"></div>
-        <h2 class="section-title">Perfil Profesional & Propuesta de Valor</h2>
-      </div>
-
-      <div class="profile-narrative-card">
-        <p class="lead-text">
-          Estudiante de <strong>noveno semestre de Derecho</strong> con sólida trayectoria práctica en 
-          <strong>gestión jurídica, derecho administrativo, gestión documental y análisis de información</strong> 
-          tanto en entidades del sector público como en organizaciones privadas.
-        </p>
-        <p class="body-text">
-          Amplia experiencia en la <strong>elaboración y proyección de respuestas a acciones constitucionales (tutelas y derechos de petición)</strong>, 
-          revisión técnica de expedientes judiciales y administrativos, verificación de información jurídica tributaria (prescripciones) 
-          y aseguramiento de la cadena de custodia y trazabilidad documental. 
-          Destaco por mi <strong>alto rigor analítico, redacción jurídica clara y argumentada, orientación al detalle, 
-          ética inquebrantable en el manejo de información confidencial y vocación de servicio al ciudadano</strong>.
-        </p>
-
-        <div class="key-strengths-grid">
-          <div class="strength-item">
-            <span class="strength-icon">🏛️</span>
-            <div>
-              <strong>Derecho Administrativo & Público</strong>
-              <p>Trámite de peticiones, actos administrativos y análisis sustantivo de obligaciones distritales.</p>
+      <!-- HERO SECTION / PRESENTACIÓN EJECUTIVA -->
+      <section class="hero-card">
+        <div class="hero-top-accent"></div>
+        
+        <div class="hero-grid">
+          <div class="avatar-column">
+            <div class="avatar-ring">
+              <img src="assets/yeni-chacon.jpg" alt="Yeni Andrea Chacón Gordillo" class="avatar-img" />
+            </div>
+            <div class="status-chip">
+              <span class="status-dot"></span>
+              <span>{{ personalInfo.statusBadge }}</span>
             </div>
           </div>
-          <div class="strength-item">
-            <span class="strength-icon">📜</span>
-            <div>
-              <strong>Acciones Constitucionales</strong>
-              <p>Proyección técnica de respuestas a tutelas con estricto acatamiento de plazos de ley.</p>
-            </div>
-          </div>
-          <div class="strength-item">
-            <span class="strength-icon">📂</span>
-            <div>
-              <strong>Trazabilidad Documental</strong>
-              <p>Clasificación, foliación y custodia digital de expedientes bajo normas de gestión pública.</p>
-            </div>
-          </div>
-          <div class="strength-item">
-            <span class="strength-icon">⚖️</span>
-            <div>
-              <strong>Sustanciación & Litigio Formativo</strong>
-              <p>Elaboración de demandas, incidentes y conceptos en Derecho Civil, Laboral y Penal.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- EXPERIENCIA LABORAL (LÍNEA DE TIEMPO) -->
-    <section class="content-section">
-      <div class="section-header">
-        <div class="header-line"></div>
-        <h2 class="section-title">Experiencia Laboral Relevante</h2>
-      </div>
+          <div class="info-column">
+            <div class="role-pill-row">
+              <span class="role-pill pastel-blue">Derecho Público & Administrativo</span>
+              <span class="role-pill pastel-amber">Consultorio Jurídico IV</span>
+              <span class="role-pill pastel-sage">Sector Público Distrital</span>
+            </div>
 
-      <div class="timeline-container">
-        @for (exp of experiences; track exp.company) {
-          <div class="timeline-card" [class.highlighted]="exp.isHighlighted">
-            <div class="card-header">
-              <div class="header-main">
-                <span class="company-badge">{{ exp.badge }}</span>
-                <h3 class="company-name">{{ exp.company }}</h3>
-                <h4 class="role-title">{{ exp.role }}</h4>
+            <h1 class="candidate-name">{{ personalInfo.name }}</h1>
+            <p class="candidate-headline">{{ personalInfo.title }}</p>
+            <p class="candidate-subheadline">{{ personalInfo.subtitle }}</p>
+
+            <!-- CHIPS DE CONTACTO DIRECTO -->
+            <div class="contact-chips-row">
+              <a [href]="'tel:' + personalInfo.phoneClean" class="contact-chip" title="Llamar directamente">
+                <span class="chip-icon">📞</span>
+                <span>{{ personalInfo.phone }}</span>
+              </a>
+
+              <a [href]="'mailto:' + personalInfo.email" class="contact-chip" title="Enviar correo">
+                <span class="chip-icon">✉️</span>
+                <span>{{ personalInfo.email }}</span>
+              </a>
+
+              <div class="contact-chip">
+                <span class="chip-icon">📍</span>
+                <span>{{ personalInfo.location }}</span>
               </div>
-              <div class="header-meta">
-                <span class="period-pill">🗓️ {{ exp.period }}</span>
-                <span class="location-pill">📍 {{ exp.location }}</span>
-              </div>
+
+              <a [href]="personalInfo.linkedinUrl" target="_blank" rel="noopener" class="contact-chip" title="Ver LinkedIn">
+                <span class="chip-icon">🔗</span>
+                <span>{{ personalInfo.linkedinDisplay }}</span>
+              </a>
             </div>
 
-            <p class="experience-desc">{{ exp.description }}</p>
+            <!-- BOTONERA DE ACCIÓN RÁPIDA PARA RECLUTADORES -->
+            <div class="hero-cta-row no-print">
+              <a 
+                [href]="'https://wa.me/' + personalInfo.phoneClean + '?text=Hola%20Andrea%2C%20estuve%20revisando%20tu%20perfil%20profesional%20en%20la%20feria%20de%20empleo%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad%20en%20nuestro%20equipo.'" 
+                target="_blank" 
+                rel="noopener" 
+                class="cta-btn whatsapp-cta">
+                <span class="cta-icon">💬</span>
+                <span>Contactar por WhatsApp</span>
+              </a>
 
-            <div class="achievements-block">
-              <h5 class="achievements-title">Responsabilidades & Logros Principales:</h5>
-              <ul class="achievements-list">
-                @for (item of exp.achievements; track item) {
-                  <li>
-                    <span class="bullet-arrow">›</span>
-                    <span>{{ item }}</span>
-                  </li>
+              <button class="cta-btn secondary-cta" (click)="openQrModal('profile')">
+                <span class="cta-icon">📱</span>
+                <span>Escanear / Mostrar QR</span>
+              </button>
+
+              <button class="cta-btn secondary-cta" (click)="downloadVCard()">
+                <span class="cta-icon">👤</span>
+                <span>Guardar en Contactos (.vcf)</span>
+              </button>
+
+              <button class="cta-btn ats-highlight-cta" (click)="setViewMode('ats')">
+                <span class="cta-icon">📄</span>
+                <span>Ver Formato ATS</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENTO GRID DE MÉTRICAS & INDICADORES DE CONFIANZA -->
+      <section class="stats-bento no-print">
+        <div class="bento-card card-sky">
+          <div class="bento-icon">🏛️</div>
+          <div class="bento-value">Sector Público</div>
+          <div class="bento-label">Secretaría Distrital de Hacienda</div>
+          <p class="bento-detail">Análisis normativo de prescripciones tributarias, tutelas y derechos de petición.</p>
+        </div>
+
+        <div class="bento-card card-amber">
+          <div class="bento-icon">⚖️</div>
+          <div class="bento-value">9.º Semestre</div>
+          <div class="bento-label">Universidad Autónoma de Colombia</div>
+          <p class="bento-detail">Práctica Forense IV activa en Civil, Laboral, Penal y Familia. Grado: 2026.</p>
+        </div>
+
+        <div class="bento-card card-sage">
+          <div class="bento-icon">📊</div>
+          <div class="bento-value">+3 Años</div>
+          <div class="bento-label">Gestión Documental & Archivo</div>
+          <p class="bento-detail">Depuración y foliación de expedientes, tablas TRD y optimización de archivo (+35%).</p>
+        </div>
+
+        <div class="bento-card card-lavender">
+          <div class="bento-icon">💻</div>
+          <div class="bento-value">Excel & SI Capital</div>
+          <div class="bento-label">Ofimática & Análisis de Datos</div>
+          <p class="bento-detail">Fórmulas lógicas, tablas dinámicas para cruce fiscal y bases de datos procesales.</p>
+        </div>
+      </section>
+
+      <!-- 1. RESUMEN PROFESIONAL -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="title-icon">📋</span>
+            <span>Perfil Profesional Jurídico</span>
+          </h2>
+          <div class="header-line"></div>
+        </div>
+
+        <div class="profile-narrative-card">
+          <p class="narrative-p">
+            Estudiante de <strong>noveno (9.º) semestre de Derecho</strong> de la <strong>Fundación Universidad Autónoma de Colombia</strong> con graduación prevista en 2026. Práctica forense activa en <strong>Consultorio Jurídico IV</strong> con experiencia en sustanciación de casos, asesoría jurídica a usuarios y radicación de memoriales en Derecho Civil, Laboral, Penal y Familia.
+          </p>
+          <p class="narrative-p">
+            Experiencia comprobada en el sector público en la <strong>Secretaría Distrital de Hacienda</strong>, participando en el análisis de bases de datos para verificación jurídica de causales de prescripción de obligaciones tributarias distritales, proyección fundamentada de respuestas a <strong>acciones de tutela</strong> y <strong>derechos de petición</strong> dentro de los términos perentorios de ley, así como organización, depuración y foliación de expedientes digitales con estricta trazabilidad institucional.
+          </p>
+          <p class="narrative-p highlight-p">
+            Sólidas competencias en <strong>análisis documental, fundamentación jurídica, manejo avanzado de Microsoft Excel para gestión de información de cartera</strong>, ética profesional y reserva legal. Perfil orientado al servicio, rigor metodológico y disponibilidad para vinculación inmediata en dependencias públicas, despachos de abogados o áreas jurídicas empresariales.
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. EXPERIENCIA LABORAL CRONOLÓGICA -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="title-icon">💼</span>
+            <span>Experiencia Laboral</span>
+          </h2>
+          <div class="header-line"></div>
+        </div>
+
+        <div class="timeline-container">
+          @for (exp of experiences; track exp.company) {
+            <div class="timeline-card" [class.highlighted]="exp.isHighlighted">
+              <div class="card-header-row">
+                <div class="role-company-wrap">
+                  <h3 class="role-title">{{ exp.role }}</h3>
+                  <div class="company-sub-row">
+                    <span class="company-name">{{ exp.company }}</span>
+                    <span class="separator">•</span>
+                    <span class="location-tag">📍 {{ exp.location }}</span>
+                  </div>
+                </div>
+
+                <div class="badge-period-wrap">
+                  <span class="period-pill">{{ exp.period }}</span>
+                  <span class="type-badge" [ngClass]="exp.badgeType || 'corp'">{{ exp.badge }}</span>
+                </div>
+              </div>
+
+              <p class="exp-description">{{ exp.description }}</p>
+
+              <div class="achievements-wrap">
+                <h4 class="achievements-title">Logros y Responsabilidades Clave:</h4>
+                <ul class="achievements-list">
+                  @for (ach of exp.achievements; track ach) {
+                    <li>{{ ach }}</li>
+                  }
+                </ul>
+              </div>
+
+              <div class="skills-chips-row">
+                @for (skill of exp.skills; track skill) {
+                  <span class="exp-skill-chip">{{ skill }}</span>
                 }
-              </ul>
+              </div>
             </div>
+          }
+        </div>
+      </section>
 
-            <div class="skills-tags-row">
-              @for (skill of exp.skills; track skill) {
-                <span class="skill-tag">{{ skill }}</span>
-              }
-            </div>
-          </div>
-        }
-      </div>
-    </section>
+      <!-- 3. FORMACIÓN ACADÉMICA & CONSULTORIO JURÍDICO -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="title-icon">🎓</span>
+            <span>Formación Académica & Práctica Forense</span>
+          </h2>
+          <div class="header-line"></div>
+        </div>
 
-    <!-- EDUCACIÓN Y CONSULTORIO JURÍDICO -->
-    <section class="content-section">
-      <div class="section-header">
-        <div class="header-line"></div>
-        <h2 class="section-title">Educación & Práctica Jurídica Forense</h2>
-      </div>
-
-      <div class="education-grid">
-        <!-- Tarjeta de Pregrado -->
         <div class="edu-card">
-          <div class="edu-icon-wrap">🎓</div>
-          <div class="edu-body">
-            <span class="edu-tag">Pregrado Universitario</span>
-            <h3 class="edu-institution">{{ education.institution }}</h3>
-            <h4 class="edu-degree">{{ education.degree }}</h4>
-            <div class="edu-meta">
-              <span class="meta-item">📚 {{ education.status }}</span>
-              <span class="meta-item">🗓️ {{ education.completion }}</span>
-              <span class="meta-item">📍 {{ education.location }}</span>
+          <div class="edu-top-row">
+            <div>
+              <h3 class="edu-degree">{{ education.degree }}</h3>
+              <h4 class="edu-institution">{{ education.institution }}</h4>
+              <p class="edu-meta">📍 {{ education.location }} · Periodo: {{ education.period }}</p>
             </div>
-            <p class="edu-note">
-              Formación integral con énfasis en argumentación jurídica, derecho procesal, constitucional y administrativo.
-            </p>
+            <span class="edu-status-badge">En Curso (Grado 2026)</span>
           </div>
-        </div>
 
-        <!-- Tarjeta de Consultorio Jurídico IV -->
-        <div class="edu-card practice-card">
-          <div class="edu-icon-wrap">⚖️</div>
-          <div class="edu-body">
-            <span class="edu-tag practice-tag">Práctica Forense Activa</span>
-            <h3 class="edu-institution">{{ education.consultorio.name }}</h3>
-            <h4 class="edu-degree">Atención y Representación Legal de Usuarios</h4>
-            
-            <div class="practice-areas-row">
-              @for (area of education.consultorio.areas; track area) {
-                <span class="area-chip">{{ area }}</span>
-              }
+          <div class="clinic-subcard">
+            <div class="clinic-header">
+              <span class="clinic-icon">⚖️</span>
+              <div>
+                <h4 class="clinic-title">{{ education.clinic.name }}</h4>
+                <p class="clinic-focus">{{ education.clinic.focus }}</p>
+              </div>
             </div>
 
-            <ul class="practice-bullets">
-              @for (act of education.consultorio.activities; track act) {
-                <li>
-                  <span class="practice-check">✓</span>
-                  <span>{{ act }}</span>
-                </li>
-              }
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MATRIZ DE COMPETENCIAS Y HERRAMIENTAS -->
-    <section class="content-section">
-      <div class="section-header">
-        <div class="header-line"></div>
-        <h2 class="section-title">Matriz de Habilidades & Dominio Técnico</h2>
-      </div>
-
-      <div class="skills-categories-grid">
-        @for (cat of skillCategories; track cat.title) {
-          <div class="category-card">
-            <h3 class="cat-title">{{ cat.title }}</h3>
-            <div class="cat-items-list">
-              @for (it of cat.items; track it.name) {
-                <div class="cat-item" [class.highlighted-item]="it.highlight">
-                  <span class="item-dot"></span>
-                  <span class="item-name">{{ it.name }}</span>
+            <div class="clinic-areas-grid">
+              @for (area of education.clinic.areas; track area.name) {
+                <div class="area-box">
+                  <span class="area-name">{{ area.name }}</span>
+                  <span class="area-desc">{{ area.desc }}</span>
                 </div>
               }
             </div>
           </div>
-        }
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <!-- SECCIÓN DE CONTACTO & CONEXIÓN INMEDIATA (CIERRE) -->
-    <section class="closing-cta-card no-print">
-      <div class="cta-inner">
-        <div class="cta-text-block">
-          <span class="cta-eyebrow">¿Interesado en coordinar una entrevista?</span>
-          <h2 class="cta-heading">Conectemos para conversar sobre oportunidades laborales</h2>
-          <p class="cta-desc">
-            Disponible para vinculación inmediata en firmas de abogados, entidades públicas, 
-            departamentos jurídicos o consultorías en Bogotá D.C.
-          </p>
+      <!-- 4. CURSOS Y ACTUALIZACIÓN JURÍDICA -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="title-icon">📚</span>
+            <span>Cursos y Actualización Jurídica</span>
+          </h2>
+          <div class="header-line"></div>
         </div>
 
-        <div class="cta-buttons-block">
-          <a [href]="'https://wa.me/' + personalInfo.phoneClean + '?text=Hola%20Andrea%2C%20estuve%20revisando%20tu%20perfil%20profesional%20en%20la%20feria%20de%20empleo%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad%20en%20nuestro%20equipo.'" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             class="btn-primary-glow">
-            <span>Conversar por WhatsApp</span>
-          </a>
+        <div class="courses-grid">
+          @for (course of legalCourses; track course.title) {
+            <div class="course-card">
+              <div class="course-header">
+                <span class="course-badge">{{ course.badge }}</span>
+                <span class="course-year">{{ course.year }}</span>
+              </div>
+              <h3 class="course-title">{{ course.title }}</h3>
+              <p class="course-inst">{{ course.institution }}</p>
+              <p class="course-desc">{{ course.description }}</p>
+            </div>
+          }
+        </div>
+      </section>
 
-          <button class="btn-secondary-glass" (click)="openQrModal('profile')">
-            <span>Mostrar QR a Reclutador</span>
+      <!-- 5. MATRIZ DE COMPETENCIAS Y DOMINIO TÉCNICO -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="title-icon">⚡</span>
+            <span>Matriz de Competencias y Dominio Técnico</span>
+          </h2>
+          <div class="header-line"></div>
+        </div>
+
+        <div class="skills-matrix-grid">
+          @for (cat of skillCategories; track cat.title) {
+            <div class="category-card">
+              <div class="category-header">
+                <div class="cat-title-wrap">
+                  <span class="cat-icon">{{ cat.icon }}</span>
+                  <h3 class="cat-title">{{ cat.title }}</h3>
+                </div>
+                <span class="cat-badge">{{ cat.badge }}</span>
+              </div>
+
+              <div class="category-items-list">
+                @for (item of cat.items; track item.name) {
+                  <div class="skill-item-pill" [class.highlighted-pill]="item.highlight">
+                    <span class="bullet">•</span>
+                    <span>{{ item.name }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+
+      <!-- BANNER DIRECTO AL FORMATO ATS -->
+      <section class="ats-banner-card no-print">
+        <div class="ats-banner-content">
+          <div class="ats-banner-badge">OPTIMIZADO PARA RECLUTADORES</div>
+          <h3 class="ats-banner-title">¿Deseas descargar la versión ATS estandarizada?</h3>
+          <p class="ats-banner-desc">
+            Diseñada en formato lineal de una sola columna sin tablas invisibles ni bloqueadores de texto, ideal para pasar los filtros de los ATS corporativos (Workday, Taleo, Greenhouse).
+          </p>
+        </div>
+        <div class="ats-banner-actions">
+          <button class="btn-banner-view" (click)="setViewMode('ats')">
+            <span>Ver Formato ATS en Pantalla</span>
+          </button>
+          <a href="assets/CV_Yeni_Chacon_ATS.html" target="_blank" class="btn-banner-download">
+            <span>Descargar Archivo ATS</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+  }
+
+  <!-- =========================================================
+       MODO 2: VISTA NATIVA CV ATS (100% COMPATIBLE CON ESCÁNERES)
+       ========================================================= -->
+  @if (activeViewMode() === 'ats') {
+    <main class="yeni-ats-wrapper">
+
+      <div class="ats-view-toolbar no-print">
+        <div class="ats-toolbar-info">
+          <span class="ats-live-badge">100% ATS Ready</span>
+          <span class="ats-toolbar-text">Formato textual estandarizado para sistemas de seguimiento de postulantes</span>
+        </div>
+        <div class="ats-toolbar-buttons">
+          <button class="tb-btn tb-print" (click)="printCV()">
+            <span>🖨️ Imprimir / Guardar en PDF</span>
+          </button>
+          <a href="assets/CV_Yeni_Chacon_ATS.html" target="_blank" class="tb-btn tb-raw">
+            <span>🌐 Abrir HTML Puro</span>
+          </a>
+          <button class="tb-btn tb-back" (click)="setViewMode('executive')">
+            <span>⬅️ Volver a Perfil Ejecutivo</span>
           </button>
         </div>
       </div>
-    </section>
 
-  </main>
+      <!-- DOCUMENTO ATS FORMAL -->
+      <article class="ats-document-sheet">
+
+        <!-- HEADER ATS -->
+        <header class="ats-sheet-header">
+          <div class="ats-header-text">
+            <h1 class="ats-candidate-name">{{ personalInfo.name }}</h1>
+            <p class="ats-candidate-headline">{{ personalInfo.title }}</p>
+            
+            <div class="ats-meta-grid">
+              <span><strong>Teléfono:</strong> {{ personalInfo.phone }}</span>
+              <span><strong>Correo:</strong> {{ personalInfo.email }}</span>
+              <span><strong>Ubicación:</strong> Bogotá D.C., Colombia (Kr 50A # 33 - 38 Sur)</span>
+              <span><strong>LinkedIn:</strong> linkedin.com/in/yenichacon</span>
+              <span><strong>Disponibilidad:</strong> Inmediata (Tiempo Completo / Híbrido)</span>
+            </div>
+          </div>
+
+          <div class="ats-photo-box">
+            <img src="assets/yeni-chacon.jpg" alt="Yeni Andrea Chacón Gordillo" class="ats-portrait-img">
+          </div>
+        </header>
+
+        <!-- SECCIÓN: RESUMEN PROFESIONAL -->
+        <section class="ats-section">
+          <h2 class="ats-section-title">RESUMEN PROFESIONAL</h2>
+          <p class="ats-text-block">
+            Estudiante de <strong>noveno (9.º) semestre de Derecho</strong> de la <strong>Fundación Universidad Autónoma de Colombia</strong> con graduación en 2026. Práctica forense activa en <strong>Consultorio Jurídico IV</strong> con experiencia comprobada en análisis de casos, sustanciación procesal y atención directa al usuario en Derecho Civil, Laboral, Penal y Familia. Experiencia en el sector público en la <strong>Secretaría Distrital de Hacienda</strong>, ejecutando labores de verificación jurídica de causales de prescripción de obligaciones tributarias distritales, proyección fundamentada de respuestas a <strong>acciones de tutela</strong> y <strong>derechos de petición</strong> dentro de los términos perentorios de ley, así como organización, depuración y foliación de expedientes digitales con estricta custodia institucional. Sólido dominio del CPACA (Ley 1437/2011), Código General del Proceso y Estatuto Tributario, complementado con manejo avanzado de bases de datos en Microsoft Excel y software institucional. Orientada a resultados, con alto sentido de confidencialidad y ética profesional.
+          </p>
+        </section>
+
+        <!-- SECCIÓN: EXPERIENCIA LABORAL -->
+        <section class="ats-section">
+          <h2 class="ats-section-title">EXPERIENCIA LABORAL</h2>
+
+          <div class="ats-job-entry">
+            <div class="ats-job-header">
+              <span class="ats-job-role">Auxiliar Jurídica / Pasante de Derecho</span> — 
+              <span class="ats-job-company">Secretaría Distrital de Hacienda</span>
+              <span class="ats-job-date">Noviembre 2025 – Febrero 2026</span>
+            </div>
+            <p class="ats-job-location">Bogotá D.C. · Sector Público / Gestión Tributaria & Cobro Coactivo</p>
+            <ul class="ats-bullet-list">
+              <li><strong>Verificación de Prescripciones Tributarias:</strong> Análisis normativo de expedientes y bases de datos masivas para determinar causales de prescripción de la acción de cobro conforme al Estatuto Tributario y jurisprudencia del Consejo de Estado.</li>
+              <li><strong>Proyección de Acciones Constitucionales:</strong> Redacción jurídica y sustanciación de respuestas a <strong>acciones de tutela</strong> y <strong>derechos de petición</strong> dentro de los términos legales perentorios, previniendo desacatos y sanciones institucionales.</li>
+              <li><strong>Trazabilidad y Custodia Documental:</strong> Revisión, foliación, depuración y archivo digital de expedientes tributarios, garantizando integridad probatoria y agilización en la consulta de información oficial.</li>
+              <li><strong>Herramientas Aplicadas:</strong> Microsoft Excel (tablas dinámicas y cruce de datos fiscales), SI Capital y gestores documentales.</li>
+            </ul>
+          </div>
+
+          <div class="ats-job-entry">
+            <div class="ats-job-header">
+              <span class="ats-job-role">Auxiliar Administrativa y Control Documental</span> — 
+              <span class="ats-job-company">Bordados Flyc</span>
+              <span class="ats-job-date">Enero 2022 – Agosto 2025 (3 años y 8 meses)</span>
+            </div>
+            <p class="ats-job-location">Bogotá D.C. · Sector Manufacturero & Comercial</p>
+            <ul class="ats-bullet-list">
+              <li><strong>Control y Auditoría de Facturación:</strong> Verificación de soportes contables, facturación electrónica y recibos de caja menor cumpliendo con los estándares normativos comerciales.</li>
+              <li><strong>Optimización de Archivo Institucional:</strong> Reestructuración del sistema de archivo físico y digital, reduciendo tiempos de consulta interna de expedientes en más del 35%.</li>
+              <li><strong>Gestión de Proveedores y Conciliaciones:</strong> Seguimiento y conciliación mensual de cuentas por pagar, manteniendo cartera al día y cumplimiento oportuno de acuerdos comerciales.</li>
+            </ul>
+          </div>
+
+          <div class="ats-job-entry">
+            <div class="ats-job-header">
+              <span class="ats-job-role">Asistente de Cobranza & Gestión Prejudicial</span> — 
+              <span class="ats-job-company">Inversiones y Asesoría ERPO & CIA</span>
+              <span class="ats-job-date">Julio 2016 – Noviembre 2016</span>
+            </div>
+            <p class="ats-job-location">Bogotá D.C. · Servicios Financieros & Cartera</p>
+            <ul class="ats-bullet-list">
+              <li><strong>Recuperación de Cartera Vencida:</strong> Negociación y conciliación telefónica y escrita con deudores morosos bajo lineamientos de respeto y cumplimiento de la Ley de Habeas Data (Ley 1266 de 2008).</li>
+              <li><strong>Elaboración de Informes de Gestión:</strong> Consolidación de reportes de cobro y registro fidedigno de acuerdos de pago en el CRM institucional.</li>
+            </ul>
+          </div>
+
+          <div class="ats-job-entry">
+            <div class="ats-job-header">
+              <span class="ats-job-role">Auxiliar de Operaciones y Archivo</span> — 
+              <span class="ats-job-company">Conexel S.A.S.</span>
+              <span class="ats-job-date">Enero 2016 – Abril 2016</span>
+            </div>
+            <p class="ats-job-location">Bogotá D.C. · Servicios Empresariales</p>
+            <ul class="ats-bullet-list">
+              <li>Control de planillas operativas, radicación de correspondencia y custodia de expedientes contractuales.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- SECCIÓN: FORMACIÓN ACADÉMICA -->
+        <section class="ats-section">
+          <h2 class="ats-section-title">FORMACIÓN ACADÉMICA</h2>
+          <div class="ats-edu-entry">
+            <div class="ats-job-header">
+              <span class="ats-job-role">Pregrado en Derecho (9.º Semestre en Curso · Graduación 2026)</span> — 
+              <span class="ats-job-company">Fundación Universidad Autónoma de Colombia</span>
+              <span class="ats-job-date">2020 – 2026</span>
+            </div>
+            <p class="ats-job-location">Bogotá D.C., Colombia</p>
+            <ul class="ats-bullet-list">
+              <li><strong>Práctica Forense Integral (Consultorio Jurídico IV):</strong> Asesoría jurídica a población vulnerable, elaboración y radicación de demandas, conceptos jurídicos y sustanciación procesal en Derecho Civil, Laboral, Penal y Familia.</li>
+              <li><strong>Énfasis Curricular:</strong> Derecho Administrativo, Procedimiento Contencioso Administrativo (CPACA), Derecho Tributario, Contratación Estatal y Derecho Constitucional.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- SECCIÓN: CURSOS Y ACTUALIZACIÓN -->
+        <section class="ats-section">
+          <h2 class="ats-section-title">CURSOS Y ACTUALIZACIÓN JURÍDICA</h2>
+          <ul class="ats-bullet-list">
+            <li><strong>Actualización en Procedimiento Administrativo y CPACA (Ley 1437/2011):</strong> Actuaciones administrativas, recursos procesales y trámites contenciosos. (2025)</li>
+            <li><strong>Técnica de Proyección y Trámite de Acciones de Tutela y Habeas Data:</strong> Estructuración fáctica y jurídica de respuestas constitucionales. (2025)</li>
+            <li><strong>Gestión Documental, TRD y Cadena de Custodia en Entidades Públicas:</strong> Normativa AGN y foliación de expedientes digitales. (2025)</li>
+            <li><strong>Gestión y Análisis de Bases de Datos en Microsoft Excel:</strong> Tablas dinámicas, filtros y fórmulas aplicadas a cartera fiscal. (2024)</li>
+          </ul>
+        </section>
+
+        <!-- SECCIÓN: COMPETENCIAS CLAVE -->
+        <section class="ats-section">
+          <h2 class="ats-section-title">COMPETENCIAS CLAVE Y HABILIDADES TÉCNICAS</h2>
+          <div class="ats-skills-table">
+            <p><strong>Áreas del Derecho:</strong> Administrativo, Acciones Constitucionales (Tutela y Petición), Tributario (Prescripciones), Civil, Laboral y Familia.</p>
+            <p><strong>Técnica Procesal:</strong> Redacción de memoriales, sustanciación de expedientes, conceptos jurídicos, verificación de términos procesales y recursos.</p>
+            <p><strong>Gestión Documental:</strong> Foliación, custodia probatoria, tablas de retención documental (TRD), depuración de bases de datos masivas.</p>
+            <p><strong>Sistemas y Software:</strong> Microsoft Excel (tablas dinámicas y fórmulas), Word Jurídico, Adobe Acrobat Pro, SI Capital, Rama Judicial (Tyba / Samai).</p>
+            <p><strong>Idiomas:</strong> Español (Nativo) · Inglés (Nivel A2 - Lectura básica).</p>
+          </div>
+        </section>
+
+        <footer class="ats-sheet-footer">
+          <span>Curriculum Vitae — Yeni Andrea Chacón Gordillo · Contacto: +57 310 541 3336 · yeni0314&#64;hotmail.com</span>
+        </footer>
+
+      </article>
+
+    </main>
+  }
 
   <!-- FOOTER DISCRETO -->
   <footer class="yeni-footer no-print">
-    <p>© 2026 Yeni Andrea Chacón Gordillo · Perfil Profesional Jurídico · Bogotá D.C., Colombia</p>
+    <div class="footer-inner">
+      <p>© 2026 Yeni Andrea Chacón Gordillo · Perfil Profesional Jurídico</p>
+      <p class="footer-sub">Optimizado para ferias de empleo, reclutadores corporativos y sistemas ATS.</p>
+    </div>
   </footer>
 
   <!-- =========================================================
-       MODAL DE CÓDIGO QR INTERACTIVO (IDEAL FERIA DE EMPLEO)
+       MODAL DE CÓDIGO QR INTERACTIVO (4 MODOS CON ATS)
        ========================================================= -->
   @if (isQrModalOpen()) {
     <div class="qr-modal-backdrop" (click)="closeQrModal()">
@@ -385,8 +570,8 @@
           <div class="modal-title-wrap">
             <span class="modal-icon">📱</span>
             <div>
-              <h3 class="modal-title">Código QR de Contacto</h3>
-              <p class="modal-subtitle">Escanéalo directamente con la cámara del celular</p>
+              <h3 class="modal-title">Código QR de Contacto & CV</h3>
+              <p class="modal-subtitle">Escanéalo con la cámara del celular para compartir al instante</p>
             </div>
           </div>
           <button class="modal-close-btn" (click)="closeQrModal()" aria-label="Cerrar modal">✕</button>
@@ -397,17 +582,20 @@
           <img src="assets/yeni-chacon.jpg" alt="Yeni Andrea Chacón" class="modal-avatar" />
           <div class="modal-profile-info">
             <span class="modal-p-name">{{ personalInfo.name }}</span>
-            <span class="modal-p-title">Abogada · Derecho Público & Administrativo</span>
+            <span class="modal-p-title">Abogada · Derecho Público & Gestión Documental</span>
           </div>
         </div>
 
         <!-- TABS DE QR -->
         <div class="modal-tabs-row">
           <button class="modal-tab" [class.active]="activeQrTab() === 'profile'" (click)="setQrTab('profile')">
-            <span>🌐 Perfil Digital</span>
+            <span>🌐 Perfil Web</span>
+          </button>
+          <button class="modal-tab" [class.active]="activeQrTab() === 'ats'" (click)="setQrTab('ats')">
+            <span>📄 CV ATS</span>
           </button>
           <button class="modal-tab" [class.active]="activeQrTab() === 'vcard'" (click)="setQrTab('vcard')">
-            <span>👤 Contacto (vCard)</span>
+            <span>👤 Contacto</span>
           </button>
           <button class="modal-tab" [class.active]="activeQrTab() === 'whatsapp'" (click)="setQrTab('whatsapp')">
             <span>💬 WhatsApp</span>
@@ -423,32 +611,34 @@
 
           <p class="qr-caption">
             @if (activeQrTab() === 'profile') {
-              Abre el perfil interactivo completo de Yeni Andrea Chacón Gordillo en el navegador móvil.
+              <span>Enlace directo a su perfil profesional web interactivo</span>
+            } @else if (activeQrTab() === 'ats') {
+              <span>Enlace directo al documento de Hoja de Vida formato ATS</span>
             } @else if (activeQrTab() === 'vcard') {
-              Guarda automáticamente los datos de contacto directo de Yeni en la agenda del teléfono.
+              <span>Guarda automáticamente a Yeni en la agenda telefónica del reclutador</span>
             } @else {
-              Abre una conversación directa por WhatsApp con mensaje de presentación listo.
+              <span>Abre un chat directo con mensaje de contacto profesional</span>
             }
           </p>
         </div>
 
-        <!-- BOTONES DE ACCIÓN DENTRO DEL MODAL -->
+        <!-- ACCIONES DEL MODAL -->
         <div class="modal-actions-row">
-          <button class="modal-action-btn copy-btn" (click)="copyLink()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
-            </svg>
-            <span>{{ copiedLink() ? '¡Enlace Copiado!' : 'Copiar Enlace' }}</span>
-          </button>
-
-          <button class="modal-action-btn download-png-btn" (click)="downloadQrImage()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
-              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+          <button class="modal-btn btn-primary" (click)="downloadQrImage()">
+            <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
             <span>Descargar Imagen QR (PNG)</span>
+          </button>
+
+          <button class="modal-btn btn-secondary" (click)="copyProfileLink()">
+            <svg class="m-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>{{ copiedLink() ? '¡Copiado!' : 'Copiar Enlace' }}</span>
           </button>
         </div>
 

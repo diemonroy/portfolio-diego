@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV ATS — Yeni Andrea Chacón Gordillo | Abogada en Formación · Derecho Público & Administrativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #b45309;
+      --accent-pastel: #fef3c7;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-400: #94a3b8;
+      --slate-200: #e2e8f0;
+      --slate-100: #f8fafc;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: var(--slate-800);
+      background-color: #f1f5f9;
+      line-height: 1.55;
+      font-size: 10pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* BARRA DE ACCIÓN SUPERIOR */
+    .action-bar {
+      max-width: 860px;
+      margin: 20px auto 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      color: var(--slate-900);
+      padding: 14px 24px;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--slate-200);
+      gap: 16px;
+    }
+
+    .action-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .action-title {
+      font-weight: 700;
+      font-size: 14.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--slate-900);
+    }
+
+    .ats-badge {
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #a7f3d0;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .action-sub {
+      font-size: 12px;
+      color: var(--slate-600);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-action {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-action:hover {
+      background: #172554;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--slate-100);
+      color: var(--slate-800);
+      border: 1px solid var(--slate-200);
+    }
+
+    .btn-secondary:hover {
+      background: var(--slate-200);
+      color: var(--slate-900);
+    }
+
+    /* CONTENEDOR DE PÁGINA CV */
+    .cv-page {
+      max-width: 860px;
+      margin: 20px auto 40px auto;
+      background: var(--bg);
+      padding: 48px 56px;
+      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.06);
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* ENCABEZADO EJECUTIVO */
+    .header-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 22px;
+      margin-bottom: 24px;
+      gap: 24px;
+    }
+
+    .header-left {
+      flex: 1;
+    }
+
+    .candidate-name {
+      font-size: 24pt;
+      font-weight: 800;
+      color: var(--slate-900);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 4px;
+    }
+
+    .candidate-headline {
+      font-size: 12pt;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      font-size: 9pt;
+      color: var(--slate-700);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .contact-item strong {
+      color: var(--slate-900);
+    }
+
+    .contact-item a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .header-photo-wrap {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--slate-200);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+      flex-shrink: 0;
+    }
+
+    .header-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* SECCIONES ESTANDARIZADAS PARA PARSERS ATS */
+    .section-block {
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-size: 11pt;
+      font-weight: 800;
+      color: var(--slate-900);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1.5px solid var(--slate-200);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 13px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .summary-text {
+      font-size: 9.5pt;
+      color: var(--slate-700);
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    /* ITEMS CRONOLÓGICOS */
+    .entry-item {
+      margin-bottom: 16px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+
+    .entry-role {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+
+    .entry-company {
+      font-size: 10pt;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .entry-date {
+      font-size: 8.8pt;
+      font-weight: 600;
+      color: var(--slate-600);
+      font-family: 'JetBrains Mono', monospace;
+      text-align: right;
+    }
+
+    .entry-location {
+      font-size: 8.5pt;
+      color: var(--slate-600);
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    .entry-description {
+      font-size: 9.2pt;
+      color: var(--slate-700);
+      margin-bottom: 6px;
+      line-height: 1.55;
+    }
+
+    .achievements-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 6px;
+    }
+
+    .achievements-list li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 9pt;
+      color: var(--slate-700);
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+
+    .achievements-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 11pt;
+      line-height: 1;
+    }
+
+    .keyword-tag {
+      font-weight: 600;
+      color: var(--slate-900);
+    }
+
+    /* MATRIZ DE COMPETENCIAS (TABLA COMPATIBLE ATS) */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .skill-box {
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      padding: 10px 14px;
+      border-radius: 8px;
+    }
+
+    .skill-box-title {
+      font-size: 9.2pt;
+      font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .skill-box-desc {
+      font-size: 8.7pt;
+      color: var(--slate-600);
+      line-height: 1.45;
+    }
+
+    /* FOOTER */
+    .cv-footer {
+      border-top: 1px solid var(--slate-200);
+      padding-top: 12px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: var(--slate-400);
+    }
+
+    /* ESTILOS DE IMPRESIÓN / EXPORTACIÓN PDF */
+    @media print {
+      body {
+        background: #ffffff !important;
+        font-size: 9.2pt !important;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .cv-page {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        max-width: 100% !important;
+      }
+
+      .header-photo-wrap {
+        border-color: #cbd5e1 !important;
+      }
+
+      .section-block {
+        page-break-inside: avoid;
+        margin-bottom: 16px !important;
+      }
+
+      .entry-item {
+        page-break-inside: avoid;
+      }
+
+      @page {
+        margin: 1.5cm 1.6cm;
+        size: letter;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE ACCIÓN DE RECLUTADOR -->
+  <div class="action-bar no-print">
+    <div class="action-info">
+      <div class="action-title">
+        <span>Curriculum Vitae — Formato ATS / Estándar</span>
+        <span class="ats-badge">100% ATS Ready</span>
+      </div>
+      <div class="action-sub">Optimizado para sistemas Workday, Taleo, Greenhouse y filtros automáticos de ferias de empleo</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn-action" onclick="window.print()">
+        <span>🖨️ Descargar en PDF / Imprimir</span>
+      </button>
+      <a href="/yeni-chacon" class="btn-action btn-secondary">
+        <span>⬅️ Volver al Perfil Digital</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- PÁGINA DEL CV ATS -->
+  <main class="cv-page">
+
+    <!-- HEADER / DATOS DE CONTACTO -->
+    <header class="header-layout">
+      <div class="header-left">
+        <h1 class="candidate-name">Yeni Andrea Chacón Gordillo</h1>
+        <div class="candidate-headline">Abogada en Formación · Énfasis en Derecho Público, Gestión Documental & Acciones Constitucionales</div>
+        
+        <div class="contact-grid">
+          <div class="contact-item">
+            <span>📞</span>
+            <strong>Teléfono:</strong>
+            <a href="tel:+573105413336">+57 (310) 541 3336</a>
+          </div>
+          <div class="contact-item">
+            <span>✉️</span>
+            <strong>Correo:</strong>
+            <a href="mailto:yeni0314@hotmail.com">yeni0314@hotmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span>📍</span>
+            <strong>Ubicación:</strong>
+            <span>Bogotá D.C., Colombia (Kr 50A # 33 - 38 Sur)</span>
+          </div>
+          <div class="contact-item">
+            <span>🔗</span>
+            <strong>LinkedIn:</strong>
+            <a href="https://linkedin.com/in/yenichacon" target="_blank" rel="noopener">linkedin.com/in/yenichacon</a>
+          </div>
+          <div class="contact-item">
+            <span>🌐</span>
+            <strong>Perfil Web:</strong>
+            <a href="https://diegomonroy.site/yeni-chacon">diegomonroy.site/yeni-chacon</a>
+          </div>
+          <div class="contact-item">
+            <span>💼</span>
+            <strong>Disponibilidad:</strong>
+            <span class="keyword-tag">Inmediata (Tiempo Completo / Híbrido)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-photo-wrap">
+        <img src="yeni-chacon.jpg" alt="Yeni Andrea Chacón Gordillo" class="header-photo">
+      </div>
+    </header>
+
+    <!-- 1. RESUMEN PROFESIONAL -->
+    <section class="section-block">
+      <h2 class="section-title">Resumen Profesional</h2>
+      <p class="summary-text">
+        Estudiante de <strong>noveno (9.º) semestre de Derecho</strong> de la <strong>Fundación Universidad Autónoma de Colombia</strong> con graduación prevista en 2026. Práctica forense activa en <strong>Consultorio Jurídico IV</strong> con competencias demostradas en análisis de casos, sustanciación y atención jurídica en las áreas de Derecho Civil, Laboral, Penal y Familia. Experiencia comprobada en el sector público en la <strong>Secretaría Distrital de Hacienda</strong>, desempeñando labores de verificación jurídica de procedencia de prescripción de obligaciones tributarias distritales, proyección de respuestas fundamentadas a <strong>acciones de tutela</strong> y <strong>derechos de petición</strong>, así como depuración y custodia de expedientes digitales con estricta trazabilidad institucional. Sólido dominio normativo del CPACA (Ley 1437/2011), Código General del Proceso y Estatuto Tributario, complementado con manejo avanzado de bases de datos en Microsoft Excel y plataformas ofimáticas institucionales. Orientada a resultados, con alto sentido de confidencialidad, ética profesional y capacidad analítica para incorporarse a despachos jurídicos, entidades públicas o áreas legales corporativas.
+      </p>
+    </section>
+
+    <!-- 2. EXPERIENCIA LABORAL -->
+    <section class="section-block">
+      <h2 class="section-title">Experiencia Laboral</h2>
+
+      <!-- SECRETARÍA DISTRITAL DE HACIENDA -->
+      <article class="entry-item">
+        <div class="entry-header">
+          <div>
+            <span class="entry-role">Auxiliar Jurídica / Pasante de Derecho</span> — 
+            <span class="entry-company">Secretaría Distrital de Hacienda</span>
+          </div>
+          <div class="entry-date">Nov 2025 – Feb 2026</div>
+        </div>
+        <div class="entry-location">Bogotá D.C., Colombia · Sector Público / Gestión Tributaria & Cobro Coactivo</div>
+        <p class="entry-description">
+          Soporte técnico-jurídico a la Subdirección en el análisis de obligaciones tributarias distritales, atención a requerimientos constitucionales y depuración masiva de bases de datos procesales.
+        </p>
+        <ul class="achievements-list">
+          <li><strong>Verificación de Prescripciones Tributarias:</strong> Análisis normativo de expedientes y bases de datos masivas para determinar causales de prescripción de la acción de cobro conforme al Estatuto Tributario y jurisprudencia del Consejo de Estado.</li>
+          <li><strong>Proyección de Acciones Constitucionales:</strong> Redacción jurídica y sustanciación de respuestas a <strong>acciones de tutela</strong> y <strong>derechos de petición</strong> dentro de los términos legales perentorios, previniendo desacatos y sanciones institucionales.</li>
+          <li><strong>Trazabilidad y Custodia Documental:</strong> Revisión, foliación, depuración y archivo digital de expedientes tributarios, garantizando integridad probatoria y agilización en la consulta de información oficial.</li>
+          <li><strong>Herramientas Aplicadas:</strong> Microsoft Excel (tablas dinámicas y cruce de datos fiscales), SI Capital, gestión de correspondencia institucional y gestores documentales.</li>
+        </ul>
+      </article>
+
+      <!-- BORDADOS FLYC -->
+      <article class="entry-item">
+        <div class="entry-header">
+          <div>
+            <span class="entry-role">Auxiliar Administrativa y Control Documental</span> — 
+            <span class="entry-company">Bordados Flyc</span>
+          </div>
+          <div class="entry-date">Ene 2022 – Ago 2025</div>
+        </div>
+        <div class="entry-location">Bogotá D.C., Colombia · Sector Manufacturero & Comercial</div>
+        <p class="entry-description">
+          Gestión integral de procesos administrativos, auditoría preliminar de comprobantes contables y organización física y digital de la memoria documental de la empresa durante 3 años y 8 meses.
+        </p>
+        <ul class="achievements-list">
+          <li><strong>Control y Auditoría de Facturación:</strong> Verificación de soportes contables, facturación electrónica y recibos de caja menor cumpliendo con los estándares normativos comerciales.</li>
+          <li><strong>Optimización de Archivo Institucional:</strong> Reestructuración del sistema de archivo físico y digital, reduciendo tiempos de consulta interna de expedientes en más del 35%.</li>
+          <li><strong>Gestión de Proveedores y Conciliaciones:</strong> Seguimiento y conciliación mensual de cuentas por pagar, manteniendo cartera al día y cumplimiento oportuno de acuerdos comerciales.</li>
+        </ul>
+      </article>
+
+      <!-- INVERSIONES Y ASESORÍA ERPO & CIA -->
+      <article class="entry-item">
+        <div class="entry-header">
+          <div>
+            <span class="entry-role">Asistente de Cobranza & Gestión Prejudicial</span> — 
+            <span class="entry-company">Inversiones y Asesoría ERPO & CIA</span>
+          </div>
+          <div class="entry-date">Jul 2016 – Nov 2016</div>
+        </div>
+        <div class="entry-location">Bogotá D.C., Colombia · Servicios Financieros & Recuperación de Cartera</div>
+        <ul class="achievements-list">
+          <li><strong>Recuperación de Cartera Vencida:</strong> Negociación y conciliación telefónica y escrita con deudores morosos bajo lineamientos de respeto y cumplimiento de la Ley de Habeas Data (Ley 1266 de 2008).</li>
+          <li><strong>Elaboración de Informes de Gestión:</strong> Consolidación de reportes de cobro y registro fidedigno de acuerdos de pago en el CRM institucional.</li>
+        </ul>
+      </article>
+
+      <!-- CONEXEL S.A.S. -->
+      <article class="entry-item">
+        <div class="entry-header">
+          <div>
+            <span class="entry-role">Auxiliar de Operaciones y Archivo</span> — 
+            <span class="entry-company">Conexel S.A.S.</span>
+          </div>
+          <div class="entry-date">Ene 2016 – Abr 2016</div>
+        </div>
+        <div class="entry-location">Bogotá D.C., Colombia · Servicios Empresariales</div>
+        <ul class="achievements-list">
+          <li>Control de planillas operativas, radicación de correspondencia y custodia de expedientes contractuales.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- 3. FORMACIÓN ACADÉMICA -->
+    <section class="section-block">
+      <h2 class="section-title">Formación Académica</h2>
+
+      <article class="entry-item">
+        <div class="entry-header">
+          <div>
+            <span class="entry-role">Pregrado en Derecho (En curso · 9.º Semestre)</span> — 
+            <span class="entry-company">Fundación Universidad Autónoma de Colombia</span>
+          </div>
+          <div class="entry-date">2020 – 2026 (En curso)</div>
+        </div>
+        <div class="entry-location">Bogotá D.C., Colombia</div>
+        <ul class="achievements-list">
+          <li><strong>Práctica Forense Integral (Consultorio Jurídico IV):</strong> Atención a usuarios, asesoría jurídica directa a población vulnerable, elaboración y sustanciación de demandas, derechos de petición y recursos de reposición/apelación en Derecho Civil, Laboral, Penal y Familia.</li>
+          <li><strong>Énfasis Académico:</strong> Derecho Administrativo, Procedimiento Contencioso Administrativo (CPACA), Derecho Tributario, Contratación Estatal y Derecho Constitucional.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- 4. COMPETENCIAS JURÍDICAS Y TÉCNICAS -->
+    <section class="section-block">
+      <h2 class="section-title">Competencias Clave y Habilidades Técnicas</h2>
+
+      <div class="skills-grid">
+        <div class="skill-box">
+          <div class="skill-box-title">⚖️ Áreas del Derecho Aplicado</div>
+          <div class="skill-box-desc">Derecho Administrativo, Acciones Constitucionales (Tutela y Hábeas Data), Derecho Tributario (Prescripciones), Derecho Civil, Laboral y Familia.</div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-box-title">📝 Técnica y Redacción Jurídica</div>
+          <div class="skill-box-desc">Proyección de memoriales, elaboración de demandas, formulación de derechos de petición, recursos procesales y conceptos jurídicos fundamentados.</div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-box-title">📁 Gestión Documental y Archivo</div>
+          <div class="skill-box-desc">Foliación, depuración de expedientes físicos y digitales, control de tablas de retención documental (TRD) y cadena de custodia probatoria.</div>
+        </div>
+
+        <div class="skill-box">
+          <div class="skill-box-title">💻 Sistemas y Ofimática Jurídica</div>
+          <div class="skill-box-desc">Microsoft Excel (tablas dinámicas, fórmulas lógicas, depuración de bases de datos), Microsoft Word, Adobe Acrobat Pro, Teams, SI Capital, Consulta Procesal de la Rama Judicial.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. IDIOMAS Y APTITUDES -->
+    <section class="section-block">
+      <h2 class="section-title">Idiomas y Aptitudes Personales</h2>
+      <ul class="achievements-list">
+        <li><strong>Idiomas:</strong> Español (Nativo / Excelente redacción y ortografía jurídica) · Inglés (Nivel A2 - Lectura de textos generales).</li>
+        <li><strong>Aptitudes Profesionales:</strong> Pensamiento analítico, ética profesional, alta discreción y manejo de reserva legal, rigurosidad metodológica, vocación de servicio y orientación al detalle en plazos procesales.</li>
+      </ul>
+    </section>
+
+    <!-- PIE DEL DOCUMENTO -->
+    <footer class="cv-footer">
+      <div>Documento generado para fines de vinculación laboral · Yeni Andrea Chacón Gordillo</div>
+      <div>Verificación digital: diegomonroy.site/yeni-chacon</div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
