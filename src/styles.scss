@@ -954,6 +954,7 @@ img, svg, canvas, video {
   max-width: 360px;
   height: 460px;
   object-fit: cover;
+  object-position: center 15%;
   border-radius: 22px;
   border: 1px solid var(--apple-card-border);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
