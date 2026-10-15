@@ -1,4 +1,5 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
+import { PortfolioDataService } from './portfolio-data.service';
 
 export type QrTabType = 'portfolio' | 'cv-design' | 'cv-ats' | 'vcard';
 
@@ -15,6 +16,7 @@ export interface QrItemConfig {
   providedIn: 'root'
 })
 export class QrShareService {
+  private portfolioDataService = inject(PortfolioDataService);
   isOpen = signal<boolean>(false);
   activeTab = signal<QrTabType>('portfolio');
 
@@ -65,10 +67,11 @@ export class QrShareService {
         };
       }
       case 'cv-ats': {
-        const url = `${base}/assets/CV_Diego_Monroy_ATS.pdf`;
+        const isEn = this.portfolioDataService.getCurrentLanguage() === 'en';
+        const url = `${base}/assets/${isEn ? 'CV_Diego_Monroy_ATS_EN.pdf' : 'CV_Diego_Monroy_ATS_ES.pdf'}`;
         return {
-          title: 'CV Formato ATS — Diego Monroy',
-          text: 'Descarga el CV optimizado para ATS de Diego Monroy:',
+          title: isEn ? 'Diego Monroy — ATS Optimized Resume' : 'CV Formato ATS — Diego Monroy',
+          text: isEn ? 'Download Diego Monroy\'s ATS-optimized resume:' : 'Descarga el CV optimizado para ATS de Diego Monroy:',
           url,
           qrData: url
         };

@@ -54,6 +54,7 @@
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 16px;
     }
 
     .action-info {
@@ -83,6 +84,41 @@
     .action-sub {
       opacity: 0.75;
       font-size: 12px;
+    }
+
+    .action-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* LANGUAGE TOGGLE */
+    .lang-toggle {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.7);
+      border: none;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .lang-btn.active {
+      background: var(--blue-600);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.45);
     }
 
     .action-buttons {
@@ -163,18 +199,16 @@
     .name {
       font-size: 23pt;
       font-weight: 800;
-      color: var(--navy-900);
-      letter-spacing: -0.025em;
+      color: var(--navy-950);
+      letter-spacing: -0.5px;
       line-height: 1.1;
-      text-transform: uppercase;
+      margin-bottom: 4px;
     }
 
     .headline {
       font-size: 11pt;
       font-weight: 700;
       color: var(--blue-600);
-      margin-top: 6px;
-      letter-spacing: -0.01em;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -182,32 +216,29 @@
     }
 
     .headline-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: var(--blue-50);
-      border: 1px solid var(--blue-100);
-      color: var(--blue-600);
       font-size: 8.5pt;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 6px;
+      font-weight: 600;
+      background: var(--blue-50);
+      color: var(--blue-600);
+      border: 1px solid var(--blue-100);
+      padding: 1px 8px;
+      border-radius: 4px;
     }
 
+    /* CONTACT GRID */
     .contact-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 6px 16px;
       margin-top: 14px;
-      font-size: 9pt;
+      font-size: 8.8pt;
       color: var(--slate-600);
-      line-height: 1.4;
     }
 
     .contact-item {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
     }
 
     .contact-item svg {
@@ -220,7 +251,6 @@
     .contact-item a {
       color: var(--slate-700);
       text-decoration: none;
-      font-weight: 500;
       transition: color 0.15s;
     }
 
@@ -229,7 +259,7 @@
       text-decoration: underline;
     }
 
-    /* SECTION STYLES */
+    /* SECTION STYLING */
     section {
       margin-bottom: 22px;
     }
@@ -238,34 +268,24 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 12px;
-      padding-bottom: 4px;
+      margin-bottom: 11px;
       border-bottom: 1.5px solid var(--slate-200);
-      position: relative;
-    }
-
-    .section-header::after {
-      content: '';
-      position: absolute;
-      bottom: -1.5px;
-      left: 0;
-      width: 44px;
-      height: 2px;
-      background: var(--blue-600);
+      padding-bottom: 4px;
     }
 
     .section-title {
-      font-size: 10.5pt;
+      font-size: 10.8pt;
       font-weight: 800;
-      color: var(--navy-900);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.6px;
+      color: var(--navy-950);
+      margin: 0;
     }
 
     .summary-text {
-      font-size: 9.6pt;
-      color: var(--navy-800);
+      font-size: 9.3pt;
       line-height: 1.6;
+      color: var(--slate-700);
       text-align: justify;
     }
 
@@ -274,21 +294,21 @@
       font-weight: 700;
     }
 
-    /* JOBS */
+    /* JOB CARD */
     .job-card {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .job-heading {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 4px;
       gap: 12px;
+      margin-bottom: 4px;
     }
 
     .job-title-company {
-      font-size: 10.5pt;
+      font-size: 10.2pt;
       font-weight: 700;
       color: var(--navy-900);
     }
@@ -299,51 +319,51 @@
     }
 
     .job-period-location {
-      font-size: 8.8pt;
+      font-size: 8.7pt;
       font-weight: 700;
       color: var(--slate-600);
       white-space: nowrap;
-      text-align: right;
     }
 
-    ul.bullet-list {
-      list-style-type: none;
+    /* BULLET LIST */
+    .bullet-list {
+      list-style: none;
       padding-left: 0;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
-    ul.bullet-list li {
+    .bullet-list li {
       position: relative;
       padding-left: 18px;
-      margin-bottom: 6px;
-      font-size: 9.3pt;
+      margin-bottom: 5px;
+      font-size: 9.1pt;
+      line-height: 1.5;
       color: var(--slate-700);
-      line-height: 1.55;
+      text-align: justify;
     }
 
-    ul.bullet-list li::before {
-      content: '';
+    .bullet-list li::before {
+      content: "•";
       position: absolute;
-      left: 3px;
-      top: 7px;
-      width: 5px;
-      height: 5px;
-      background: var(--blue-600);
-      border-radius: 1px;
+      left: 4px;
+      top: 0;
+      color: var(--blue-600);
+      font-size: 13pt;
+      line-height: 1;
     }
 
-    ul.bullet-list li strong {
+    .bullet-list li strong {
       color: var(--navy-900);
       font-weight: 700;
     }
 
-    /* CERTIFICACIONES HIGHLIGHT */
+    /* CERTIFICACIONES */
     .cert-featured-box {
-      background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
-      border: 1px solid #bfdbfe;
-      border-left: 4px solid var(--blue-600);
-      padding: 10px 14px;
+      background: #f8fafc;
+      border: 1px solid var(--blue-100);
+      border-left: 3.5px solid var(--blue-600);
       border-radius: 6px;
+      padding: 9px 14px;
       margin-bottom: 10px;
       display: flex;
       justify-content: space-between;
@@ -448,16 +468,16 @@
     }
 
     .skill-line {
-      font-size: 9.1pt;
-      line-height: 1.5;
       display: flex;
-      gap: 6px;
+      font-size: 9.0pt;
+      line-height: 1.45;
+      gap: 8px;
     }
 
     .skill-category {
-      font-weight: 700;
-      color: var(--navy-900);
-      min-width: 165px;
+      font-weight: 800;
+      color: var(--navy-950);
+      min-width: 175px;
       flex-shrink: 0;
     }
 
@@ -465,21 +485,22 @@
       color: var(--slate-700);
     }
 
-    /* PAGE FOOTER */
+    /* SHEET FOOTER */
     .sheet-footer {
-      margin-top: 32px;
-      padding-top: 14px;
+      margin-top: 26px;
+      padding-top: 12px;
       border-top: 1px solid var(--slate-200);
       display: flex;
       justify-content: space-between;
-      font-size: 8pt;
+      font-size: 7.8pt;
       color: var(--slate-500);
     }
 
-    /* PRINT STYLES */
+    /* PRINT RULES */
     @media print {
       body {
-        background: transparent;
+        background: #fff;
+        font-size: 9.2pt;
       }
       .no-print {
         display: none !important;
@@ -488,32 +509,34 @@
         margin: 0;
         padding: 0;
         box-shadow: none;
-        max-width: 100%;
-        border-radius: 0;
         border: none;
+        max-width: 100%;
       }
       .top-accent-bar {
         display: none;
       }
-      a {
-        text-decoration: none;
-        color: inherit;
+      .bullet-list li, .summary-text {
+        text-align: left;
+      }
+      .sheet-footer {
+        display: none;
       }
       @page {
-        size: A4;
-        margin: 14mm 16mm;
+        margin: 12mm 15mm;
+        size: A4 portrait;
       }
     }
 
     @media (max-width: 768px) {
       .action-bar {
         flex-direction: column;
-        gap: 12px;
-        align-items: stretch;
+        align-items: flex-start;
         margin: 12px;
       }
-      .action-buttons {
-        flex-direction: column;
+      .action-controls {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
       }
       .sheet {
         margin: 12px;
@@ -542,28 +565,37 @@
   <div class="action-bar no-print">
     <div class="action-info">
       <div class="action-title">
-        <span>Formato ATS Ejecutivo — Diego Leonardo Monroy Durán</span>
+        <span id="txtActionTitle">Formato ATS Ejecutivo — Diego Leonardo Monroy Durán</span>
         <span class="action-badge">100% ATS Ready & Human Readable</span>
       </div>
-      <span class="action-sub">Diseño de alta dirección, compatible con sistemas de selección (Workday, Taleo, Greenhouse)</span>
+      <span class="action-sub" id="txtActionSub">Diseño de alta dirección, compatible con sistemas de selección (Workday, Taleo, Greenhouse)</span>
     </div>
-    <div class="action-buttons">
-      <a href="CV_Diego_Monroy_ATS.pdf" class="btn-action" download="CV_Diego_Monroy_ATS.pdf">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-          <polyline points="7 10 12 15 17 10"></polyline>
-          <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg>
-        Descargar PDF Vectorial
-      </a>
-      <button class="btn-action btn-secondary" onclick="window.print()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 6 2 18 2 18 9"></polyline>
-          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-          <rect x="6" y="14" width="12" height="8"></rect>
-        </svg>
-        Imprimir
-      </button>
+
+    <div class="action-controls">
+      <!-- LANGUAGE SWITCHER -->
+      <div class="lang-toggle" role="group" aria-label="Idioma del Currículum">
+        <button class="lang-btn" id="btnLangEs" onclick="setResumeLang('es')">ES</button>
+        <button class="lang-btn" id="btnLangEn" onclick="setResumeLang('en')">EN</button>
+      </div>
+
+      <div class="action-buttons">
+        <a id="btnDownloadPdf" href="CV_Diego_Monroy_ATS_ES.pdf" class="btn-action" download="CV_Diego_Monroy_ATS_ES.pdf">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span id="txtDownloadBtn">Descargar PDF</span>
+        </a>
+        <button class="btn-action btn-secondary" onclick="window.print()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span id="txtPrintBtn">Imprimir</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -571,7 +603,7 @@
   <main class="sheet">
     <div class="top-accent-bar"></div>
 
-    <!-- HEADER -->
+    <!-- HEADER (SHARED) -->
     <header>
       <div class="name-title-group">
         <div>
@@ -612,181 +644,419 @@
       </div>
     </header>
 
-    <!-- PERFIL PROFESIONAL -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Perfil Profesional</h2>
-      </div>
-      <p class="summary-text">
-        Ingeniero Mecatrónico y Especialista en Gerencia de Proyectos con más de <strong>5 años de trayectoria</strong> en arquitectura de software, ingeniería de datos y liderazgo técnico en el sector bancario y corporativo. <strong>Google Cloud Certified Associate Cloud Engineer (ACE)</strong>. Experto en el diseño y despliegue de arquitecturas limpias, microservicios de alta concurrencia, pipelines DevSecOps y soluciones de <strong>Inteligencia Artificial Generativa empresarial</strong> orquestadas con LangChain, LangGraph y Google Cloud BigQuery. Capacidad demostrada para traducir metas estratégicas de negocio en sistemas resilientes, seguros y escalables con disponibilidad sostenida del <strong>99.99% (SLA)</strong> bajo rigurosas normativas financieras (OWASP, PCI-DSS).
-      </p>
-    </section>
+    <!-- ================= SPANISH CONTENT CONTAINER ================= -->
+    <div id="content-es">
+      <!-- PERFIL PROFESIONAL -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Perfil Profesional</h2>
+        </div>
+        <p class="summary-text">
+          Ingeniero Mecatrónico y Especialista en Gerencia de Proyectos con más de <strong>5 años de trayectoria</strong> en arquitectura de software, ingeniería de datos y liderazgo técnico en el sector bancario y corporativo. <strong>Google Cloud Certified Associate Cloud Engineer (ACE)</strong>. Experto en el diseño y despliegue de arquitecturas limpias, microservicios de alta concurrencia, pipelines DevSecOps y soluciones de <strong>Inteligencia Artificial Generativa empresarial</strong> orquestadas con LangChain, LangGraph y Google Cloud BigQuery. Capacidad demostrada para traducir metas estratégicas de negocio en sistemas resilientes, seguros y escalables con disponibilidad sostenida del <strong>99.99% (SLA)</strong> bajo rigurosas normativas financieras (OWASP, PCI-DSS).
+        </p>
+      </section>
 
-    <!-- EXPERIENCIA PROFESIONAL -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Experiencia Profesional</h2>
-      </div>
+      <!-- EXPERIENCIA PROFESIONAL -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Experiencia Profesional</h2>
+        </div>
 
-      <div class="job-card">
-        <div class="job-heading">
-          <div class="job-title-company">
-            <span>Tech Lead & Arquitecto de Software</span> — <span class="job-company">Banco de Bogotá (Grupo AVAL)</span>
+        <div class="job-card">
+          <div class="job-heading">
+            <div class="job-title-company">
+              <span>Tech Lead & Arquitecto de Software</span> — <span class="job-company">Banco de Bogotá (Grupo AVAL)</span>
+            </div>
+            <div class="job-period-location">
+              <span>Feb. 2022 — Presente</span> | <span>Bogotá, Colombia</span>
+            </div>
           </div>
-          <div class="job-period-location">
-            <span>Feb. 2022 — Presente</span> | <span>Bogotá, Colombia</span>
+          <ul class="bullet-list">
+            <li><strong>Liderazgo Técnico & Arquitectura:</strong> Dirijo el equipo de ingeniería a cargo de la arquitectura, desarrollo y evolución del CRM In-House para Banca Empresas, centralizando la operativa de clientes corporativos con un SLA de disponibilidad del 99.99% en entorno de misión crítica.</li>
+            <li><strong>Inteligencia Artificial Generativa:</strong> Diseñé e implementé flujos de agentes autónomos con LangChain y LangGraph integrados a bases de datos vectoriales y BigQuery, automatizando procesos de consulta financiera y reduciendo tiempos de respuesta en un 40%.</li>
+            <li><strong>Microservicios & Arquitectura Limpia:</strong> Establecí directrices de Arquitectura Hexagonal y Domain-Driven Design (DDD) sobre microservicios en Spring Boot, Node.js y Python, asegurando baja latencia, desacoplamiento y alta capacidad de concurrencia.</li>
+            <li><strong>DevSecOps & Resiliencia Cloud:</strong> Implementé pipelines de CI/CD automatizados con escaneo estático de seguridad (SonarQube) y despliegues Zero-Downtime sobre Kubernetes y Google Cloud Run, reduciendo incidentes en producción en un 38%.</li>
+            <li><strong>Seguridad Bancaria & Compliance:</strong> Garantizo la protección estricta de datos financieros sensibles mediante cumplimiento de OWASP Top 10, autenticación OAuth2/OIDC, auditorías de seguridad y revisiones rigurosas de código (code reviews).</li>
+            <li><strong>Gobernanza & Dirección de Equipos:</strong> Mentoría técnica a ingenieros de software, articulación de roadmaps tecnológicos con vicepresidencias de tecnología y negocio, e impulso de metodologías ágiles continuas (Scrum, Kanban).</li>
+          </ul>
+        </div>
+
+        <div class="job-card">
+          <div class="job-heading">
+            <div class="job-title-company">
+              <span>Desarrollador de Software Jr. / Ruta Digital</span> — <span class="job-company">Banco de Bogotá</span>
+            </div>
+            <div class="job-period-location">
+              <span>Ago. 2021 — Ene. 2022</span> | <span>Bogotá, Colombia</span>
+            </div>
           </div>
+          <ul class="bullet-list">
+            <li><strong>Desarrollo Core & APIs:</strong> Construcción y mantenimiento de módulos frontend reactivos con Angular y servicios backend RESTful consumiendo microservicios empresariales en el marco del plan de transformación digital bancaria.</li>
+            <li><strong>Testing & Calidad Bancaria:</strong> Implementación sistemática de pruebas unitarias y de integración, garantizando estabilidad funcional e interoperabilidad con sistemas core legados.</li>
+            <li><strong>Cultura Ágil & CI/CD:</strong> Participación activa en ceremonias Scrum, sprints de entrega continua y gestión de repositorios bajo Git y Azure DevOps.</li>
+          </ul>
         </div>
-        <ul class="bullet-list">
-          <li><strong>Liderazgo Técnico & Arquitectura:</strong> Dirijo el equipo de ingeniería a cargo de la arquitectura, desarrollo y evolución del CRM In-House para Banca Empresas, centralizando la operativa de clientes corporativos con un SLA de disponibilidad del 99.99% en entorno de misión crítica.</li>
-          <li><strong>Inteligencia Artificial Generativa:</strong> Diseñé e implementé flujos de agentes autónomos con LangChain y LangGraph integrados a bases de datos vectoriales y BigQuery, automatizando procesos de consulta financiera y reduciendo tiempos de respuesta en un 40%.</li>
-          <li><strong>Microservicios & Arquitectura Limpia:</strong> Establecí directrices de Arquitectura Hexagonal y Domain-Driven Design (DDD) sobre microservicios en Spring Boot, Node.js y Python, asegurando baja latencia, desacoplamiento y alta capacidad de concurrencia.</li>
-          <li><strong>DevSecOps & Resiliencia Cloud:</strong> Implementé pipelines de CI/CD automatizados con escaneo estático de seguridad (SonarQube) y despliegues Zero-Downtime sobre Kubernetes y Google Cloud Run, reduciendo incidentes en producción en un 38%.</li>
-          <li><strong>Seguridad Bancaria & Compliance:</strong> Garantizo la protección estricta de datos financieros sensibles mediante cumplimiento de OWASP Top 10, autenticación OAuth2/OIDC, auditorías de seguridad y revisiones rigurosas de código (code reviews).</li>
-          <li><strong>Gobernanza & Dirección de Equipos:</strong> Mentoría técnica a ingenieros de software, articulación de roadmaps tecnológicos con vicepresidencias de tecnología y negocio, e impulso de metodologías ágiles continuas (Scrum, Kanban).</li>
-        </ul>
-      </div>
+      </section>
 
-      <div class="job-card">
-        <div class="job-heading">
-          <div class="job-title-company">
-            <span>Desarrollador de Software Jr. / Ruta Digital</span> — <span class="job-company">Banco de Bogotá</span>
+      <!-- CERTIFICACIONES OFICIALES -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Certificaciones Oficiales & Reconocimientos</h2>
+        </div>
+
+        <div class="cert-featured-box">
+          <div class="cert-featured-left">
+            <span class="cert-featured-name">Google Cloud Certified: Associate Cloud Engineer (ACE)</span>
+            <span class="cert-featured-meta">Google Cloud · Validez: 2026 — 2029</span>
           </div>
-          <div class="job-period-location">
-            <span>Ago. 2021 — Ene. 2022</span> | <span>Bogotá, Colombia</span>
-          </div>
-        </div>
-        <ul class="bullet-list">
-          <li><strong>Desarrollo Core & APIs:</strong> Construcción y mantenimiento de módulos frontend reactivos con Angular y servicios backend RESTful consumiendo microservicios empresariales en el marco del plan de transformación digital bancaria.</li>
-          <li><strong>Testing & Calidad Bancaria:</strong> Implementación sistemática de pruebas unitarias y de integración, garantizando estabilidad funcional e interoperabilidad con sistemas core legados.</li>
-          <li><strong>Cultura Ágil & CI/CD:</strong> Participación activa en ceremonias Scrum, sprints de entrega continua y gestión de repositorios bajo Git y Azure DevOps.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- CERTIFICACIONES OFICIALES -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Certificaciones Oficiales & Reconocimientos</h2>
-      </div>
-
-      <div class="cert-featured-box">
-        <div class="cert-featured-left">
-          <span class="cert-featured-name">Google Cloud Certified: Associate Cloud Engineer (ACE)</span>
-          <span class="cert-featured-meta">Google Cloud · Validez: 2026 — 2029</span>
-        </div>
-        <div>
-          <span class="cert-featured-id">Credly ID: 189954</span>
-        </div>
-      </div>
-
-      <div class="cert-row">
-        <div>
-          <span class="cert-row-title">AWS Academy Graduate: Cloud Foundations & Machine Learning</span>
-          <span class="cert-row-issuer"> — AWS Academy / Univ. de los Andes</span>
-        </div>
-        <span class="cert-row-date">Jul. 2022</span>
-      </div>
-
-      <div class="cert-row">
-        <div>
-          <span class="cert-row-title">GCP Skill Badge: Implement Load Balancing on Compute Engine</span>
-          <span class="cert-row-issuer"> — Google Cloud Skills Boost</span>
-        </div>
-        <span class="cert-row-date">Dic. 2025</span>
-      </div>
-
-      <div class="cert-row">
-        <div>
-          <span class="cert-row-title">Participante HackaPrompt GenAI & LLM Security</span>
-          <span class="cert-row-issuer"> — Microsoft & Banco de Bogotá</span>
-        </div>
-        <span class="cert-row-date">2024</span>
-      </div>
-    </section>
-
-    <!-- EDUCACIÓN SUPERIOR -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Educación Superior</h2>
-      </div>
-
-      <div class="edu-item">
-        <div class="edu-header">
           <div>
-            <span class="edu-degree">Especialización en Gerencia de Proyectos</span>
-            <span class="edu-inst"> — Universidad de Boyacá</span>
+            <span class="cert-featured-id">Credly ID: 189954</span>
           </div>
-          <span class="edu-meta">Ago. 2023 | Tunja, Colombia</span>
         </div>
-        <div class="edu-sub">Enfoque en Metodologías Ágiles (Scrum, Kanban), Gestión de Riesgos y Estándares PMI</div>
-      </div>
 
-      <div class="edu-item">
-        <div class="edu-header">
+        <div class="cert-row">
           <div>
-            <span class="edu-degree">Ingeniería Mecatrónica</span>
-            <span class="edu-inst"> — Universidad de Boyacá</span>
+            <span class="cert-row-title">AWS Academy Graduate: Cloud Foundations & Machine Learning</span>
+            <span class="cert-row-issuer"> — AWS Academy / Univ. de los Andes</span>
           </div>
-          <span class="edu-meta">Jul. 2022 | Tunja, Colombia</span>
+          <span class="cert-row-date">Jul. 2022</span>
         </div>
-        <div class="edu-sub">Control Inteligente, Automatización de Procesos, Sistemas Embebidos, C/C++ y TI</div>
-      </div>
 
-      <div class="edu-item">
-        <div class="edu-header">
+        <div class="cert-row">
           <div>
-            <span class="edu-degree">Competencias Gerenciales I</span>
-            <span class="edu-inst"> — Universidad de los Andes</span>
+            <span class="cert-row-title">GCP Skill Badge: Implement Load Balancing on Compute Engine</span>
+            <span class="cert-row-issuer"> — Google Cloud Skills Boost</span>
           </div>
-          <span class="edu-meta">Feb. 2025 | Bogotá, Colombia</span>
+          <span class="cert-row-date">Dic. 2025</span>
         </div>
-        <div class="edu-sub">Liderazgo estratégico, comunicación asertiva y toma de decisiones en entornos complejos</div>
-      </div>
-    </section>
 
-    <!-- HABILIDADES TÉCNICAS & STACK -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Habilidades Técnicas & Stack Tecnológico</h2>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-line">
-          <span class="skill-category">Arquitectura & Cloud:</span>
-          <span class="skill-items">Google Cloud Platform (GCP ACE), AWS, Azure, Microservicios, Arquitectura Limpia (Hexagonal), Kubernetes, Docker, Terraform (IaC).</span>
+        <div class="cert-row">
+          <div>
+            <span class="cert-row-title">Participante HackaPrompt GenAI & LLM Security</span>
+            <span class="cert-row-issuer"> — Microsoft & Banco de Bogotá</span>
+          </div>
+          <span class="cert-row-date">2024</span>
         </div>
-        <div class="skill-line">
-          <span class="skill-category">Inteligencia Artificial:</span>
-          <span class="skill-items">LangChain, LangGraph, LLMs (Gemini, OpenAI), Bases de Datos Vectoriales, RAG Empresarial, BigQuery ML, Prompt Engineering.</span>
-        </div>
-        <div class="skill-line">
-          <span class="skill-category">Backend & Bases de Datos:</span>
-          <span class="skill-items">Java (Spring Boot), Python (FastAPI), Node.js (Express), TypeScript, SQL (PostgreSQL, BigQuery, SQL Server), Bash Scripting.</span>
-        </div>
-        <div class="skill-line">
-          <span class="skill-category">Frontend & Web:</span>
-          <span class="skill-items">Angular, TypeScript, JavaScript, HTML5, SCSS, Diseño Responsive, Consumo de APIs RESTful.</span>
-        </div>
-        <div class="skill-line">
-          <span class="skill-category">DevSecOps & Seguridad:</span>
-          <span class="skill-items">CI/CD Pipelines, OWASP Top 10, OAuth2 / OIDC, SonarQube, Git, Pruebas Automatizadas, Despliegues Zero-Downtime.</span>
-        </div>
-        <div class="skill-line">
-          <span class="skill-category">Liderazgo & Gestión:</span>
-          <span class="skill-items">Scrum, Kanban, Liderazgo Técnico, Code Reviews, Planificación de Roadmaps, Gestión de Proyectos (PMI).</span>
-        </div>
-        <div class="skill-line">
-          <span class="skill-category">Idiomas:</span>
-          <span class="skill-items">Español (Nativo), Inglés (Profesional / B2), Portugués (Básico / A2).</span>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <footer class="sheet-footer">
-      <span>Diego Leonardo Monroy Durán · Tech Lead & Solutions Architect</span>
-      <span>Formato ATS Optimizado · 100% Parseable</span>
-    </footer>
+      <!-- EDUCACIÓN SUPERIOR -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Educación Superior</h2>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-header">
+            <div>
+              <span class="edu-degree">Especialización en Gerencia de Proyectos</span>
+              <span class="edu-inst"> — Universidad de Boyacá</span>
+            </div>
+            <span class="edu-meta">Ago. 2023 | Tunja, Colombia</span>
+          </div>
+          <div class="edu-sub">Enfoque en Metodologías Ágiles (Scrum, Kanban), Gestión de Riesgos y Estándares PMI</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-header">
+            <div>
+              <span class="edu-degree">Ingeniería Mecatrónica</span>
+              <span class="edu-inst"> — Universidad de Boyacá</span>
+            </div>
+            <span class="edu-meta">Jul. 2022 | Tunja, Colombia</span>
+          </div>
+          <div class="edu-sub">Control Inteligente, Automatización de Procesos, Sistemas Embebidos, C/C++ y TI</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-header">
+            <div>
+              <span class="edu-degree">Competencias Gerenciales I</span>
+              <span class="edu-inst"> — Universidad de los Andes</span>
+            </div>
+            <span class="edu-meta">Feb. 2025 | Bogotá, Colombia</span>
+          </div>
+          <div class="edu-sub">Liderazgo estratégico, comunicación asertiva y toma de decisiones en entornos complejos</div>
+        </div>
+      </section>
+
+      <!-- HABILIDADES TÉCNICAS -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Habilidades Técnicas & Stack Tecnológico</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-line">
+            <span class="skill-category">Arquitectura & Cloud:</span>
+            <span class="skill-items">Google Cloud Platform (GCP ACE), AWS, Azure, Microservicios, Arquitectura Limpia (Hexagonal), Kubernetes, Docker, Terraform (IaC).</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">Inteligencia Artificial:</span>
+            <span class="skill-items">LangChain, LangGraph, LLMs (Gemini, OpenAI), Bases de Datos Vectoriales, RAG Empresarial, BigQuery ML, Prompt Engineering.</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">Backend & Bases de Datos:</span>
+            <span class="skill-items">Java (Spring Boot), Python (FastAPI), Node.js (Express), TypeScript, SQL (PostgreSQL, BigQuery, SQL Server), Bash Scripting.</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">Frontend & Web:</span>
+            <span class="skill-items">Angular, TypeScript, JavaScript, HTML5, SCSS, Diseño Responsive, Consumo de APIs RESTful.</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">DevSecOps & Seguridad:</span>
+            <span class="skill-items">CI/CD Pipelines, OWASP Top 10, OAuth2 / OIDC, SonarQube, Git, Pruebas Automatizadas, Despliegues Zero-Downtime.</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">Liderazgo & Gestión:</span>
+            <span class="skill-items">Scrum, Kanban, Liderazgo Técnico, Code Reviews, Planificación de Roadmaps, Gestión de Proyectos (PMI).</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">Idiomas:</span>
+            <span class="skill-items">Español (Nativo), Inglés (Profesional / B2), Portugués (Básico / A2).</span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="sheet-footer">
+        <span>Diego Leonardo Monroy Durán · Tech Lead & Solutions Architect</span>
+        <span>Formato ATS Optimizado · 100% Parseable</span>
+      </footer>
+    </div>
+
+    <!-- ================= ENGLISH CONTENT CONTAINER ================= -->
+    <div id="content-en" style="display: none;">
+      <!-- PROFESSIONAL SUMMARY -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Professional Summary</h2>
+        </div>
+        <p class="summary-text">
+          Mechatronics Engineer and Project Management Specialist with <strong>8+ years of engineering and software architecture trajectory</strong> across the financial and enterprise sectors. <strong>Google Cloud Certified Associate Cloud Engineer (ACE)</strong>. Proven expert in designing high-throughput Clean Architectures (Hexagonal, DDD), microservices, DevSecOps pipelines, and enterprise <strong>Generative AI multi-agent workflows</strong> using LangChain, LangGraph, and Google Cloud BigQuery. Track record of translating business goals into resilient, secure, high-availability architectures (<strong>99.99% SLA</strong>) under strict financial compliance (OWASP, PCI-DSS).
+        </p>
+      </section>
+
+      <!-- PROFESSIONAL EXPERIENCE -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Professional Experience</h2>
+        </div>
+
+        <div class="job-card">
+          <div class="job-heading">
+            <div class="job-title-company">
+              <span>Tech Lead & Software Architect</span> — <span class="job-company">Banco de Bogotá (Grupo AVAL)</span>
+            </div>
+            <div class="job-period-location">
+              <span>Feb. 2022 — Present</span> | <span>Bogotá, Colombia</span>
+            </div>
+          </div>
+          <ul class="bullet-list">
+            <li><strong>Technical Leadership & Architecture:</strong> Directed the engineering team responsible for the architectural design and scaling of the In-House Corporate Banking CRM, centralizing commercial operations with 99.99% SLA availability in mission-critical banking.</li>
+            <li><strong>Enterprise Generative AI:</strong> Designed and integrated autonomous multi-agent workflows using LangChain and LangGraph connected to vector databases and BigQuery, automating financial analysis and slashing query latency by 40%.</li>
+            <li><strong>Microservices & Clean Architecture:</strong> Defined Hexagonal and Domain-Driven Design (DDD) standards across Java (Spring Boot), Node.js, and Python microservices, guaranteeing low latency, decoupling, and high concurrency.</li>
+            <li><strong>DevSecOps & Cloud Resilience:</strong> Implemented automated CI/CD pipelines with SonarQube static code analysis and Zero-Downtime deployments on Kubernetes and Cloud Run, cutting production deployment incidents by 38%.</li>
+            <li><strong>Banking Security & Compliance:</strong> Enforced strict sensitive financial data governance aligning with OWASP Top 10, OAuth2/OIDC authentication protocols, regulatory audits, and rigorous peer code reviews.</li>
+            <li><strong>Engineering Governance & Mentorship:</strong> Provided technical direction and mentorship to software engineers, aligned tech roadmaps with technology VPs, and promoted continuous Agile delivery (Scrum, Kanban).</li>
+          </ul>
+        </div>
+
+        <div class="job-card">
+          <div class="job-heading">
+            <div class="job-title-company">
+              <span>Junior Software Developer / Digital Transformation</span> — <span class="job-company">Banco de Bogotá</span>
+            </div>
+            <div class="job-period-location">
+              <span>Jul. 2021 — Jan. 2022</span> | <span>Bogotá, Colombia</span>
+            </div>
+          </div>
+          <ul class="bullet-list">
+            <li><strong>Core Development & REST APIs:</strong> Built and maintained reactive frontend modules in Angular and RESTful backend microservices within the bank's digital transformation roadmap.</li>
+            <li><strong>Testing & Quality Assurance:</strong> Implemented automated unit and integration tests, ensuring functional reliability and backward compatibility with core banking systems.</li>
+            <li><strong>Agile Methodologies & CI/CD:</strong> Actively contributed to Scrum ceremonies, two-week sprint releases, and version control workflows under Git and Azure DevOps.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- OFFICIAL CERTIFICATIONS & HONORS -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Official Certifications & Honors</h2>
+        </div>
+
+        <div class="cert-featured-box">
+          <div class="cert-featured-left">
+            <span class="cert-featured-name">Google Cloud Certified: Associate Cloud Engineer (ACE)</span>
+            <span class="cert-featured-meta">Google Cloud · Validity: 2026 — 2029</span>
+          </div>
+          <div>
+            <span class="cert-featured-id">Credly ID: 189954</span>
+          </div>
+        </div>
+
+        <div class="cert-row">
+          <div>
+            <span class="cert-row-title">AWS Academy Graduate: Cloud Foundations & Machine Learning</span>
+            <span class="cert-row-issuer"> — AWS Academy / Univ. de los Andes</span>
+          </div>
+          <span class="cert-row-date">Jul. 2022</span>
+        </div>
+
+        <div class="cert-row">
+          <div>
+            <span class="cert-row-title">GCP Skill Badge: Implement Load Balancing on Compute Engine</span>
+            <span class="cert-row-issuer"> — Google Cloud Skills Boost</span>
+          </div>
+          <span class="cert-row-date">Dec. 2025</span>
+        </div>
+
+        <div class="cert-row">
+          <div>
+            <span class="cert-row-title">HackaPrompt GenAI & LLM Security Competitor</span>
+            <span class="cert-row-issuer"> — Microsoft & Banco de Bogotá</span>
+          </div>
+          <span class="cert-row-date">2024</span>
+        </div>
+      </section>
+
+      <!-- HIGHER EDUCATION -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Higher Education</h2>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-header">
+            <div>
+              <span class="edu-degree">Postgraduate Specialization in Project Management</span>
+              <span class="edu-inst"> — Universidad de Boyacá</span>
+            </div>
+            <span class="edu-meta">Aug. 2023 | Tunja, Colombia</span>
+          </div>
+          <div class="edu-sub">Focus on Agile Frameworks (Scrum, Kanban), Risk Assessment, and PMI Standards</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-header">
+            <div>
+              <span class="edu-degree">B.S. in Mechatronics Engineering</span>
+              <span class="edu-inst"> — Universidad de Boyacá</span>
+            </div>
+            <span class="edu-meta">Jul. 2022 | Tunja, Colombia</span>
+          </div>
+          <div class="edu-sub">Intelligent Control, Process Automation, Embedded Systems, C/C++, and IT Tools</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-header">
+            <div>
+              <span class="edu-degree">Management Competencies I</span>
+              <span class="edu-inst"> — Universidad de los Andes</span>
+            </div>
+            <span class="edu-meta">Feb. 2025 | Bogotá, Colombia</span>
+          </div>
+          <div class="edu-sub">Executive leadership, strategic negotiation, and decision-making in complex environments</div>
+        </div>
+      </section>
+
+      <!-- TECHNICAL SKILLS & TECH STACK -->
+      <section>
+        <div class="section-header">
+          <h2 class="section-title">Technical Skills & Tech Stack</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-line">
+            <span class="skill-category">Architecture & Cloud:</span>
+            <span class="skill-items">Google Cloud Platform (GCP ACE), AWS, Azure, Microservices, Clean Architecture (Hexagonal), Kubernetes, Docker, Terraform (IaC).</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">Artificial Intelligence:</span>
+            <span class="skill-items">LangChain, LangGraph, LLMs (Gemini, OpenAI), Vector DBs, Enterprise RAG, BigQuery ML, Prompt Engineering.</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">Backend & Databases:</span>
+            <span class="skill-items">Java (Spring Boot), Python (FastAPI), Node.js (Express), TypeScript, SQL (PostgreSQL, BigQuery, SQL Server), Bash Scripting.</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">Frontend & Web:</span>
+            <span class="skill-items">Angular, TypeScript, JavaScript, HTML5, SCSS, Responsive UI, RESTful API Integration.</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">DevSecOps & Security:</span>
+            <span class="skill-items">CI/CD Pipelines, OWASP Top 10, OAuth2 / OIDC, SonarQube, Git, Automated Testing, Zero-Downtime Deployments.</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">Leadership & Management:</span>
+            <span class="skill-items">Scrum, Kanban, Technical Leadership, Code Reviews, Roadmap Alignment, Project Management (PMI).</span>
+          </div>
+          <div class="skill-line">
+            <span class="skill-category">Languages:</span>
+            <span class="skill-items">Spanish (Native), English (Professional Working Proficiency / B2), Portuguese (Elementary / A2).</span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="sheet-footer">
+        <span>Diego Leonardo Monroy Durán · Tech Lead & Solutions Architect</span>
+        <span>ATS-Optimized Executive Format · 100% Machine-Readable</span>
+      </footer>
+    </div>
   </main>
 
+  <script>
+    function setResumeLang(lang) {
+      const isEn = lang === 'en';
+      document.documentElement.lang = isEn ? 'en' : 'es';
+
+      // Toggle views
+      const esBlock = document.getElementById('content-es');
+      const enBlock = document.getElementById('content-en');
+      if (esBlock && enBlock) {
+        esBlock.style.display = isEn ? 'none' : 'block';
+        enBlock.style.display = isEn ? 'block' : 'none';
+      }
+
+      // Buttons
+      const btnEs = document.getElementById('btnLangEs');
+      const btnEn = document.getElementById('btnLangEn');
+      if (btnEs && btnEn) {
+        btnEs.classList.toggle('active', !isEn);
+        btnEn.classList.toggle('active', isEn);
+      }
+
+      // Action bar labels
+      const txtTitle = document.getElementById('txtActionTitle');
+      const txtSub = document.getElementById('txtActionSub');
+      const txtDown = document.getElementById('txtDownloadBtn');
+      const txtPrint = document.getElementById('txtPrintBtn');
+      const btnDown = document.getElementById('btnDownloadPdf');
+
+      if (txtTitle) txtTitle.textContent = isEn ? 'Executive ATS Resume — Diego Leonardo Monroy Durán' : 'Formato ATS Ejecutivo — Diego Leonardo Monroy Durán';
+      if (txtSub) txtSub.textContent = isEn ? 'Executive layout, engineered for Applicant Tracking Systems (Workday, Taleo, Greenhouse)' : 'Diseño de alta dirección, compatible con sistemas de selección (Workday, Taleo, Greenhouse)';
+      if (txtDown) txtDown.textContent = isEn ? 'Download PDF' : 'Descargar PDF';
+      if (txtPrint) txtPrint.textContent = isEn ? 'Print' : 'Imprimir';
+
+      if (btnDown) {
+        const file = isEn ? 'CV_Diego_Monroy_ATS_EN.pdf' : 'CV_Diego_Monroy_ATS_ES.pdf';
+        btnDown.setAttribute('href', file);
+        btnDown.setAttribute('download', file);
+      }
+
+      // Persist in localStorage and URL param without reload
+      localStorage.setItem('lang', isEn ? 'en' : 'es');
+      if (window.history && window.history.replaceState) {
+        const url = new URL(window.location);
+        url.searchParams.set('lang', isEn ? 'en' : 'es');
+        window.history.replaceState({}, '', url);
+      }
+    }
+
+    // Auto-init based on URL or localStorage
+    (function init() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get('lang');
+      const savedLang = localStorage.getItem('lang');
+      const initial = urlLang || savedLang || 'es';
+      setResumeLang(initial === 'en' ? 'en' : 'es');
+    })();
+  </script>
 </body>
 </html>

@@ -77,7 +77,7 @@
                         </div>
                     </a>
 
-                    <a href="assets/CV_Diego_Monroy_ATS.pdf" class="cv-menu-option ats-featured" download (click)="closeCvMenu()">
+                    <a [href]="cvAtsPdfUrl()" class="cv-menu-option ats-featured" [download]="cvAtsFilename()" (click)="closeCvMenu()">
                         <div class="cv-option-icon ats-icon">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -86,11 +86,22 @@
                         <div class="cv-option-content">
                             <div class="cv-option-title-row">
                                 <span class="cv-option-title">{{ data.hero.cvAtsTitle || 'CV Formato ATS' }}</span>
-                                <span class="cv-badge ats-badge">100% ATS Ready</span>
+                                <span class="cv-badge ats-badge">{{ currentLang() === 'en' ? 'ATS English' : 'ATS Español' }}</span>
                             </div>
                             <span class="cv-option-desc">{{ data.hero.cvAtsDesc || 'Optimizado para filtros de empleo y Workday' }}</span>
                         </div>
                     </a>
+
+                    <div class="cv-interactive-footer">
+                        <a [href]="cvAtsHtmlUrl()" target="_blank" rel="noopener noreferrer" (click)="closeCvMenu()">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            <span>{{ currentLang() === 'en' ? 'Open interactive ATS viewer (ES / EN)' : 'Ver versión interactiva web (ES / EN)' }}</span>
+                        </a>
+                    </div>
                 </div>
                 }
             </div>

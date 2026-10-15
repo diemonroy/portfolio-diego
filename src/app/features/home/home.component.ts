@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, inject, signal, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, signal, computed, HostListener } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 import { QrShareService, QrTabType } from '../../core/services/qr-share.service';
@@ -18,9 +18,28 @@ export class HomeComponent implements OnInit, OnDestroy {
   private qrShareService = inject(QrShareService);
   portfolioData$ = this.portfolioDataService.portfolioData$;
   
+  currentLang = signal<'es' | 'en'>(this.portfolioDataService.getCurrentLanguage());
   currentWordIndex = signal(0);
   cvMenuOpen = signal(false);
   private intervalId: any;
+
+  cvAtsPdfUrl = computed(() => {
+    return this.currentLang() === 'en'
+      ? 'assets/CV_Diego_Monroy_ATS_EN.pdf'
+      : 'assets/CV_Diego_Monroy_ATS_ES.pdf';
+  });
+
+  cvAtsHtmlUrl = computed(() => {
+    return this.currentLang() === 'en'
+      ? 'assets/CV_Diego_Monroy_ATS_EN.html'
+      : 'assets/CV_Diego_Monroy_ATS_ES.html';
+  });
+
+  cvAtsFilename = computed(() => {
+    return this.currentLang() === 'en'
+      ? 'CV_Diego_Monroy_ATS_EN.pdf'
+      : 'CV_Diego_Monroy_ATS_ES.pdf';
+  });
 
   openQrModal(tab: QrTabType = 'portfolio') {
     this.qrShareService.open(tab);
@@ -29,7 +48,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor() {
     this.portfolioDataService.currentLang$.pipe(
       takeUntilDestroyed()
-    ).subscribe(() => {
+    ).subscribe(lang => {
+      this.currentLang.set(lang);
       this.currentWordIndex.set(0);
     });
   }
