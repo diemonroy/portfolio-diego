@@ -1,6 +1,7 @@
 import { Component, HostListener, inject, signal } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
+import { QrShareService, QrTabType } from '../../core/services/qr-share.service';
 import { LanguageSwitcherComponent } from '../../shared/language-switcher/language-switcher.component';
 import { TiltDirective } from '../../shared/directives/tilt.directive';
 
@@ -13,11 +14,16 @@ import { TiltDirective } from '../../shared/directives/tilt.directive';
 })
 export class NavbarComponent {
   private portfolioDataService = inject(PortfolioDataService);
+  private qrShareService = inject(QrShareService);
   portfolioData$ = this.portfolioDataService.portfolioData$;
   
   isScrolled = signal(false);
   mobileMenuActive = signal(false);
   activeSection = signal('hero');
+
+  openQrModal(tab: QrTabType = 'portfolio') {
+    this.qrShareService.open(tab);
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

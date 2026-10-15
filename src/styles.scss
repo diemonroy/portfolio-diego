@@ -218,6 +218,48 @@ img, svg, canvas, video {
   flex-shrink: 0;
 }
 
+.nav-qr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+
+  .nav-qr-text {
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  svg {
+    opacity: 0.85;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover {
+    background: rgba(10, 132, 255, 0.18);
+    border-color: rgba(10, 132, 255, 0.4);
+    box-shadow: 0 0 16px rgba(10, 132, 255, 0.25);
+    color: #38BDF8;
+
+    svg {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
 /* Language Switcher */
 .lang-switch {
   width: 72px;
@@ -724,6 +766,114 @@ img, svg, canvas, video {
     background: rgba(10, 132, 255, 0.25);
     color: #38BDF8;
     border: 1px solid rgba(56, 189, 248, 0.3);
+  }
+
+  &.qr-badge {
+    background: rgba(168, 85, 247, 0.25);
+    color: #C084FC;
+    border: 1px solid rgba(192, 132, 252, 0.3);
+  }
+}
+
+.cv-menu-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 3px 0;
+}
+
+.cv-menu-option.qr-featured {
+  background: rgba(168, 85, 247, 0.07);
+  border-color: rgba(168, 85, 247, 0.22);
+
+  &:hover {
+    background: rgba(168, 85, 247, 0.15);
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 4px 16px rgba(168, 85, 247, 0.2);
+  }
+}
+
+.cv-option-icon.qr-icon {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.35), rgba(59, 130, 246, 0.35));
+  color: #C084FC;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.25);
+}
+
+.hero-qr-quick-btn {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  svg {
+    opacity: 0.85;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover {
+    background: rgba(10, 132, 255, 0.18);
+    border-color: rgba(10, 132, 255, 0.45);
+    color: #38BDF8;
+    box-shadow: 0 0 20px rgba(10, 132, 255, 0.25);
+
+    svg {
+      transform: scale(1.12);
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.footer-link-qr {
+  background: transparent;
+  border: none;
+  color: var(--apple-blue, #0A84FF);
+  font-family: inherit;
+  font-size: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}
+
+.qr-mobile-btn {
+  background: rgba(10, 132, 255, 0.12) !important;
+  border: 1px solid rgba(10, 132, 255, 0.28) !important;
+  color: #38BDF8 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 14px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(10, 132, 255, 0.22) !important;
   }
 }
 
@@ -1907,6 +2057,28 @@ img, svg, canvas, video {
   .tab {
     font-size: 12.5px;
     padding: 7px 14px;
+  }
+
+  .nav-qr-btn {
+    padding: 0 8px;
+    height: 32px;
+    .nav-qr-text {
+      display: none;
+    }
+  }
+
+  .hero-qr-quick-btn {
+    width: 100%;
+    height: 46px;
+    border-radius: 12px;
+    display: inline-flex;
+    gap: 8px;
+
+    &::after {
+      content: "Escanear / Compartir QR";
+      font-size: 14px;
+      font-weight: 600;
+    }
   }
 
   .how-section {

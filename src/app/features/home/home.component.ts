@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, inject, signal, HostListener } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
+import { QrShareService, QrTabType } from '../../core/services/qr-share.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TiltDirective } from '../../shared/directives/tilt.directive';
 import { ArchitectureSceneComponent } from './architecture-scene/architecture-scene.component';
@@ -14,11 +15,16 @@ import { ArchitectureSceneComponent } from './architecture-scene/architecture-sc
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private portfolioDataService = inject(PortfolioDataService);
+  private qrShareService = inject(QrShareService);
   portfolioData$ = this.portfolioDataService.portfolioData$;
   
   currentWordIndex = signal(0);
   cvMenuOpen = signal(false);
   private intervalId: any;
+
+  openQrModal(tab: QrTabType = 'portfolio') {
+    this.qrShareService.open(tab);
+  }
 
   constructor() {
     this.portfolioDataService.currentLang$.pipe(

@@ -9,6 +9,7 @@ import { HowIWorkComponent } from './features/how-i-work/how-i-work.component';
 import { PortfolioDataService } from './core/services/portfolio-data.service';
 
 import { AsyncPipe } from '@angular/common';
+import { QrModalComponent } from './shared/components/qr-modal/qr-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,8 @@ import { AsyncPipe } from '@angular/common';
     ProjectsComponent,
     AboutComponent,
     HowIWorkComponent,
-    FooterComponent
+    FooterComponent,
+    QrModalComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
