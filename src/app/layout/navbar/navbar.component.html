@@ -1,0 +1,35 @@
+@if (portfolioData$ | async; as data) {
+  <header class="navbar" [class.dark]="!isScrolled()" [class.light]="isScrolled()" id="navbar">
+    <div class="nav-logo" appTilt [tiltAmount]="20" [scale]="1.1" style="cursor: pointer;">
+        <img src="assets/Logo nav bar.png" alt="Logo" class="logo" />
+    </div>
+
+    <nav class="nav-menu">
+        <a class="nav-item" [class.active]="activeSection() === 'hero'" href="#hero">{{ data.nav.home }}</a>
+        <a class="nav-item" [class.active]="activeSection() === 'proyectos'" href="#proyectos">{{ data.nav.projects }}</a>
+        <a class="nav-item" [class.active]="activeSection() === 'sobre'" href="#sobre">{{ data.nav.about }}</a>
+        <a class="nav-item" [class.active]="activeSection() === 'proceso'" href="#proceso">{{ data.nav.how }}</a>
+    </nav>
+
+    <div class="nav-actions">
+        <app-language-switcher></app-language-switcher>
+        <a href="#contacto" class="btn btn-primary">{{ data.nav.contact }}</a>
+    </div>
+
+    <div class="nav-mobile-btn" (click)="toggleMobileMenu()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+    </div>
+  </header>
+
+  <!-- MENU MOBILE OVERLAY -->
+  <div class="mobile-menu" [class.active]="mobileMenuActive()" id="mobileMenu">
+    <nav>
+        <a href="#hero" class="mobile-link" (click)="closeMobileMenu()">{{ data.nav.home }}</a>
+        <a href="#proyectos" class="mobile-link" (click)="closeMobileMenu()">{{ data.nav.projects }}</a>
+        <a href="#sobre" class="mobile-link" (click)="closeMobileMenu()">{{ data.nav.about }}</a>
+        <a href="#proceso" class="mobile-link" (click)="closeMobileMenu()">{{ data.nav.how }}</a>
+    </nav>
+  </div>
+}

@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre mí",
+    "how": "Cómo trabajo",
+    "contact": "Hablemos"
+  },
+  "hero": {
+    "role": "Tech Lead & Solutions Architect · Cloud & Enterprise AI",
+    "firstName": "Diego",
+    "lastName": "Monroy",
+    "phrase": "Diseño y escalo arquitecturas empresariales seguras, ",
+    "rotatingWords": ["resilientes.", "en multi-cloud.", "con IA Generativa."],
+    "ctaPrimary": "Ver proyectos",
+    "ctaSecondary": "Descargar CV",
+    "scrollInd": "Scroll"
+  },
+  "projectsSection": {
+    "eyebrow": "Casos de Arquitectura",
+    "title": "Sistemas de alta transaccionalidad, nube y gobernanza de IA.",
+    "description": "Una selección de soluciones de software empresarial, pipelines DevSecOps y agentes inteligentes liderados en el sector bancario y tecnológico.",
+    "note": "Proyectos sujetos a acuerdos de confidencialidad bancaria. Las arquitecturas y diagramas expuestos han sido sanitizados para proteger datos sensibles de clientes.",
+    "btnMore": "Ver detalle →",
+    "overlay": {
+      "challengeTitle": "Desafío de Arquitectura",
+      "roleTitle": "Liderazgo & Decisiones Técnicas",
+      "resultTitle": "Impacto y Métricas"
+    }
+  },
+  "projects": [
+    {
+      "id": "crm-banca",
+      "category": "Banca Empresas · Core CRM",
+      "title": "CRM In-House Banca Empresas",
+      "description": "Diseño y liderazgo técnico de la plataforma transaccional de gestión comercial corporativa para el Banco de Bogotá.",
+      "image": "assets/cover-crm.png",
+      "overlayImage": "assets/cover-crm.png",
+      "overlaySummary": "Plataforma de alta disponibilidad para la fuerza de ventas corporativa y ejecutivos de cuenta en banca de empresas.",
+      "challenge": "Reemplazar múltiples herramientas fragmentadas y hojas de cálculo por una arquitectura unificada y tolerante a fallos, capaz de gestionar millones de operaciones financieras y oportunidades de crédito en tiempo real bajo estrictas normativas bancarias.",
+      "roleHtml": "<ul><li>Definí la arquitectura basada en microservicios y Clean Architecture con Angular, Node.js y Google Cloud Platform.</li><li>Lideré técnica y metodológicamente un equipo de más de 8 ingenieros de desarrollo frontend y backend.</li><li>Diseñé esquemas de alta seguridad con OAuth2, OIDC y cifrado en tránsito y reposo.</li><li>Implementé pipelines DevSecOps automatizados con SonarQube, SAST y despliegues sin tiempo de inactividad (Zero Downtime).</li></ul>",
+      "result": "Unificación de la operación comercial corporativa a nivel nacional, incrementando en un 38% la productividad de los ejecutivos y reduciendo los tiempos de procesamiento de solicitudes de crédito en un 60%."
+    },
+    {
+      "id": "ai-agents",
+      "category": "Inteligencia Artificial · GenAI",
+      "title": "Ecosistema de Agentes y Grafos con LangChain",
+      "description": "Arquitectura de agentes autónomos y flujos deterministas orquestados con LangGraph y bases de datos vectoriales.",
+      "image": "assets/cover-ai.png",
+      "overlayImage": "assets/cover-ai.png",
+      "overlaySummary": "Pipeline empresarial de recuperación aumentada (RAG) y razonamiento estructurado para analítica comercial.",
+      "challenge": "Superar las alucinaciones y la falta de contexto transaccional en modelos LLM para su uso confiable en entornos corporativos y análisis financiero sensible.",
+      "roleHtml": "<ul><li>Modelé flujos de agentes con memoria conversacional y enrutamiento contextual usando LangGraph y Python.</li><li>Diseñé pipelines de ingesta vectorial sobre bases de datos vectoriales optimizadas y embeddings multilingües.</li><li>Implementé guardrails de seguridad y sanitización semántica para prevenir inyecciones de prompts y fuga de datos.</li></ul>",
+      "result": "Disminución del 92% en respuestas inconsistentes y automatización del análisis de dossiers financieros de empresas en minutos en lugar de días."
+    },
+    {
+      "id": "multicloud",
+      "category": "Cloud & DevSecOps · GCP / AWS",
+      "title": "Infraestructura Multi-Cloud y DevSecOps",
+      "description": "Diseño de infraestructura elástica, observabilidad distribuida y automatización CI/CD con certificación Google Cloud ACE.",
+      "image": "assets/cover-cloud.png",
+      "overlayImage": "assets/cover-cloud.png",
+      "overlaySummary": "Plataforma de despliegue continuo con contenedores, clústeres Kubernetes y políticas de Zero Trust.",
+      "challenge": "Garantizar resiliencia operativa del 99.99% y cumplimiento estricto de auditorías financieras frente a picos de tráfico en cierres de mes.",
+      "roleHtml": "<ul><li>Configuré la topología de red virtual (VPC, Cloud Interconnect, Cloud NAT) y políticas de IAM de mínimo privilegio.</li><li>Implementé observabilidad unificada con métricas de latencia p99, tracing distribuido y alarmas predictivas.</li><li>Diseñé estrategias de migración y failover híbrido con Terraform y Docker.</li></ul>",
+      "result": "Cero incidentes de disponibilidad en periodos críticos y reducción del 45% en costos de infraestructura ociosa mediante autoescalado inteligente."
+    },
+    {
+      "id": "iot-mechatronics",
+      "category": "Mecatrónica · IoT Industrial",
+      "title": "Núcleo de Telemetría IoT y Automatización",
+      "description": "Plataforma de captura y telemetría de señales en tiempo real aplicada a entornos industriales y robóticos.",
+      "image": "assets/cover-iot.png",
+      "overlayImage": "assets/cover-iot.png",
+      "overlaySummary": "Conexión de hardware, microcontroladores y protocolos de red industrial hacia microservicios en la nube.",
+      "challenge": "Transmitir y procesar señales de sensores físicos con latencia ultra baja en ambientes con conectividad inestable.",
+      "roleHtml": "<ul><li>Apliqué mis fundamentos de Ingeniería Mecatrónica en el procesamiento digital de señales y diseño de firmware.</li><li>Implementé agentes MQTT y WebSockets ligeros con mecanismos de retransmisión y búfer local.</li><li>Orquesté la ingesta masiva de telemetría hacia almacenes de series temporales.</li></ul>",
+      "result": "Detección temprana de anomalías en componentes electromecánicos y monitoreo 24/7 sin pérdida de paquetes."
+    }
+  ],
+  "quote": "La buena arquitectura de software no es la más compleja, sino la que resuelve el problema de negocio con la mayor simplicidad, seguridad y escalabilidad.",
+  "about": {
+    "eyebrow": "SOBRE MÍ",
+    "title": "Ingeniería de precisión, visión estratégica de negocio.",
+    "paragraphs": [
+      "Soy Ingeniero Mecatrónico con Especialización en Gerencia de Proyectos (Universidad de Boyacá) y formación ejecutiva en Competencias Gerenciales (Universidad de los Andes). Actualmente me desempeño como Tech Lead y Arquitecto de Software en Banco de Bogotá, donde lidero técnicamente la concepción, diseño e implementación del CRM In-House para Banca Empresas.",
+      "Cuento con la certificación oficial Google Cloud Associate Cloud Engineer (Credly ID: 189954) y una sólida trayectoria en el diseño de microservicios, DevSecOps, integración de sistemas corporativos, BigQuery y ecosistemas modernos de IA generativa con LangChain y LangGraph.",
+      "Mi enfoque combina el rigor analítico de la ingeniería mecatrónica con el liderazgo ágil y la orientación a resultados comerciales: construyo arquitecturas limpias, escalables y seguras que potencian los objetivos estratégicos de la organización."
+    ],
+    "tabs": {
+      "experience": "Experiencia",
+      "education": "Estudios & Certificaciones",
+      "skills": "Habilidades Técnicas",
+      "tools": "Stack Tecnológico"
+    },
+    "experienceHtml": "<div class=\"experience-item\"><h4>Tech Lead & Arquitecto de Software — Banco de Bogotá</h4><span>2024 – Presente · Bogotá, Colombia</span><p>Lidero técnicamente el equipo de desarrollo del CRM In-House para la fuerza comercial de Banca Empresas.<br>Defino lineamientos de arquitectura limpia, microservicios, seguridad OAuth2/OIDC y estándares DevSecOps.<br>Orquesto soluciones con GCP (BigQuery, Cloud Run, Pub/Sub) y agentes de IA generativa con LangChain y LangGraph.<br>Aseguro la calidad técnica mediante code reviews, pruebas automatizadas y despliegues Zero-Downtime.</p></div><div class=\"experience-item\"><h4>Ingeniero de Desarrollo & Soluciones Cloud — Banco de Bogotá</h4><span>2023 – 2024</span><p>Diseñé e implementé microservicios y módulos core en TypeScript, Node.js y Angular.<br>Optimicé consultas y pipelines analíticos en BigQuery reduciendo tiempos de procesamiento en un 40%.<br>Automatice pipelines de integración continua en Jenkins y GitLab CI con análisis SAST/DAST.</p></div><div class=\"experience-item\"><h4>Ingeniero de Automatización & Proyectos</h4><span>2022 – 2023</span><p>Dirección y ejecución de proyectos de automatización, control e instrumentación mecatrónica.<br>Gestión de presupuestos, cronogramas y entregables bajo metodologías PMI y marcos ágiles Scrum.</p></div>",
+    "educationHtml": "<div class=\"experience-item\"><h4>Google Cloud Certified Associate Cloud Engineer (ACE)</h4><span>Google Cloud · Expedición 2026 – 2029 · ID: 189954</span><p>Certificación oficial en arquitectura e infraestructura en la nube, redes híbridas, IAM, contenedores y seguridad.</p></div><div class=\"experience-item\"><h4>Competencias Gerenciales I</h4><span>Universidad de los Andes · 2025</span><p>Liderazgo de equipos de alto rendimiento, comunicación estratégica, negociación y resolución de conflictos.</p></div><div class=\"experience-item\"><h4>Especialización en Gerencia de Proyectos</h4><span>Universidad de Boyacá · 2023</span><p>Planificación estratégica, gestión de riesgos, presupuestos y dirección de programas de ingeniería.</p></div><div class=\"experience-item\"><h4>Ingeniería Mecatrónica</h4><span>Universidad de Boyacá · Graduado 2022</span><p>Sistemas de control, robótica, procesamiento de señales, microelectrónica y automatización industrial.</p></div><div class=\"experience-item\"><h4>Diplomado en Marketing Digital</h4><span>2022</span></div>",
+    "skillsHtml": "<div class=\"experience-item\"><p>Arquitectura de Software (Clean Architecture, Microservicios, Event-Driven, Hexagonal)<br>Cloud & Infraestructura (Google Cloud Platform, AWS, Docker, Kubernetes, Terraform)<br>DevSecOps & CI/CD (Pipelines automatizados, SonarQube, SAST, Zero-Downtime)<br>Inteligencia Artificial Empresarial (LangChain, LangGraph, RAG, Vector DBs, Prompt Engineering)<br>Bases de Datos & Big Data (BigQuery, PostgreSQL, MongoDB, Redis)<br>Liderazgo Técnico (Gestión de equipos, Scrum/Agile, Code Review, Mentoring)<br>Inglés Profesional B2</p></div>",
+    "toolsHtml": "<div class=\"experience-item\"><p>Angular 18, TypeScript, JavaScript, Node.js, Python, Java/Spring Boot<br>Google Cloud Platform (GCP), BigQuery, Cloud Run, IAM, VPC, AWS<br>Docker, Kubernetes, Git, GitHub Actions, GitLab CI, Jenkins<br>LangChain, LangGraph, OpenAI API, Gemini API, ChromaDB, Pinecone<br>PostgreSQL, MySQL, Redis, MongoDB<br>Linux, Bash, Postman, SonarQube, Jira, Confluence</p></div>"
+  },
+  "howIWork": {
+    "eyebrow": "PRINCIPIOS",
+    "title": "Cómo abordo la arquitectura y el liderazgo técnico",
+    "cards": [
+      {
+        "number": "01",
+        "title": "Arquitectura impulsada por el negocio",
+        "description": "El código más elegante es inútil si no resuelve la necesidad real del usuario o retrasa el time-to-market. Cada decisión técnica debe tener un retorno medible de valor."
+      },
+      {
+        "number": "02",
+        "title": "Seguridad y resiliencia por diseño",
+        "description": "En banca y sistemas críticos, la seguridad no es un checklist al final; es el cimiento de la arquitectura. Diseños tolerantes a fallos con observabilidad proactiva."
+      },
+      {
+        "number": "03",
+        "title": "Liderazgo que empodera al equipo",
+        "description": "Un buen Tech Lead desbloquea a su equipo, fomenta las buenas prácticas, automatiza lo repetitivo y crea un entorno donde la excelencia técnica florece."
+      }
+    ]
+  },
+  "footer": {
+    "title": "Construyamos sistemas que transformen organizaciones.",
+    "cta": "Hablemos"
+  }
+}

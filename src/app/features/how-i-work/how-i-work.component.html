@@ -1,0 +1,21 @@
+@if (portfolioData$ | async; as data) {
+<section id="proceso" class="how-section">
+    <div class="how-header-wrapper gs-reveal-clip visible">
+        <p class="how-eyebrow">{{ data.howIWork.eyebrow }}</p>
+        <h2 class="how-headline">{{ data.howIWork.title }}</h2>
+    </div>
+
+    <div class="how-grid gs-fade-up visible">
+        @for (card of data.howIWork.cards; track $index) {
+        <div class="how-card" [class]="'card-0' + ($index + 1)">
+            <div class="how-number-wrapper">
+                <div class="how-glow-line" [class]="'glow-0' + ($index + 1)"></div>
+                <span class="how-number">{{ card.number }}</span>
+            </div>
+            <h4 class="how-card-title">{{ card.title }}</h4>
+            <p class="how-card-body">{{ card.description }}</p>
+        </div>
+        }
+    </div>
+</section>
+}

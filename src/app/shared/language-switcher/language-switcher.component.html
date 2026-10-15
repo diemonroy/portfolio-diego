@@ -1,0 +1,16 @@
+@if (currentLang$ | async; as currentLang) {
+<div class="lang-switch" [attr.data-current]="currentLang">
+    <span 
+      class="lang-opt" 
+      [class.active]="currentLang === 'es'" 
+      (click)="switchLang('es')">
+      ES
+    </span>
+    <span 
+      class="lang-opt" 
+      [class.active]="currentLang === 'en'" 
+      (click)="switchLang('en')">
+      EN
+    </span>
+</div>
+}

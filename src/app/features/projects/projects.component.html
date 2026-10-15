@@ -1,0 +1,32 @@
+@if (portfolioData$ | async; as data) {
+<section class="section-light" id="proyectos">
+    <div class="projects-header gs-reveal-clip visible">
+        <p class="proj-eyebrow eyebrow">{{ data.projectsSection.eyebrow }}</p>
+        <h2 class="proj-title">{{ data.projectsSection.title }}</h2>
+        <p class="proj-desc body" style="max-width: 640px; margin-bottom: 24px;">{{ data.projectsSection.description }}</p>
+        <p class="proj-note">{{ data.projectsSection.note }}</p>
+    </div>
+
+    <div class="projects-grid gs-fade-up visible">
+        @for (proj of data.projects; track proj.id; let i = $index) {
+        <div class="project-card" [class.large]="i === 0 || i === 3" [class.medium]="i === 1 || i === 2" (click)="openProject(proj)">
+            <div class="project-card-bg"><img [src]="proj.image" [alt]="proj.title"></div>
+            <div class="project-content">
+                <span class="project-category">{{ proj.category }}</span>
+                <h3 class="project-title">{{ proj.title }}</h3>
+                <p class="project-description">{{ proj.description }}</p>
+                <span class="project-view-more">{{ data.projectsSection.btnMore }}</span>
+            </div>
+        </div>
+        }
+    </div>
+</section>
+
+@if (selectedProject()) {
+  <app-project-overlay 
+    [project]="selectedProject()" 
+    [overlayLabels]="data.projectsSection.overlay"
+    (closeOverlay)="closeProject()">
+  </app-project-overlay>
+}
+}

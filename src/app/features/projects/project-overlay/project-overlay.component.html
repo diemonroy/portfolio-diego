@@ -1,0 +1,48 @@
+<div class="project-overlay active">
+    <div class="overlay-backdrop" (click)="close()"></div>
+    <div class="overlay-panel">
+        <button class="overlay-close" aria-label="Close" (click)="close()">&times;</button>
+        <div class="overlay-content-wrapper">
+            <div class="overlay-banner">
+                <img [src]="project?.overlayImage" [alt]="project?.title">
+            </div>
+
+            <div class="overlay-header">
+                <p class="overlay-eyebrow">{{ project?.category }}</p>
+                <h2 class="h2 overlay-title">{{ project?.title }}</h2>
+                <p class="overlay-summary body">{{ project?.overlaySummary }}</p>
+            </div>
+
+            <div class="overlay-grid">
+                <div class="overlay-card">
+                    <svg class="overlay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10" />
+                        <circle cx="12" cy="12" r="4" />
+                        <line x1="21.17" y1="8" x2="12" y2="8" />
+                        <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
+                        <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
+                    </svg>
+                    <h4 class="overlay-subtitle">{{ overlayLabels?.challengeTitle }}</h4>
+                    <p class="body">{{ project?.challenge }}</p>
+                </div>
+
+                <div class="overlay-card">
+                    <svg class="overlay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    <h4 class="overlay-subtitle">{{ overlayLabels?.roleTitle }}</h4>
+                    <div class="body" [innerHTML]="project?.roleHtml"></div>
+                </div>
+            </div>
+
+            <div class="overlay-outcome">
+                <svg class="overlay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <h4 class="overlay-subtitle">{{ overlayLabels?.resultTitle }}</h4>
+                <p class="body">{{ project?.result }}</p>
+            </div>
+        </div>
+    </div>
+</div>

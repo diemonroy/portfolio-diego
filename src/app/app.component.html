@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<main>
+  <app-home></app-home>
+  
+  <app-projects></app-projects>
+  
+  @if (portfolioData$ | async; as data) {
+  <section class="quote-section">
+    <h2 class="quote-text">{{ data.quote }}</h2>
+  </section>
+  }
+
+  <app-about></app-about>
+  
+  <app-how-i-work></app-how-i-work>
+</main>
+
+<app-footer></app-footer>
+
+<router-outlet></router-outlet>

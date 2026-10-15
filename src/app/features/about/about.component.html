@@ -1,0 +1,32 @@
+@if (portfolioData$ | async; as data) {
+<section class="section-light" id="sobre">
+    <div class="about-light"></div>
+    <div class="about-container">
+        <img src="assets/Foto mia.png" alt="Diego Leonardo Monroy Durán" class="about-photo gs-fade-up visible" />
+
+        <div class="about-content gs-fade-up visible">
+            <p class="eyebrow">{{ data.about.eyebrow }}</p>
+            <h2 class="h2" style="margin-bottom: 24px;">{{ data.about.title }}</h2>
+
+            <div class="body" style="margin-bottom: 32px;" id="about-desc">
+              @for (p of data.about.paragraphs; track $index) {
+                <p>{{ p }}</p>
+                @if (!$last) { <br> }
+              }
+            </div>
+
+            <div class="tabs">
+                <span class="tab" [class.active]="activeTab() === 'experience'" (click)="setTab('experience')">{{ data.about.tabs.experience }}</span>
+                <span class="tab" [class.active]="activeTab() === 'education'" (click)="setTab('education')">{{ data.about.tabs.education }}</span>
+                <span class="tab" [class.active]="activeTab() === 'skills'" (click)="setTab('skills')">{{ data.about.tabs.skills }}</span>
+                <span class="tab" [class.active]="activeTab() === 'tools'" (click)="setTab('tools')">{{ data.about.tabs.tools }}</span>
+            </div>
+
+            <div class="tab-content" [style.display]="activeTab() === 'experience' ? 'block' : 'none'" [innerHTML]="data.about.experienceHtml"></div>
+            <div class="tab-content" [style.display]="activeTab() === 'education' ? 'block' : 'none'" [innerHTML]="data.about.educationHtml"></div>
+            <div class="tab-content" [style.display]="activeTab() === 'skills' ? 'block' : 'none'" [innerHTML]="data.about.skillsHtml"></div>
+            <div class="tab-content" [style.display]="activeTab() === 'tools' ? 'block' : 'none'" [innerHTML]="data.about.toolsHtml"></div>
+        </div>
+    </div>
+</section>
+}

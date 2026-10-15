@@ -1,0 +1,14 @@
+@if (portfolioData$ | async; as data) {
+<footer id="contacto" class="footer-section">
+    <h2 class="h2" style="margin-bottom: 24px; color:#FFFFFF;">{{ data.footer.title }}</h2>
+    <a href="mailto:diemonroy@gmail.com" class="btn btn-primary btn-lg" style="margin-bottom: 60px;">{{ data.footer.cta }}</a>
+
+    <div class="footer-links body">
+        <a href="mailto:diemonroy@gmail.com">diemonroy&#64;gmail.com</a>
+        <span class="divider">·</span>
+        <a href="https://www.linkedin.com/in/diemonroy" target="_blank">LinkedIn</a>
+        <span class="divider">·</span>
+        <a href="tel:+573212891963">+57 321 289 1963</a>
+    </div>
+</footer>
+}

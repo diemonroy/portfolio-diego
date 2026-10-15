@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About Me",
+    "how": "How I Work",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Tech Lead & Solutions Architect · Cloud & Enterprise AI",
+    "firstName": "Diego",
+    "lastName": "Monroy",
+    "phrase": "I design and scale secure, resilient enterprise architectures, ",
+    "rotatingWords": ["resilient.", "multi-cloud.", "with Generative AI."],
+    "ctaPrimary": "View Projects",
+    "ctaSecondary": "Download CV",
+    "scrollInd": "Scroll"
+  },
+  "projectsSection": {
+    "eyebrow": "Architecture Case Studies",
+    "title": "High-throughput systems, cloud infrastructure, and AI governance.",
+    "description": "A curated selection of enterprise software architectures, DevSecOps pipelines, and intelligent agents built for the financial and technology sectors.",
+    "note": "Projects subject to non-disclosure agreements (NDAs). Architectural diagrams and interfaces have been sanitized to protect proprietary client data.",
+    "btnMore": "View Details →",
+    "overlay": {
+      "challengeTitle": "Architecture Challenge",
+      "roleTitle": "Technical Leadership & Key Decisions",
+      "resultTitle": "Impact & Metrics"
+    }
+  },
+  "projects": [
+    {
+      "id": "crm-banca",
+      "category": "Corporate Banking · Core CRM",
+      "title": "In-House Corporate Banking CRM",
+      "description": "Technical leadership and architectural design of the transactional corporate sales CRM for Banco de Bogotá.",
+      "image": "assets/cover-crm.png",
+      "overlayImage": "assets/cover-crm.png",
+      "overlaySummary": "High-availability commercial management platform for enterprise bankers and corporate relationship managers.",
+      "challenge": "Replace legacy fragmented tooling and spreadsheets with a unified, fault-tolerant platform capable of handling millions of real-time transactions under stringent financial compliance.",
+      "roleHtml": "<ul><li>Architected microservices and Clean Architecture with Angular, Node.js, and Google Cloud Platform.</li><li>Led an engineering squad of 8+ frontend and backend developers across agile sprints.</li><li>Engineered OAuth2/OIDC security protocols and encryption at rest and in transit.</li><li>Built automated DevSecOps pipelines with SonarQube, SAST, and Zero Downtime deployments.</li></ul>",
+      "result": "Unified enterprise commercial operations nationwide, boosting banker productivity by 38% and reducing corporate loan application cycle times by 60%."
+    },
+    {
+      "id": "ai-agents",
+      "category": "Artificial Intelligence · GenAI",
+      "title": "Autonomous Agent & Graph Ecosystem with LangChain",
+      "description": "Enterprise multi-agent architectures and deterministic graph workflows orchestrated using LangGraph and vector databases.",
+      "image": "assets/cover-ai.png",
+      "overlayImage": "assets/cover-ai.png",
+      "overlaySummary": "Production-grade Retrieval-Augmented Generation (RAG) system with semantic routing for commercial intelligence.",
+      "challenge": "Eliminate hallucinations and inject reliable transactional corporate context into LLMs for sensitive financial workflows.",
+      "roleHtml": "<ul><li>Engineered stateful multi-agent workflows with memory persistence and conditional routing via LangGraph and Python.</li><li>Implemented high-throughput embeddings ingestion into scalable vector databases.</li><li>Designed semantic guardrails to prevent prompt injections and corporate data leaks.</li></ul>",
+      "result": "Achieved a 92% reduction in hallucination rates and automated comprehensive commercial financial analysis in minutes instead of days."
+    },
+    {
+      "id": "multicloud",
+      "category": "Cloud & DevSecOps · GCP / AWS",
+      "title": "Multi-Cloud Infrastructure & DevSecOps Platform",
+      "description": "Elastic cloud topology, distributed observability, and automated CI/CD backed by Google Cloud ACE certification.",
+      "image": "assets/cover-cloud.png",
+      "overlayImage": "assets/cover-cloud.png",
+      "overlaySummary": "Continuous delivery platform leveraging containers, Kubernetes clusters, and Zero Trust security policies.",
+      "challenge": "Ensure 99.99% operational availability and strict banking audit compliance during month-end traffic spikes.",
+      "roleHtml": "<ul><li>Provisioned VPC network topologies, hybrid connectivity, and least-privilege IAM policies.</li><li>Established unified observability with p99 latency alerts and distributed tracing.</li><li>Designed infrastructure as code (IaC) and disaster recovery strategies using Terraform and Docker.</li></ul>",
+      "result": "Zero unscheduled downtime across critical banking periods and a 45% reduction in cloud infrastructure waste via intelligent auto-scaling."
+    },
+    {
+      "id": "iot-mechatronics",
+      "category": "Mechatronics · Industrial IoT",
+      "title": "IoT Telemetry Core & Automation Engine",
+      "description": "Real-time edge signal acquisition, hardware telemetry, and cloud stream processing for robotics and industrial applications.",
+      "image": "assets/cover-iot.png",
+      "overlayImage": "assets/cover-iot.png",
+      "overlaySummary": "Connecting physical microcontrollers, sensors, and fieldbuses to cloud microservices.",
+      "challenge": "Capture and transmit physical sensor data with ultra-low latency across unstable edge connections.",
+      "roleHtml": "<ul><li>Applied Mechatronics Engineering principles to digital signal processing and embedded firmware.</li><li>Developed lightweight MQTT and WebSocket edge agents with local retry buffers.</li><li>Streamed real-time metrics to time-series cloud data stores.</li></ul>",
+      "result": "Enabled predictive maintenance for electromechanical equipment with zero telemetry packet loss."
+    }
+  ],
+  "quote": "Good software architecture is not the most complex one; it is the one that solves the business challenge with the highest simplicity, security, and scalability.",
+  "about": {
+    "eyebrow": "ABOUT ME",
+    "title": "Precision engineering meets strategic business vision.",
+    "paragraphs": [
+      "I am a Mechatronics Engineer with a Postgraduate Specialization in Project Management (Universidad de Boyacá) and executive training in Management Competencies (Universidad de los Andes). I currently serve as Tech Lead and Software Architect at Banco de Bogotá, leading the technical design and delivery of the In-House Corporate Banking CRM.",
+      "I hold the official Google Cloud Certified Associate Cloud Engineer credential (Credly ID: 189954) alongside deep expertise in microservices design, DevSecOps pipelines, enterprise system integration, BigQuery, and state-of-the-art Generative AI with LangChain and LangGraph.",
+      "My approach merges the mathematical rigor of mechatronics with agile leadership and corporate outcome orientation: I engineer clean, scalable, secure architectures that drive tangible business value."
+    ],
+    "tabs": {
+      "experience": "Experience",
+      "education": "Education & Credentials",
+      "skills": "Technical Skills",
+      "tools": "Tech Stack"
+    },
+    "experienceHtml": "<div class=\"experience-item\"><h4>Tech Lead & Software Architect — Banco de Bogotá</h4><span>2024 – Present · Bogotá, Colombia</span><p>Technically leading the development team building the In-House Corporate Banking CRM.<br>Define Clean Architecture principles, microservices, OAuth2/OIDC security, and DevSecOps pipelines.<br>Orchestrate cloud solutions on GCP (BigQuery, Cloud Run, Pub/Sub) and GenAI agents with LangGraph.<br>Ensure technical excellence through code reviews, test automation, and Zero-Downtime deployments.</p></div><div class=\"experience-item\"><h4>Development & Cloud Solutions Engineer — Banco de Bogotá</h4><span>2023 – 2024</span><p>Engineered core microservices in TypeScript, Node.js, and Angular.<br>Optimized analytical BigQuery pipelines, slashing processing time by 40%.<br>Automated continuous delivery pipelines on Jenkins and GitLab CI with automated SAST/DAST security scans.</p></div><div class=\"experience-item\"><h4>Automation & Project Engineer</h4><span>2022 – 2023</span><p>Directed and deployed mechatronics automation, instrumentation, and control projects.<br>Managed budgets, schedules, and deliverables following PMI standards and Scrum methodology.</p></div>",
+    "educationHtml": "<div class=\"experience-item\"><h4>Google Cloud Certified Associate Cloud Engineer (ACE)</h4><span>Google Cloud · Issued 2026 – Exp. 2029 · ID: 189954</span><p>Official certification covering cloud infrastructure, hybrid networking, IAM, container orchestration, and security.</p></div><div class=\"experience-item\"><h4>Management Competencies I</h4><span>Universidad de los Andes · 2025</span><p>High-performance team leadership, strategic communication, negotiation, and conflict resolution.</p></div><div class=\"experience-item\"><h4>Postgraduate Specialization in Project Management</h4><span>Universidad de Boyacá · 2023</span><p>Strategic portfolio planning, risk management, budget oversight, and engineering leadership.</p></div><div class=\"experience-item\"><h4>B.S. in Mechatronics Engineering</h4><span>Universidad de Boyacá · Graduated 2022</span><p>Control systems, robotics, digital signal processing, microelectronics, and industrial automation.</p></div><div class=\"experience-item\"><h4>Digital Marketing Diploma</h4><span>2022</span></div>",
+    "skillsHtml": "<div class=\"experience-item\"><p>Software Architecture (Clean Architecture, Microservices, Event-Driven, Hexagonal)<br>Cloud & Infrastructure (Google Cloud Platform, AWS, Docker, Kubernetes, Terraform)<br>DevSecOps & CI/CD (Automated pipelines, SonarQube, SAST, Zero-Downtime)<br>Enterprise Generative AI (LangChain, LangGraph, RAG, Vector DBs, Prompt Engineering)<br>Databases & Big Data (BigQuery, PostgreSQL, MongoDB, Redis)<br>Technical Leadership (Squad management, Scrum/Agile, Code Review, Mentoring)<br>Professional English B2</p></div>",
+    "toolsHtml": "<div class=\"experience-item\"><p>Angular 18, TypeScript, JavaScript, Node.js, Python, Java/Spring Boot<br>Google Cloud Platform (GCP), BigQuery, Cloud Run, IAM, VPC, AWS<br>Docker, Kubernetes, Git, GitHub Actions, GitLab CI, Jenkins<br>LangChain, LangGraph, OpenAI API, Gemini API, ChromaDB, Pinecone<br>PostgreSQL, MySQL, Redis, MongoDB<br>Linux, Bash, Postman, SonarQube, Jira, Confluence</p></div>"
+  },
+  "howIWork": {
+    "eyebrow": "ENGINEERING PILLARS",
+    "title": "How I approach software architecture and technical leadership",
+    "cards": [
+      {
+        "number": "01",
+        "title": "Business-Driven Architecture",
+        "description": "The most elegant code is useless if it does not solve real user problems or delays time-to-market. Every technical decision must yield measurable business return."
+      },
+      {
+        "number": "02",
+        "title": "Security & Resilience by Design",
+        "description": "In banking and critical systems, security is not a late checklist; it is the cornerstone of architecture. Resilient designs with proactive observability."
+      },
+      {
+        "number": "03",
+        "title": "Empowering Engineering Leadership",
+        "description": "A great Tech Lead unblocks their team, advocates engineering best practices, automates repetitive tasks, and fosters an environment where technical excellence thrives."
+      }
+    ]
+  },
+  "footer": {
+    "title": "Let's build systems that transform enterprise scale.",
+    "cta": "Contact Me"
+  }
+}

@@ -1,0 +1,51 @@
+@if (portfolioData$ | async; as data) {
+<section class="hero" id="hero">
+    <div class="hero-left">
+        <p class="role">{{ data.hero.role }}</p>
+
+        <h1 class="h1">
+            <span>{{ data.hero.firstName }}</span><br />
+            <span>{{ data.hero.lastName }}</span>
+        </h1>
+
+        <p class="hero-text">
+            <span>{{ data.hero.phrase }} </span>
+            <!-- we use a simple fade transition by binding style or just letting css handle the span if we add a class -->
+            <span id="rotating-word" style="transition: opacity 0.35s ease; filter: blur(0px); opacity: 1;">
+              {{ data.hero.rotatingWords[currentWordIndex()] }}
+            </span>
+        </p>
+
+        <div class="hero-dots">
+            <span class="dot" [class.active]="currentWordIndex() === 0"></span>
+            <span class="dot" [class.active]="currentWordIndex() === 1"></span>
+            <span class="dot" [class.active]="currentWordIndex() === 2"></span>
+        </div>
+
+        <div class="hero-cta">
+            <a href="#proyectos" class="btn btn-primary btn-cta">
+                <span>{{ data.hero.ctaPrimary }}</span>
+                <img src="assets/arrow-forward.svg" alt="Arrow" class="btn-icon" />
+            </a>
+            <a href="assets/CV.pdf" class="btn btn-secondary btn-secondary-dark btn-cta" download>
+                <span>{{ data.hero.ctaSecondary }}</span>
+                <img src="assets/download-outline.svg" alt="Download" class="btn-icon" />
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-right" style="perspective: 1000px;">
+        <div appTilt [tiltAmount]="30" [scale]="1.05" style="cursor: grab; display: inline-block;">
+            <img src="assets/Grafico hero.png" alt="Grafico Hero" class="hero-graphic" />
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <span>{{ data.hero.scrollInd }}</span>
+        <svg class="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </div>
+</section>
+}
