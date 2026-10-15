@@ -1,0 +1,450 @@
+<div class="yeni-page-wrapper">
+
+  <!-- TOP BAR EXCLUSIVA / ACCIONES RÁPIDAS -->
+  <header class="yeni-header-nav no-print">
+    <div class="header-inner">
+      <div class="brand-badge">
+        <span class="seal-icon">⚖️</span>
+        <div class="brand-text">
+          <span class="brand-name">Yeni Andrea Chacón Gordillo</span>
+          <span class="brand-sub">Perfil Profesional Jurídico · Feria de Empleo 2026</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button class="action-btn qr-trigger-btn" (click)="openQrModal('profile')" aria-label="Mostrar Código QR">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            <line x1="17" y1="7" x2="17.01" y2="7"></line>
+            <line x1="17" y1="17" x2="17.01" y2="17"></line>
+            <line x1="7" y1="17" x2="7.01" y2="17"></line>
+          </svg>
+          <span>Compartir QR</span>
+        </button>
+
+        <button class="action-btn download-cv-btn" (click)="printCV()" aria-label="Descargar o Imprimir Hoja de Vida">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9V2h12v7"></path>
+            <path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span>Descargar / Imprimir CV</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL DEL CV -->
+  <main class="yeni-main-content">
+
+    <!-- HERO SECTION / PRESENTACIÓN EJECUTIVA -->
+    <section class="hero-card">
+      <div class="hero-top-accent"></div>
+      
+      <div class="hero-grid">
+        <div class="avatar-column">
+          <div class="avatar-ring">
+            <div class="avatar-monogram">YC</div>
+          </div>
+          <div class="status-chip">
+            <span class="status-dot"></span>
+            <span>{{ personalInfo.statusBadge }}</span>
+          </div>
+        </div>
+
+        <div class="info-column">
+          <div class="role-pill">
+            <span class="pill-badge">Énfasis en Derecho Público & Administrativo</span>
+            <span class="pill-location">📍 {{ personalInfo.location }}</span>
+          </div>
+
+          <h1 class="candidate-name">{{ personalInfo.name }}</h1>
+          <p class="candidate-headline">{{ personalInfo.title }}</p>
+          <p class="candidate-subheadline">{{ personalInfo.subtitle }}</p>
+
+          <!-- CHIPS DE CONTACTO DIRECTO -->
+          <div class="contact-chips-row">
+            <a [href]="'tel:' + personalInfo.phoneClean" class="contact-chip" title="Llamar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chip-icon">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+              </svg>
+              <span>{{ personalInfo.phone }}</span>
+            </a>
+
+            <a [href]="'mailto:' + personalInfo.email" class="contact-chip" title="Enviar Correo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chip-icon">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>{{ personalInfo.email }}</span>
+            </a>
+
+            <a [href]="personalInfo.linkedinUrl" target="_blank" rel="noopener noreferrer" class="contact-chip" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chip-icon">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              <span>{{ personalInfo.linkedinDisplay }}</span>
+            </a>
+
+            <span class="contact-chip text-chip" title="Ubicación">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="chip-icon">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>{{ personalInfo.address }}</span>
+            </span>
+          </div>
+
+          <!-- BOTONES DE ACCIÓN PRINCIPALES (FERIA DE EMPLEO) -->
+          <div class="cta-actions-row no-print">
+            <button class="cta-btn primary-cta" (click)="openQrModal('profile')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>Escanear Código QR</span>
+            </button>
+
+            <a [href]="'https://wa.me/' + personalInfo.phoneClean + '?text=Hola%20Andrea%2C%20estuve%20revisando%20tu%20perfil%20profesional%20en%20la%20feria%20de%20empleo%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad%20en%20nuestro%20equipo.'" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="cta-btn whatsapp-cta">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.074-2.007-.468-1.579-.652-2.586-2.257-2.664-2.361-.077-.105-.632-.843-.632-1.609 0-.766.4-1.144.542-1.3.143-.156.313-.195.417-.195.105 0 .209.002.3.007.098.004.228-.037.357.272.133.321.455 1.11.496 1.192.041.082.068.177.014.284-.055.108-.083.176-.164.272-.082.095-.172.213-.246.286-.082.08-.168.167-.072.332.096.164.428.706.918 1.143.63.561 1.161.734 1.326.816.164.082.261.07.358-.041.098-.112.417-.487.528-.654.111-.167.222-.139.373-.083.151.055.957.452 1.121.534.164.082.274.123.315.191.041.069.041.4-.103.805z"/>
+              </svg>
+              <span>Contactar por WhatsApp</span>
+            </a>
+
+            <button class="cta-btn vcard-cta" (click)="downloadVCard()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"></path>
+                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                <polyline points="7 3 7 8 15 8"></polyline>
+              </svg>
+              <span>Guardar en Contactos</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENTO DE MÉTRICAS DESTACADAS (FERIA DE EMPLEO) -->
+    <section class="stats-bento">
+      <div class="stat-card">
+        <div class="stat-number">9.°</div>
+        <div class="stat-label">Semestre de Derecho</div>
+        <div class="stat-sub">Fundación Univ. Autónoma · 2026</div>
+      </div>
+
+      <div class="stat-card highlight-card">
+        <div class="stat-number">Hacienda</div>
+        <div class="stat-label">Secretaría Distrital de Hacienda</div>
+        <div class="stat-sub">Tutelas, Peticiones & Análisis Tributario</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">Práctica IV</div>
+        <div class="stat-label">Consultorio Jurídico Activo</div>
+        <div class="stat-sub">Civil, Laboral, Penal y Familia</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">+3 Años</div>
+        <div class="stat-label">Gestión Documental & Archivo</div>
+        <div class="stat-sub">Trazabilidad, Foliación & Procesos</div>
+      </div>
+    </section>
+
+    <!-- PERFIL PROFESIONAL Y PROPUESTA DE VALOR -->
+    <section class="content-section">
+      <div class="section-header">
+        <div class="header-line"></div>
+        <h2 class="section-title">Perfil Profesional & Propuesta de Valor</h2>
+      </div>
+
+      <div class="profile-narrative-card">
+        <p class="lead-text">
+          Estudiante de <strong>noveno semestre de Derecho</strong> con sólida trayectoria práctica en 
+          <strong>gestión jurídica, derecho administrativo, gestión documental y análisis de información</strong> 
+          tanto en entidades del sector público como en organizaciones privadas.
+        </p>
+        <p class="body-text">
+          Amplia experiencia en la <strong>elaboración y proyección de respuestas a acciones constitucionales (tutelas y derechos de petición)</strong>, 
+          revisión técnica de expedientes judiciales y administrativos, verificación de información jurídica tributaria (prescripciones) 
+          y aseguramiento de la cadena de custodia y trazabilidad documental. 
+          Destaco por mi <strong>alto rigor analítico, redacción jurídica clara y argumentada, orientación al detalle, 
+          ética inquebrantable en el manejo de información confidencial y vocación de servicio al ciudadano</strong>.
+        </p>
+
+        <div class="key-strengths-grid">
+          <div class="strength-item">
+            <span class="strength-icon">🏛️</span>
+            <div>
+              <strong>Derecho Administrativo & Público</strong>
+              <p>Trámite de peticiones, actos administrativos y análisis sustantivo de obligaciones distritales.</p>
+            </div>
+          </div>
+          <div class="strength-item">
+            <span class="strength-icon">📜</span>
+            <div>
+              <strong>Acciones Constitucionales</strong>
+              <p>Proyección técnica de respuestas a tutelas con estricto acatamiento de plazos de ley.</p>
+            </div>
+          </div>
+          <div class="strength-item">
+            <span class="strength-icon">📂</span>
+            <div>
+              <strong>Trazabilidad Documental</strong>
+              <p>Clasificación, foliación y custodia digital de expedientes bajo normas de gestión pública.</p>
+            </div>
+          </div>
+          <div class="strength-item">
+            <span class="strength-icon">⚖️</span>
+            <div>
+              <strong>Sustanciación & Litigio Formativo</strong>
+              <p>Elaboración de demandas, incidentes y conceptos en Derecho Civil, Laboral y Penal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA LABORAL (LÍNEA DE TIEMPO) -->
+    <section class="content-section">
+      <div class="section-header">
+        <div class="header-line"></div>
+        <h2 class="section-title">Experiencia Laboral Relevante</h2>
+      </div>
+
+      <div class="timeline-container">
+        @for (exp of experiences; track exp.company) {
+          <div class="timeline-card" [class.highlighted]="exp.isHighlighted">
+            <div class="card-header">
+              <div class="header-main">
+                <span class="company-badge">{{ exp.badge }}</span>
+                <h3 class="company-name">{{ exp.company }}</h3>
+                <h4 class="role-title">{{ exp.role }}</h4>
+              </div>
+              <div class="header-meta">
+                <span class="period-pill">🗓️ {{ exp.period }}</span>
+                <span class="location-pill">📍 {{ exp.location }}</span>
+              </div>
+            </div>
+
+            <p class="experience-desc">{{ exp.description }}</p>
+
+            <div class="achievements-block">
+              <h5 class="achievements-title">Responsabilidades & Logros Principales:</h5>
+              <ul class="achievements-list">
+                @for (item of exp.achievements; track item) {
+                  <li>
+                    <span class="bullet-arrow">›</span>
+                    <span>{{ item }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+
+            <div class="skills-tags-row">
+              @for (skill of exp.skills; track skill) {
+                <span class="skill-tag">{{ skill }}</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- EDUCACIÓN Y CONSULTORIO JURÍDICO -->
+    <section class="content-section">
+      <div class="section-header">
+        <div class="header-line"></div>
+        <h2 class="section-title">Educación & Práctica Jurídica Forense</h2>
+      </div>
+
+      <div class="education-grid">
+        <!-- Tarjeta de Pregrado -->
+        <div class="edu-card">
+          <div class="edu-icon-wrap">🎓</div>
+          <div class="edu-body">
+            <span class="edu-tag">Pregrado Universitario</span>
+            <h3 class="edu-institution">{{ education.institution }}</h3>
+            <h4 class="edu-degree">{{ education.degree }}</h4>
+            <div class="edu-meta">
+              <span class="meta-item">📚 {{ education.status }}</span>
+              <span class="meta-item">🗓️ {{ education.completion }}</span>
+              <span class="meta-item">📍 {{ education.location }}</span>
+            </div>
+            <p class="edu-note">
+              Formación integral con énfasis en argumentación jurídica, derecho procesal, constitucional y administrativo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Consultorio Jurídico IV -->
+        <div class="edu-card practice-card">
+          <div class="edu-icon-wrap">⚖️</div>
+          <div class="edu-body">
+            <span class="edu-tag practice-tag">Práctica Forense Activa</span>
+            <h3 class="edu-institution">{{ education.consultorio.name }}</h3>
+            <h4 class="edu-degree">Atención y Representación Legal de Usuarios</h4>
+            
+            <div class="practice-areas-row">
+              @for (area of education.consultorio.areas; track area) {
+                <span class="area-chip">{{ area }}</span>
+              }
+            </div>
+
+            <ul class="practice-bullets">
+              @for (act of education.consultorio.activities; track act) {
+                <li>
+                  <span class="practice-check">✓</span>
+                  <span>{{ act }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATRIZ DE COMPETENCIAS Y HERRAMIENTAS -->
+    <section class="content-section">
+      <div class="section-header">
+        <div class="header-line"></div>
+        <h2 class="section-title">Matriz de Habilidades & Dominio Técnico</h2>
+      </div>
+
+      <div class="skills-categories-grid">
+        @for (cat of skillCategories; track cat.title) {
+          <div class="category-card">
+            <h3 class="cat-title">{{ cat.title }}</h3>
+            <div class="cat-items-list">
+              @for (it of cat.items; track it.name) {
+                <div class="cat-item" [class.highlighted-item]="it.highlight">
+                  <span class="item-dot"></span>
+                  <span class="item-name">{{ it.name }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTACTO & CONEXIÓN INMEDIATA (CIERRE) -->
+    <section class="closing-cta-card no-print">
+      <div class="cta-inner">
+        <div class="cta-text-block">
+          <span class="cta-eyebrow">¿Interesado en coordinar una entrevista?</span>
+          <h2 class="cta-heading">Conectemos para conversar sobre oportunidades laborales</h2>
+          <p class="cta-desc">
+            Disponible para vinculación inmediata en firmas de abogados, entidades públicas, 
+            departamentos jurídicos o consultorías en Bogotá D.C.
+          </p>
+        </div>
+
+        <div class="cta-buttons-block">
+          <a [href]="'https://wa.me/' + personalInfo.phoneClean + '?text=Hola%20Andrea%2C%20estuve%20revisando%20tu%20perfil%20profesional%20en%20la%20feria%20de%20empleo%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad%20en%20nuestro%20equipo.'" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn-primary-glow">
+            <span>Conversar por WhatsApp</span>
+          </a>
+
+          <button class="btn-secondary-glass" (click)="openQrModal('profile')">
+            <span>Mostrar QR a Reclutador</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER DISCRETO -->
+  <footer class="yeni-footer no-print">
+    <p>© 2026 Yeni Andrea Chacón Gordillo · Perfil Profesional Jurídico · Bogotá D.C., Colombia</p>
+  </footer>
+
+  <!-- =========================================================
+       MODAL DE CÓDIGO QR INTERACTIVO (IDEAL FERIA DE EMPLEO)
+       ========================================================= -->
+  @if (isQrModalOpen()) {
+    <div class="qr-modal-backdrop" (click)="closeQrModal()">
+      <div class="qr-modal-card" (click)="$event.stopPropagation()">
+        
+        <div class="modal-header">
+          <div class="modal-title-wrap">
+            <span class="modal-icon">📱</span>
+            <div>
+              <h3 class="modal-title">Código QR de Contacto</h3>
+              <p class="modal-subtitle">Escanéalo directamente con la cámara del celular</p>
+            </div>
+          </div>
+          <button class="modal-close-btn" (click)="closeQrModal()" aria-label="Cerrar modal">✕</button>
+        </div>
+
+        <!-- TABS DE QR -->
+        <div class="modal-tabs-row">
+          <button class="modal-tab" [class.active]="activeQrTab() === 'profile'" (click)="setQrTab('profile')">
+            <span>🌐 Perfil Digital</span>
+          </button>
+          <button class="modal-tab" [class.active]="activeQrTab() === 'vcard'" (click)="setQrTab('vcard')">
+            <span>👤 Contacto (vCard)</span>
+          </button>
+          <button class="modal-tab" [class.active]="activeQrTab() === 'whatsapp'" (click)="setQrTab('whatsapp')">
+            <span>💬 WhatsApp</span>
+          </button>
+        </div>
+
+        <!-- CONTENEDOR DEL CÓDIGO QR -->
+        <div class="qr-display-box">
+          <div class="qr-code-svg-wrap" [innerHTML]="qrSvgSafe()"></div>
+          
+          <!-- Canvas oculto para exportar a PNG de alta resolución -->
+          <canvas #qrCanvas class="hidden-qr-canvas"></canvas>
+
+          <p class="qr-caption">
+            @if (activeQrTab() === 'profile') {
+              Abre el perfil interactivo completo de Yeni Andrea Chacón Gordillo en el navegador móvil.
+            } @else if (activeQrTab() === 'vcard') {
+              Guarda automáticamente los datos de contacto directo de Yeni en la agenda del teléfono.
+            } @else {
+              Abre una conversación directa por WhatsApp con mensaje de presentación listo.
+            }
+          </p>
+        </div>
+
+        <!-- BOTONES DE ACCIÓN DENTRO DEL MODAL -->
+        <div class="modal-actions-row">
+          <button class="modal-action-btn copy-btn" (click)="copyLink()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+            </svg>
+            <span>{{ copiedLink() ? '¡Enlace Copiado!' : 'Copiar Enlace' }}</span>
+          </button>
+
+          <button class="modal-action-btn download-png-btn" (click)="downloadQrImage()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Descargar Imagen QR (PNG)</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  }
+
+</div>
