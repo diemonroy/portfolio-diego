@@ -31,6 +31,10 @@ export interface HeroData {
   rotatingWords: string[];
   ctaPrimary: string;
   ctaSecondary: string;
+  cvDesignTitle?: string;
+  cvDesignDesc?: string;
+  cvAtsTitle?: string;
+  cvAtsDesc?: string;
   scrollInd: string;
   statusBadge?: string;
   metrics?: HeroMetric[];

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, inject, signal } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, signal, HostListener } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   portfolioData$ = this.portfolioDataService.portfolioData$;
   
   currentWordIndex = signal(0);
+  cvMenuOpen = signal(false);
   private intervalId: any;
 
   constructor() {
@@ -33,6 +34,22 @@ export class HomeComponent implements OnInit, OnDestroy {
       // the actual data size is 3 words, so we cycle 0, 1, 2
       this.currentWordIndex.update(idx => (idx + 1) % 3);
     }, 2700);
+  }
+
+  toggleCvMenu(event: MouseEvent) {
+    event.stopPropagation();
+    this.cvMenuOpen.update(open => !open);
+  }
+
+  closeCvMenu() {
+    this.cvMenuOpen.set(false);
+  }
+
+  @HostListener('document:click')
+  onDocumentClick() {
+    if (this.cvMenuOpen()) {
+      this.closeCvMenu();
+    }
   }
 
   ngOnDestroy() {

@@ -15,6 +15,10 @@
     "rotatingWords": ["resilientes.", "en multi-cloud.", "con IA Generativa."],
     "ctaPrimary": "Ver proyectos",
     "ctaSecondary": "Descargar CV",
+    "cvDesignTitle": "CV Diseño Ejecutivo",
+    "cvDesignDesc": "Formato visual con foto y diseño infográfico",
+    "cvAtsTitle": "CV Formato ATS",
+    "cvAtsDesc": "Optimizado para filtros de empleo y Workday",
     "scrollInd": "Scroll",
     "metrics": [
       { "value": "+8", "label": "Años Trayectoria", "sub": "Ingeniería & Cloud" },

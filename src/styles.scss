@@ -549,6 +549,182 @@ img, svg, canvas, video {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+  position: relative;
+}
+
+/* HERO CV DROPDOWN CONTAINER */
+.cv-dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cv-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  &.active {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(10, 132, 255, 0.5);
+    box-shadow: 0 0 20px rgba(10, 132, 255, 0.25);
+  }
+}
+
+.cv-chevron {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.75;
+  margin-left: 2px;
+
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.cv-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 330px;
+  max-width: 90vw;
+  background: rgba(14, 16, 24, 0.96);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: appleDropdownFade 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: top left;
+}
+
+@keyframes appleDropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cv-dropdown-header {
+  padding: 6px 10px 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--apple-label-tertiary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 4px;
+}
+
+.cv-menu-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.14);
+    transform: translateY(-1px);
+  }
+
+  &.ats-featured {
+    background: rgba(10, 132, 255, 0.08);
+    border-color: rgba(10, 132, 255, 0.24);
+
+    &:hover {
+      background: rgba(10, 132, 255, 0.16);
+      border-color: rgba(10, 132, 255, 0.45);
+      box-shadow: 0 4px 16px rgba(10, 132, 255, 0.2);
+    }
+  }
+}
+
+.cv-option-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &.visual-icon {
+    background: rgba(255, 255, 255, 0.08);
+    color: #E2E8F0;
+  }
+
+  &.ats-icon {
+    background: linear-gradient(135deg, rgba(10, 132, 255, 0.35), rgba(0, 209, 255, 0.35));
+    color: #38BDF8;
+    box-shadow: 0 0 12px rgba(10, 132, 255, 0.3);
+  }
+}
+
+.cv-option-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.cv-option-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.cv-option-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.cv-option-desc {
+  font-size: 11px;
+  color: var(--apple-label-secondary);
+  line-height: 1.35;
+}
+
+.cv-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+
+  &.visual-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: #CBD5E1;
+  }
+
+  &.ats-badge {
+    background: rgba(10, 132, 255, 0.25);
+    color: #38BDF8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+  }
 }
 
 /* HERO EXECUTIVE METRICS RIBBON */
@@ -1597,6 +1773,22 @@ img, svg, canvas, video {
     max-width: 300px;
     margin: 28px auto 0 auto;
     gap: 10px;
+  }
+
+  .cv-dropdown-container {
+    width: 100%;
+  }
+
+  .cv-toggle-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cv-dropdown-menu {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    max-width: calc(100vw - 32px);
   }
 
   .hero-metrics-ribbon {

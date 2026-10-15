@@ -15,6 +15,10 @@
     "rotatingWords": ["resilient.", "multi-cloud.", "with Generative AI."],
     "ctaPrimary": "View Projects",
     "ctaSecondary": "Download CV",
+    "cvDesignTitle": "Executive Design Resume",
+    "cvDesignDesc": "Visual layout with photo & infographic design",
+    "cvAtsTitle": "ATS Optimized Resume",
+    "cvAtsDesc": "Engineered for applicant tracking systems & Workday",
     "scrollInd": "Scroll",
     "metrics": [
       { "value": "+8", "label": "Years Experience", "sub": "Engineering & Cloud" },
