@@ -11,6 +11,7 @@ import { PortfolioDataService } from './core/services/portfolio-data.service';
 import { AsyncPipe } from '@angular/common';
 import { QrModalComponent } from './shared/components/qr-modal/qr-modal.component';
 import { AiChatDrawerComponent } from './shared/components/ai-chat-drawer/ai-chat-drawer.component';
+import { AiDashboardModalComponent } from './shared/components/ai-dashboard-modal/ai-dashboard-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,8 @@ import { AiChatDrawerComponent } from './shared/components/ai-chat-drawer/ai-cha
     HowIWorkComponent,
     FooterComponent,
     QrModalComponent,
-    AiChatDrawerComponent
+    AiChatDrawerComponent,
+    AiDashboardModalComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

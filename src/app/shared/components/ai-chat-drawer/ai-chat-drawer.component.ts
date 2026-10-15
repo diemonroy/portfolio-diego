@@ -2,6 +2,7 @@ import { Component, inject, signal, ViewChild, ElementRef, AfterViewChecked } fr
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AiAgentService, ChatMessage } from '../../../core/services/ai-agent.service';
+import { AiDashboardService } from '../../../core/services/ai-dashboard.service';
 import { PortfolioDataService } from '../../../core/services/portfolio-data.service';
 import { ButtonComponent } from '../button/button.component';
 
@@ -14,6 +15,7 @@ import { ButtonComponent } from '../button/button.component';
 })
 export class AiChatDrawerComponent implements AfterViewChecked {
   readonly aiService = inject(AiAgentService);
+  readonly dashboardService = inject(AiDashboardService);
   readonly portfolioDataService = inject(PortfolioDataService);
 
   @ViewChild('messagesContainer') private messagesContainer?: ElementRef;
@@ -105,5 +107,13 @@ export class AiChatDrawerComponent implements AfterViewChecked {
 
     formatted = formatted.replace(/\n\n/g, '<br/><br/>').replace(/\n/g, '<br/>');
     return formatted;
+  }
+
+  openDashboard(): void {
+    this.dashboardService.openDashboard();
+  }
+
+  onCtaClick(type: 'calendar' | 'whatsapp' | 'email'): void {
+    this.aiService.trackConversion(type);
   }
 }

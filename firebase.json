@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "dm-portfolio-511707",
     "public": "dist/portfolio-app/browser",
     "ignore": [
       "firebase.json",

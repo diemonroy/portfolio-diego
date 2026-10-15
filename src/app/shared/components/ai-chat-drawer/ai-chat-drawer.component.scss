@@ -222,6 +222,29 @@
   gap: 8px;
 }
 
+.ai-header-dash-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  background: rgba(14, 165, 233, 0.15);
+  color: #38BDF8;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(14, 165, 233, 0.28);
+    border-color: rgba(56, 189, 248, 0.6);
+    color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+  }
+}
+
 .ai-action-btn {
   width: 34px;
   height: 34px;

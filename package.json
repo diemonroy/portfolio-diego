@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
+    "deploy:hosting": "ng build --configuration production && npx -y firebase-tools deploy --only hosting --project dm-portfolio-511707",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
