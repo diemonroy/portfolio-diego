@@ -6,9 +6,9 @@
 
         <div class="about-content gs-fade-up visible">
             <p class="eyebrow">{{ data.about.eyebrow }}</p>
-            <h2 class="h2" style="margin-bottom: 24px;">{{ data.about.title }}</h2>
+            <h2 class="h2">{{ data.about.title }}</h2>
 
-            <div class="body" style="margin-bottom: 32px;" id="about-desc">
+            <div class="body" id="about-desc">
               @for (p of data.about.paragraphs; track $index) {
                 <p>{{ p }}</p>
                 @if (!$last) { <br> }

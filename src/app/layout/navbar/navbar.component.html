@@ -1,5 +1,5 @@
 @if (portfolioData$ | async; as data) {
-  <header class="navbar" [class.dark]="!isScrolled()" [class.light]="isScrolled()" id="navbar">
+  <header class="navbar dark" [class.scrolled]="isScrolled()" id="navbar">
     <div class="nav-logo" appTilt [tiltAmount]="20" [scale]="1.1" style="cursor: pointer;">
         <img src="assets/Logo nav bar.png" alt="Logo" class="logo" />
     </div>
@@ -16,10 +16,16 @@
         <a href="#contacto" class="btn btn-primary">{{ data.nav.contact }}</a>
     </div>
 
-    <div class="nav-mobile-btn" (click)="toggleMobileMenu()">
+    <div class="nav-mobile-btn" (click)="toggleMobileMenu()" aria-label="Toggle navigation">
+      @if (!mobileMenuActive()) {
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M3 12h18M3 6h18M3 18h18" />
         </svg>
+      } @else {
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      }
     </div>
   </header>
 
@@ -30,6 +36,7 @@
         <a href="#proyectos" class="mobile-link" (click)="closeMobileMenu()">{{ data.nav.projects }}</a>
         <a href="#sobre" class="mobile-link" (click)="closeMobileMenu()">{{ data.nav.about }}</a>
         <a href="#proceso" class="mobile-link" (click)="closeMobileMenu()">{{ data.nav.how }}</a>
+        <a href="#contacto" class="mobile-link" (click)="closeMobileMenu()" style="color: var(--apple-blue);">{{ data.nav.contact }}</a>
     </nav>
   </div>
 }

@@ -43,13 +43,13 @@
   --text-primary-dark: var(--apple-label-primary);
   --text-secondary-dark: var(--apple-label-secondary);
   
-  --h1: clamp(52px, 7vw, 84px);
-  --h2: clamp(34px, 4vw, 48px);
-  --h3: 22px;
+  --h1: clamp(36px, 7vw, 76px);
+  --h2: clamp(26px, 4.5vw, 44px);
+  --h3: clamp(18px, 3vw, 22px);
   
-  --body-lg: 18px;
-  --body: 16px;
-  --body-sm: 14px;
+  --body-lg: clamp(16px, 2.2vw, 18px);
+  --body: clamp(14px, 2vw, 16px);
+  --body-sm: clamp(12.5px, 1.8vw, 14px);
 
   /* 3D Sculpture: Apple Space Black Titanium & System Blue Orbit */
   --sculpture-silver: #1C1C1E;
