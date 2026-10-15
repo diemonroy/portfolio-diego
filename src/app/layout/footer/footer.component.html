@@ -1,14 +1,32 @@
 @if (portfolioData$ | async; as data) {
 <footer id="contacto" class="footer-section">
-    <h2 class="h2">{{ data.footer.title }}</h2>
-    <a href="mailto:diemonroy@gmail.com" class="btn btn-primary btn-cta footer-cta">{{ data.footer.cta }}</a>
+    <div class="footer-container">
+        <p class="footer-eyebrow">{{ data.footer.eyebrow }}</p>
+        <h2 class="footer-title">{{ data.footer.title }}</h2>
+        
+        <div class="footer-cta-wrapper">
+            <a href="mailto:diego.97duran@gmail.com" class="footer-cta-btn">
+                <span>{{ data.footer.cta }}</span>
+                <svg class="footer-send-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </a>
+        </div>
 
-    <div class="footer-links body">
-        <a href="mailto:diemonroy@gmail.com">diemonroy&#64;gmail.com</a>
-        <span class="divider">·</span>
-        <a href="https://www.linkedin.com/in/diemonroy" target="_blank">LinkedIn</a>
-        <span class="divider">·</span>
-        <a href="tel:+573212891963">+57 321 289 1963</a>
+        <div class="footer-links">
+            <a href="mailto:diego.97duran@gmail.com" class="footer-link">diego.97duran&#64;gmail.com</a>
+            <span class="footer-divider">·</span>
+            <a href="https://www.linkedin.com/in/diemonroy" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+            <span class="footer-divider">·</span>
+            <a href="tel:+573212891963" class="footer-link">+57 321 289 1963</a>
+            <span class="footer-divider">·</span>
+            <a href="https://github.com/diemonroy" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        </div>
+
+        <p class="footer-copyright">
+            © {{ currentYear }} Diego Leonardo Monroy Durán · {{ data.footer.copyrightRole }}
+        </p>
     </div>
 </footer>
 }

@@ -12,4 +12,5 @@ import { PortfolioDataService } from '../../core/services/portfolio-data.service
 export class FooterComponent {
   private portfolioDataService = inject(PortfolioDataService);
   portfolioData$ = this.portfolioDataService.portfolioData$;
+  readonly currentYear = new Date().getFullYear();
 }

@@ -120,7 +120,9 @@
     ]
   },
   "footer": {
-    "title": "Let's build systems that transform enterprise scale.",
-    "cta": "Contact Me"
+    "eyebrow": "Technical Leadership & Consulting",
+    "title": "Let's build future-proof architectures.",
+    "cta": "Start Conversation",
+    "copyrightRole": "Tech Lead & Solutions Architect · Cloud & Enterprise AI"
   }
 }
