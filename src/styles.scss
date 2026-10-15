@@ -140,12 +140,21 @@ img, svg, canvas, video {
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .logo {
-  height: 26px;
-  width: auto;
+  height: 36px;
+  width: 36px;
   display: block;
+  border-radius: 9px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 14px rgba(10, 132, 255, 0.35);
+  }
 }
 
 .nav-logo-text {
@@ -1352,6 +1361,11 @@ img, svg, canvas, video {
     height: 56px;
     padding: 0 14px;
     top: max(12px, env(safe-area-inset-top));
+  }
+
+  .logo {
+    height: 30px;
+    width: 30px;
   }
 
   .nav-menu,

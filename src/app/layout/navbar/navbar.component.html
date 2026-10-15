@@ -1,8 +1,8 @@
 @if (portfolioData$ | async; as data) {
   <header class="navbar dark" [class.scrolled]="isScrolled()" id="navbar">
-    <div class="nav-logo" appTilt [tiltAmount]="20" [scale]="1.1" style="cursor: pointer;">
-        <img src="assets/Logo nav bar.png" alt="Logo" class="logo" />
-    </div>
+    <a href="#hero" class="nav-logo" appTilt [tiltAmount]="16" [scale]="1.05" aria-label="Diego Monroy">
+        <img src="assets/logo-dm-pro.svg" alt="Diego Monroy" class="logo" />
+    </a>
 
     <nav class="nav-menu">
         <a class="nav-item" [class.active]="activeSection() === 'hero'" href="#hero">{{ data.nav.home }}</a>
