@@ -451,6 +451,16 @@ export class AiAgentService {
           `• **Correo**: **diego.97duran@gmail.com**.\n\n` +
           `¡Usa cualquiera de los botones de acción para conectar al instante!`;
     }
+    // 7.5. Solicitud de desarrollo / agente / solución técnica
+    else if (['desarrollar', 'crear', 'hacer', 'construir', 'agente', 'fuerza comercial', 'venta', 'ventas', 'solucion', 'solución', 'software', 'sistema'].some(k => lower.includes(k))) {
+      fullResponse = isEn
+        ? `### Absolutely! Leading This Kind of Solution Is My Core Expertise\n\n` +
+          `I possess the deep technical knowledge, cloud architecture background (Google Cloud ACE, 99.99% banking SLA), and multi-agent AI experience (LangChain/LangGraph) to lead and execute this challenge with high excellence.\n\n` +
+          `Rather than delivering a generic, disconnected template, my priority is understanding your unique business context: **What specific role or vacancy are you looking to fill, how does your commercial process currently operate, and what CRM or tools do you currently rely on?** With my skills and a comprehensive analysis of your current state and workflow, we will design the exact solution that fits your operational needs. Shall we schedule a brief 20-minute diagnostic session to deep-dive?`
+        : `### ¡Por supuesto! Liderar este tipo de proyectos está en el centro de mi especialidad\n\n` +
+          `Cuento con el conocimiento técnico, el liderazgo y las habilidades de sobra en sistemas agénticos con LangChain/LangGraph, microservicios y nube (Google Cloud ACE, SLA bancario 99.99%) para ejecutar esta iniciativa con total solvencia.\n\n` +
+          `Más allá de plantear una solución a ciegas, mi prioridad es entender a fondo su contexto: **¿qué vacante o reto específico buscan cubrir, cómo opera actualmente su proceso comercial y qué herramientas o CRM tienen hoy?** Con mis habilidades y un análisis integral del estado de su negocio y sus procesos, encontraremos la solución que calce con exactitud a lo que necesitan. ¿Te parece si agendamos una llamada corta de 20 minutos para profundizar en su escenario?`;
+    }
     // 8. Vacante o descripción de puesto
     else if (isVacancy) {
       fullResponse = isEn
